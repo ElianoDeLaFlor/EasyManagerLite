@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="EasyManager.ProductResumeTile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyManager"
+             mc:Ignorable="d"
+             xmlns:p="clr-namespace:EasyManager.Properties"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}" Loaded="UserControl_Loaded">
+    <StackPanel>
+        <materialDesign:Card x:Name="card" Margin="5" materialDesign:ShadowAssist.ShadowDepth="Depth2" Padding="10" MouseEnter="card_MouseEnter" MouseLeave="card_MouseLeave">
+
+            <StackPanel>
+                <ProgressBar IsIndeterminate="True" Visibility="Hidden" x:Name="ProgBar"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="12*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--Title-->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Title}" Style="{StaticResource MaterialDesignHeadline4TextBlock}" Grid.Column="0"/>
+                    </StackPanel>
+                    
+                    <!--End Title-->
+
+                    <!--Button-->
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" x:Name="PnlPrint" Visibility="Hidden">
+                        <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="{x:Static p:Resources.Print}" Margin="0 5 0 0" x:Name="btnprint" Click="btnprint_Click">
+                            <materialDesign:PackIcon Kind="PrinterSettings" Height="18" Width="18"/>
+                        </Button>
+                    </StackPanel>
+                    <!--End Button-->
+                </Grid>
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                    <StackPanel x:Name="PnlInfo" Orientation="Horizontal">
+
+                    </StackPanel>
+                </ScrollViewer>
+            </StackPanel>
+          
+        </materialDesign:Card>
+    </StackPanel>
+</UserControl>

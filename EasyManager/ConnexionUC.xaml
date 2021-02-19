@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="EasyManager.ConnexionUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyManager"
+             xmlns:p="clr-namespace:EasyManager.Properties"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal" TextOptions.TextRenderingMode="Auto" FontFamily="{DynamicResource MaterialDesignFont}"
+             mc:Ignorable="d" Loaded="UserControl_Loaded">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="container" MinWidth="600">
+
+            <StackPanel >
+                <materialDesign:PackIcon Kind="UserCircle" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Width="100" Height="100" Foreground="{DynamicResource PrimaryHueLightBrush}"/>
+                <!--Nom-->
+                <StackPanel Margin="0 10 0 0" >
+                    <TextBox
+  materialDesign:HintAssist.Hint="{x:Static p:Resources.Login}"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtlogin"/>
+                </StackPanel>
+                <!--End Nom-->
+
+                <!--Mot de passe-->
+                <StackPanel>
+
+                    <PasswordBox
+  x:Name="txtpasse"
+  materialDesign:HintAssist.Hint="{x:Static p:Resources.Password}"
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="16" FontSize="20" />
+                </StackPanel>
+                <!--End Mot de passe-->
+
+                <!--Button-->
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0 20 0 0">
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Padding="5" Margin="5 5 5 5" FontFamily="{StaticResource UbuntuLight}" FontSize="20" x:Name="btnValidate" Content="{x:Static p:Resources.BtnValidate}" MinWidth="600" Click="BtnValidate_Click" IsDefault="True"/>
+                <Button Style="{StaticResource MaterialDesignRaisedButton}" Padding="5" Margin="5 5 5 5" FontFamily="{StaticResource UbuntuLight}" FontSize="20" x:Name="btnPass4Get" Visibility="Hidden" Content="{x:Static p:Resources.PassReset}" MinWidth="600" Click="Pass4Get_Click"/>
+
+            </StackPanel>
+                <!--End Button-->
+                
+
+            </StackPanel>
+        
+        <StackPanel VerticalAlignment="Bottom">
+            <materialDesign:Snackbar IsActive="False" x:Name="msg">
+                <materialDesign:SnackbarMessage Content="Default - accent" ActionContent="{x:Static p:Resources.Accept}" ActionClick="SnackbarMessage_ActionClick" x:Name="snackbar" />
+            </materialDesign:Snackbar>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

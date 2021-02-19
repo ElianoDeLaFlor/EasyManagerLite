@@ -1,0 +1,90 @@
+﻿<Window x:Class="EasyManager.ListeProduitCommende"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EasyManager"
+        mc:Ignorable="d"
+        xmlns:p = "clr-namespace:EasyManager.Properties"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        Icon="Logo/LogoB.png"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="{x:Static p:Resources.ListeProduitCredit}" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" WindowStartupLocation="CenterScreen">
+        <StackPanel>
+        <materialDesign:ColorZone Mode="PrimaryDark" Padding="16"  CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" Text="{x:Static p:Resources.ListeProduitCredit}" Style="{StaticResource TextBlockStyle}" FontSize="35" FontFamily="Roboto"/>
+
+                </StackPanel>
+        </materialDesign:ColorZone>
+        <ProgressBar IsIndeterminate="True" Visibility="{Binding Progress}"/>
+        <Grid Margin="20 60 20 30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Margin="20 0 0 0" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.Reaserch}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" FontSize="25" x:Name="TxtSearch" KeyUp="TxtSearch_KeyUp" />
+                <Button Grid.Column="1" x:Name="btnSearch" Style="{StaticResource MaterialDesignIconButton}" ToolTip="{x:Static p:Resources.Reaserch}" HorizontalAlignment="Left" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Click="btnSearch_Click">
+                    <materialDesign:PackIcon Kind="SearchWeb"/>
+                </Button>
+                <CheckBox Grid.Column="2" Style="{StaticResource MaterialDesignCheckBox}" Content="{x:Static p:Resources.Filter}" HorizontalAlignment="Right" x:Name="ChkFilter" Unchecked="ChkFilter_Unchecked" Checked="ChkFilter_Checked"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <materialDesign:PopupBox Grid.Column="0" PlacementMode="RightAndAlignTopEdges" StaysOpen="False" Margin="10 0 0 20" x:Name="GroupAction" Visibility="Visible">
+                <StackPanel>
+                    <Button Content="{x:Static p:Resources.LstProduit}" x:Name="btnlstproduit" Click="btnlstproduit_Click"/>
+                    <Separator/>
+                    <Button Content="{x:Static p:Resources.LstProduitSolde}" Name="btnlstproduitsolde" Click="btnlstproduitsolde_Click"/>
+                    <Separator/>
+                    <Button Content="{x:Static p:Resources.LstProduitNonSolde}" Name="btnlstproduitnonsolde" Click="btnlstproduitnonsolde_Click"/>
+                </StackPanel>
+            </materialDesign:PopupBox>
+                
+                <Button Grid.Column="1" Margin="10" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="{x:Static p:Resources.Print}" HorizontalAlignment="Left" Name="btnPrint" Click="btnPrint_Click">
+                    <materialDesign:PackIcon Kind="PrinterSettings" />
+                </Button>
+               
+            </Grid>
+            <DataGrid x:Name="datagrid" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="10" materialDesign:DataGridAssist.ColumnHeaderPadding="10" SelectionMode="Single" AlternatingRowBackground="LightGreen" AlternationCount="1" >
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+
+                        <Setter Property="FontSize" Value="20"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="BorderThickness" Value="0,2,0,2"/>
+                        <Setter Property="Margin" Value="0 0 0 0"/>
+                    </Style>
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <EventSetter Event="MouseEnter" Handler="OnMouseEnter"/>
+                        <EventSetter Event="MouseLeave" Handler="OnMouseLeave"/>
+                    </Style>
+                    <Style TargetType="{x:Type DataGridCell}">
+                        <Setter Property="Margin" Value="0 0 0 0"/>
+                    </Style>
+                </DataGrid.Resources>
+
+                <DataGrid.Columns>
+                <DataGridTextColumn Width="0.4*" Binding="{Binding Id}" Header="Numéro" FontSize="18" Typography.NumeralStyle="Lining" IsReadOnly="True"/>
+                    <DataGridTextColumn Width="*" Binding="{Binding ProductName}" Header="Produit" FontSize="18" Typography.NumeralStyle="Lining" IsReadOnly="True"/>
+                    <DataGridTextColumn Width="*" Binding="{Binding Quantite}" Header="Quantite" FontSize="18" Typography.NumeralStyle="Lining" IsReadOnly="True"/>
+                    <DataGridTextColumn Width="*" Binding="{Binding CommandeId}" Header="N° VenteCredit" FontSize="18" Typography.NumeralStyle="Lining" IsReadOnly="True"/>
+                    <DataGridTextColumn Width="*" Binding="{Binding PrixUnitaire}" Header="Prix unitaire" FontSize="18" Typography.NumeralStyle="Lining" IsReadOnly="True"/>
+                    <DataGridTextColumn Width="*" Binding="{Binding Montant}" Header="Montant" FontSize="18" Typography.NumeralStyle="Lining" IsReadOnly="True"/>
+                    <DataGridTextColumn Width="*" Binding="{Binding QuantiteRestante}" Header="Quantite restante" FontSize="18" Typography.NumeralStyle="Lining" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+</Window>

@@ -1,0 +1,300 @@
+﻿<Window x:Class="EasyManager.Parametre"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EasyManager"
+        xmlns:l="clr-namespace:EasyManagerLibrary;assembly=EasyManagerLibrary"
+        mc:Ignorable="d"
+        xmlns:p="clr-namespace:EasyManager.Properties"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        Background="{DynamicResource MaterialDesignPaper}"
+        Icon="Logo/LogoB.png"
+        TextOptions.TextFormattingMode="Ideal" TextOptions.TextRenderingMode="Auto" FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="{x:Static p:Resources.Setting}" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <materialDesign:ColorZone Mode="PrimaryDark" Padding="16" CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="0 0 0 50">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" Text="{x:Static p:Resources.Setting}" Style="{StaticResource TextBlockStyle}" FontSize="35" x:Name="Titre" Foreground="Black"/>
+                </StackPanel>
+            </materialDesign:ColorZone>
+
+            <materialDesign:Card Background="{DynamicResource MaterialDesignBackground}">
+                <StackPanel>
+                    <!--#region Company info-->
+                    <Expander HorizontalAlignment="Stretch" IsExpanded="True" Header="{x:Static p:Resources.CompanyInfo}" FontWeight="Bold" x:Name="Expander">
+                        <StackPanel Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}" Margin="100,8,100,16">
+                            <TextBlock Text="{x:Static p:Resources.CompagnyInfoHint}" Opacity=".60" />
+                            <!--Nom-->
+                            <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.Nom}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtcompanyName"/>
+                            <!--End Non-->
+
+                            <!--Contact-->
+                            <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.Contact}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="16" FontSize="20" KeyUp="txtcompanyContact_KeyUp"  Name="txtcompanyContact"/>
+                            <!--End Contact-->
+
+                            <!--Email-->
+                            <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.EmailAdress}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtcompanyEmail"/>
+                            <!--End Email-->
+                            
+                            <!--Consigne-->
+                            <TextBox TextWrapping="Wrap" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="{x:Static p:Resources.Consigne}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" ToolTip="{x:Static p:Resources.ConsigneInfo}" VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtconsigne"/>
+                            <!--End Consigne-->
+
+                            <!--Logo-->
+
+                            
+                            <Button Margin="20 10" Content="{x:Static p:Resources.BtnSave}" x:Name="btnCompany" Click="btnCompany_Click"/>
+                            <!--End Button-->
+                            <Separator/>
+                            <!--End Logo-->
+                            <TextBlock VerticalAlignment="Center" Margin="16" FontSize="18" Text="{x:Static p:Resources.ShopIcon}"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Margin="10 0" Padding="5" Height="90" Name="btnlogo" Click="btnlogo_Click">
+                                    <materialDesign:PackIcon Width="50" Height="50" Kind="Upload" VerticalAlignment="Center"/>
+                                </Button>
+                                <Image x:Name="reclogo" Width="200" Height="200" DockPanel.Dock="Right" Source="Logo/LogoB.png"/>
+                            </StackPanel>
+                            <!--Button-->
+
+                        </StackPanel>
+                    </Expander>
+                    <!--#endregion-->
+                    <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                    <!--#region TVA-->
+                    <Expander HorizontalAlignment="Stretch" Header="{x:Static p:Resources.TVA}" x:Name="ExpanderOne">
+                        <StackPanel Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}" Margin="100,8,100,16">
+                            <!--Taux-->
+                            <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.TauxTva}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="16" FontSize="20" Name="TvaTaux" KeyUp="Tb_KeyUp"/>
+                            <!--End Taux-->
+
+                            <StackPanel Orientation="Horizontal" Margin="24,8,24,16">
+                                <TextBlock Text="{x:Static p:Resources.ApplyTVA}" FontFamily="Roboto" FontSize="20" HorizontalAlignment="Center" Margin="0 0 20 0"/>
+                                <ToggleButton Grid.Column="1" Style="{StaticResource MaterialDesignSwitchLightToggleButton}" ToolTip="{x:Static p:Resources.ApplyTVA}" IsChecked="{Binding ApplyTVA}" HorizontalAlignment="Center" x:Name="ApplyToggle"/>
+                            </StackPanel>
+
+                            <!--Button-->
+                            <Button Margin="20 10" Content="{x:Static p:Resources.BtnSave}" x:Name="btnsavetva" Click="btnsavetva_Click"/>
+                            <!--End Button-->
+                        </StackPanel>
+                    </Expander>
+                    <!--#endregion-->
+                    <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                    <!--#region Module-->
+
+                    <Expander HorizontalAlignment="Stretch" Header="{x:Static p:Resources.ModuleRoleModule}" FontFamily="Roboto" x:Name="ExpanderTwo">
+                        <StackPanel Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}" Margin="24,8,24,16">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Text="{x:Static p:Resources.RoleModuleTitle}" Opacity=".68" Margin="0 0 5 0" />
+                                <TextBlock Text="{Binding RoleText}" Opacity=".68"/>
+                            </StackPanel>
+
+                            <!--Module-->
+                            <GroupBox Header="{x:Static p:Resources.Modules}" Style="{DynamicResource MaterialDesignGroupBox}" Margin="16" UseLayoutRounding="True" SnapsToDevicePixels="True" HorizontalAlignment="Center" MinWidth="600" FontSize="20">
+                                <ScrollViewer MaxHeight="400">
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <StackPanel Orientation="Vertical" x:Name="StackOne" Margin=" 5 0 150 0" HorizontalAlignment="Center">
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Vertical" x:Name="StackTwo">
+                                        </StackPanel>
+
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </GroupBox>
+                            <!--End Module-->
+
+                            <!--Rôle-->
+                            <ComboBox materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" Grid.Column="0" Grid.Row="0" x:Name="CbRoleList" IsEditable="True" ToolTip="{x:Static p:Resources.RoleTitle}" materialDesign:HintAssist.HintOpacity=".26" Margin="16 50" FontSize="20" MinWidth="550" HorizontalAlignment="Center" SelectionChanged="CbRoleList_SelectionChanged"/>
+                            <!--End Rôle-->
+
+                            <!--Button-->
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Style="{StaticResource StackPanelStyle2}" Margin="0 40">
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnSave" Content="{x:Static p:Resources.BtnSave}"
+    ToolTip="{x:Static p:Resources.BtnSave}" FontWeight="Bold" FontSize="20" Width="130" Click="btnSave_Click"/>
+
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCancel" Content="{x:Static p:Resources.BtnCancel}"
+    ToolTip="{x:Static p:Resources.BtnCancel}" FontWeight="Bold" FontSize="20" Width="130" Margin="5 0 55 0"/>
+                            </StackPanel>
+                            <!--End Button-->
+                        </StackPanel>
+                    </Expander>
+                    <!--#endregion-->
+                    <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                    <!--#region Role-->
+                    <Expander HorizontalAlignment="Stretch" Header="{x:Static p:Resources.RoleTitle}" FontFamily="Roboto" x:Name="ExpanderThree">
+                        <StackPanel Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}" Margin="100,8,100,16">
+                            <!--Libelle-->
+                            <StackPanel Style="{StaticResource StackPanelStyle}">
+                                <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.RoleTitle}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" FontSize="20" Name="txtrole"/>
+                            </StackPanel>
+                            <!--End Libelle-->
+
+                            <!--Button-->
+                            <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnSaveRole" Content="{x:Static p:Resources.BtnSave}"
+    ToolTip="{x:Static p:Resources.BtnSave}" FontWeight="Bold" Margin="20 20" FontSize="20" Click="btnSaveRole_Click"/>
+                            <!--End Button-->
+                        </StackPanel>
+                    </Expander>
+                    <!--#endregion-->
+                    <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                    <!--#region Language-->
+                    <Expander HorizontalAlignment="Stretch" Header="Langue" FontFamily="Roboto" x:Name="ExpanderFour">
+                        <StackPanel Orientation="Vertical" Margin="100,8,100,16">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                            <TextBlock Text="Langue" Grid.Column="0" FontFamily="Roboto" FontSize="20"/>
+                            <ComboBox x:Name="CbLang" Grid.Column="1" ItemsSource="{Binding Languages}" FontFamily="Roboto" FontSize="16">
+                            </ComboBox>
+                            <!--Button-->
+                            <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnSavelang" Content="{x:Static p:Resources.BtnSave}" ToolTip="{x:Static p:Resources.BtnSave}" FontWeight="Bold" Margin="20 40 20 20" FontSize="20" Click="btnSavelang_Click"/>
+                            <!--End Button-->
+                        </StackPanel>
+                    </Expander>
+                    <!--#endregion-->
+
+                    <!--#region Back up-->
+                    <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                    <Expander HorizontalAlignment="Stretch" Header="{x:Static p:Resources.Backup}" x:Name="ExpanderBackup">
+                        <StackPanel Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}" Margin="100,8,100,16">
+                            <!--Info-->
+                            <TextBlock Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Text="{x:Static p:Resources.BackupInfo}" Margin="0 5 0 20"/>
+                            <!--End Info-->
+
+                            <!--Backup dir-->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Content="{materialDesign:PackIcon Backup}" ToolTip="{x:Static p:Resources.BackupLocation}" Name="btnpath" Click="Btnpath_Click"/>
+                                <TextBlock x:Name="txtpath" Style="{StaticResource MaterialDesignHeadline6TextBlock}" Margin="10 0 0 0" VerticalAlignment="Center" Grid.Column="1" Text="C:\\path\\to\\thebackup\\drive"/>
+                            </Grid>
+                            <!--End Backup dir-->
+
+                            <!--Last backup info-->
+                            <Grid Margin="0 30 0 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{x:Static p:Resources.LastBackup}" Style="{StaticResource MaterialDesignHeadline6TextBlock}" Margin="10 0 0 0" VerticalAlignment="Center" />
+                                <TextBlock Grid.Column="1" x:Name="txtlastbackup" Style="{StaticResource MaterialDesignHeadline6TextBlock}" Margin="10 0 0 0" VerticalAlignment="Center" Text=""/>
+                            </Grid>
+
+                            <!--End Last backup info-->
+
+                            <!--Manuel backup-->
+                            <Grid Margin="20 40 20 20">
+                                <Button Name="btnbackup" Click="Btnbackup_Click"  Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="False" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{x:Static p:Resources.Backup}" Margin="2,0" ToolTip="{x:Static p:Resources.ManuelBackup}"/>
+                            </Grid>
+                            <!--Manuel backup-->
+
+                            <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                            <!--Restauration-->
+                            <Grid Margin="20 40 20 20">
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="False" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{x:Static p:Resources.Restauration}" Margin="2,0" ToolTip="{x:Static p:Resources.Restauration}" x:Name="btnrestore" Click="Btnrestore_Click"/>
+                            </Grid>
+                            <!--End restauration-->
+                        </StackPanel>
+                    </Expander>
+                    <!--#endregion-->
+                    <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                    <!--#region Online Back up-->
+                    <Expander HorizontalAlignment="Stretch" Header="{x:Static p:Resources.OnlineBackup}" x:Name="ExpanderOnlineBackup">
+                        <StackPanel Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}" Margin="100,8,100,16">
+                            <!--Info-->
+                            <TextBlock Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Text="{x:Static p:Resources.OnlineBackupInfo}" Margin="0 5 0 20"/>
+                            <!--End Info-->
+                            <GroupBox Header="{x:Static p:Resources.AppUserInfo}" Style="{DynamicResource MaterialDesignGroupBox}" Margin="16" materialDesign:ColorZoneAssist.Mode="Accent">
+                                <StackPanel>
+                                    
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <!--AppId-->
+                                        <TextBox Grid.Row="0" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.AppId}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtappid" IsReadOnly="True"/>
+                                        <!--End AppId-->
+
+                                        <!--AppUserName-->
+                                        <TextBox Grid.Row="0" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.AppUserName}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtappusername"/>
+                                        <!--End AppUserName-->
+
+                                        <!--AppUserContact-->
+                                        <TextBox Grid.Row="1" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.AppUserContact}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtappusercontact"/>
+                                        <!--End AppUserContact-->
+
+                                        <!--AppUserEmail-->
+                                        <TextBox Grid.Row="1" Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.AppUserEmail}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtappuseremail"/>
+                                        <!--End AppUserEmail-->
+                                    </Grid>
+                                    <Button Margin="20 10" Content="{x:Static p:Resources.BtnSave}" x:Name="btnsaveappuserinfo" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding UserAppProgr}" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Click="btnsaveappuserinfo_Click"/>
+                                </StackPanel>
+                            </GroupBox>
+                            <!--Last backup info-->
+                            <Grid Margin="0 30 0 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{x:Static p:Resources.LastBackup}" Style="{StaticResource MaterialDesignHeadline6TextBlock}" Margin="10 0 0 0" VerticalAlignment="Center" />
+                                <TextBlock Grid.Column="1" x:Name="txtonlinelastbackup" Style="{StaticResource MaterialDesignHeadline6TextBlock}" Margin="10 0 0 0" VerticalAlignment="Center" Text=""/>
+                            </Grid>
+
+                            <!--End Last backup info-->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <!--Manuel backup-->
+                                <Button  Name="btnonlinebackup"  Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding BackupProgr}" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{x:Static p:Resources.Backup}" Margin="20 40 20 20" ToolTip="{x:Static p:Resources.ManuelBackup}" Click="btnonlinebackup_Click"/>
+                                    <!--Manuel backup-->
+
+                                <!--Restauration-->
+                                <Button Grid.Column="1" Margin="20 40 20 20" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding RestaureProgr}" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{x:Static p:Resources.Restauration}"  ToolTip="{x:Static p:Resources.Restauration}" x:Name="btnonlinerestore" Click="btnonlinerestore_Click"/>
+                                
+                                <!--End restauration-->
+                            </Grid>
+                            
+
+                            <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                            
+                        </StackPanel>
+                    </Expander>
+                    <!--#endregion-->
+                    <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                    <!--#region Compte-->
+                    <Expander HorizontalAlignment="Stretch" Header="{x:Static p:Resources.Compte}" FontFamily="Roboto" x:Name="ExpanderCompte">
+                        <StackPanel Margin="100,8,100,16">
+                            <!--Change password-->
+                            <Button Margin="20 20" Style="{StaticResource MaterialDesignRaisedButton}"  ToolTip="{x:Static p:Resources.ChangePassword}" x:Name="btnchangepassword" Click="Btnchangepassword_Click" Content="{x:Static p:Resources.ChangePassword}"/>
+
+                            <!--End change password-->
+
+                            <!--Edit account-->
+                            <Button Margin="20 20" Style="{StaticResource MaterialDesignRaisedButton}" Content="{x:Static p:Resources.EditCompte}" x:Name="btneditcompte" Click="Btneditcompte_Click"  ToolTip="{x:Static p:Resources.EditCompte}"/>
+
+                            <!--End Edit account-->
+                        </StackPanel>
+                    </Expander>
+                    <!--#endregion-->
+                </StackPanel>
+            </materialDesign:Card>
+        </StackPanel>
+    </ScrollViewer>
+</Window>

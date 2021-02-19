@@ -1,0 +1,102 @@
+﻿<UserControl x:Class="EasyManager.ClientListeUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyManager"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:p = "clr-namespace:EasyManager.Properties"
+             mc:Ignorable="d"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}" TextElement.FontWeight="Regular" TextElement.FontSize="13" TextOptions.TextFormattingMode="Ideal" TextOptions.TextRenderingMode="Auto" FontFamily="{DynamicResource MaterialDesignFont}" d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <StackPanel HorizontalAlignment="Center">
+        
+        <Grid Margin="20 60 20 30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Margin="20 0 0 0" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.Reaserch}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" FontSize="25" x:Name="TxtSearch" KeyUp="TxtSearch_KeyUp" />
+            <Button Grid.Column="1" x:Name="btnSearch" Style="{StaticResource MaterialDesignIconButton}" ToolTip="{x:Static p:Resources.Reaserch}" HorizontalAlignment="Left" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Click="btnSearch_Click">
+                <materialDesign:PackIcon Kind="SearchWeb"/>
+            </Button>
+            <CheckBox Grid.Column="2" Style="{StaticResource MaterialDesignCheckBox}" Content="{x:Static p:Resources.Filter}" HorizontalAlignment="Right" x:Name="ChkFilter" Unchecked="ChkFilter_Unchecked" Checked="ChkFilter_Checked"/>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="9*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <materialDesign:PopupBox Grid.Column="0" PlacementMode="RightAndAlignTopEdges" StaysOpen="False" Margin="10 0 0 20" x:Name="GroupAction" Visibility="Visible">
+                <StackPanel>
+                    <Button Content="{x:Static p:Resources.ListClient}" Name="allClient" Click="allClient_Click"/>
+                    <Separator/>
+                    <Button Content="{x:Static p:Resources.ListeClientSansDette}" Name="ClientSansDette" Click="ClientSansDette_Click"/>
+                    <Button Content="{x:Static p:Resources.ListeClientAvecdette}" Name="clientDette" Click="clientDette_Click"/>
+                    <Separator/>
+                    <Button Content="{x:Static p:Resources.Delete}"/>
+                </StackPanel>
+            </materialDesign:PopupBox>
+            <Button Grid.Column="1" Margin="10" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="{x:Static p:Resources.Print}" HorizontalAlignment="Left" x:Name="btnprint" Click="Btnprint_Click">
+                <materialDesign:PackIcon Kind="PrinterSettings"/>
+            </Button>
+        </Grid>
+
+
+        <DataGrid x:Name="Datagrid" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="10" materialDesign:DataGridAssist.ColumnHeaderPadding="10" SelectionMode="Single" AlternatingRowBackground="LightGreen" AlternationCount="1">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="0,2,0,2"/>
+                    <Setter Property="Margin" Value="0 0 0 0"/>
+                </Style>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <EventSetter Event="MouseEnter" Handler="OnMouseEnter"/>
+                    <EventSetter Event="MouseLeave" Handler="OnMouseLeave"/>
+                    <EventSetter Event="Selected" Handler="OnRowSelected"/>
+                </Style>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="Margin" Value="0 0 0 0"/>
+                    <EventSetter Event="Selected" Handler="OnCellSellected"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Width="0.5*" Binding="{Binding Check}" ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}">
+                    <DataGridCheckBoxColumn.CellStyle>
+                        <Style>
+                            <EventSetter Event="CheckBox.Checked" Handler="OnChecked" />
+                            <EventSetter Event="CheckBox.Unchecked" Handler="OnUnChecked"/>
+                        </Style>
+                    </DataGridCheckBoxColumn.CellStyle>
+                </DataGridCheckBoxColumn>
+                <DataGridTextColumn Width="*" Binding="{Binding Id}" Header="Numéro" FontSize="18" Typography.NumeralStyle="Lining" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Nom" Width="*" FontSize="18" Typography.StylisticSet14="True" IsReadOnly="True" Binding ="{Binding Nom}"/>
+                <DataGridTextColumn Header="Prénom" Width="*" FontSize="18" Typography.StylisticSet14="True" IsReadOnly="True" Binding ="{Binding Prenom}"/>
+                <DataGridTextColumn Header="Contact" Width="*" FontSize="18" Typography.StylisticSet14="True" IsReadOnly="True" Binding ="{Binding Contact}"/>
+                <DataGridTemplateColumn Header="Actions" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" MouseEnter="StackPanel_MouseEnter" MouseLeave="StackPanel_MouseLeave" Background="Transparent">
+                                <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="{x:Static p:Resources.LstProduitCredit}" Margin="0 0 10 0" x:Name="btnINFO" Click="btnINFO_Click" Visibility="Hidden">
+                                    <materialDesign:PackIcon Kind="PlusOutline" />
+                                </Button>
+                                <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="{x:Static p:Resources.Edition}" Margin="0 0 10 0" x:Name="btnedit" Click="btnedit_Click" Visibility="Hidden">
+                                    <materialDesign:PackIcon Kind="Edit" />
+                                </Button>
+                                <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="{x:Static p:Resources.Delete}" x:Name="btndelete" Click="btndelete_Click" Visibility="Hidden">
+                                    <materialDesign:PackIcon Kind="DeleteForever"/>
+                                </Button>
+                            </StackPanel>
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </StackPanel>
+</UserControl>

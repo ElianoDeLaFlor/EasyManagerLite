@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="EasyManager.CategorieUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyManager"
+             mc:Ignorable="d" 
+             xmlns:p = "clr-namespace:EasyManager.Properties"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="600">
+        <StackPanel>
+            <!--Libelle-->
+            <StackPanel Style="{StaticResource StackPanelStyle}">
+                <TextBox
+  materialDesign:HintAssist.Hint="{x:Static p:Resources.Nom}"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtlabel" MaxWidth="450" MaxLength="90"/>
+            </StackPanel>
+            <!--End Libelle-->
+
+            <!--Description-->
+            <StackPanel Style="{StaticResource StackPanelStyle}">
+                <TextBox
+                x:Name="txtDescription" TextWrapping="Wrap" VerticalAlignment="Stretch" MinWidth="280" MaxWidth="450" MaxLength="160" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="{x:Static p:Resources.Description}" Height="80" Margin="16" FontSize="20" AutoWordSelection="True"/>
+            </StackPanel>
+            <!--End Description-->
+
+            <!--Button-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Style="{StaticResource StackPanelStyle2}">
+                <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnSave" Content="{x:Static p:Resources.BtnSave}"
+    ToolTip="{x:Static p:Resources.BtnSave}" FontWeight="Bold" FontSize="20" Click="BtnSave_Click" Width="270"/>
+                <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCancel" Content="{x:Static p:Resources.BtnCancel}"
+    ToolTip="{x:Static p:Resources.BtnCancel}" FontWeight="Bold" FontSize="20" Width="270" Click="BtnCancel_Click" Margin="5 0 0 0"/>
+
+            </StackPanel>
+            <!--End Button-->
+        </StackPanel>
+    </StackPanel>
+</UserControl>

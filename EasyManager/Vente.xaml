@@ -1,0 +1,91 @@
+﻿<Window x:Class="EasyManager.Vente"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EasyManager"
+        xmlns:p = "clr-namespace:EasyManager.Properties"
+        mc:Ignorable="d"
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Icon="Logo/LogoB.png"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="{x:Static p:Resources.Selle}" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" WindowStartupLocation="CenterScreen">
+
+    <materialDesign:DialogHost Identifier="RootDialog">
+        <StackPanel>
+        <materialDesign:ColorZone
+  Mode="PrimaryDark"
+  Padding="16"
+  CornerRadius="0"
+  materialDesign:ShadowAssist.ShadowDepth="Depth2"
+  Margin="0">
+            <StackPanel
+    Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock
+      VerticalAlignment="Center"
+      Margin="16 0 0 0" Text="{x:Static p:Resources.Selle}" Style="{StaticResource TextBlockStyle}" FontSize="35"/>
+
+            </StackPanel>
+        </materialDesign:ColorZone>
+
+
+        <!--Commande-->
+        <StackPanel Style="{StaticResource StackPanelStyle}">
+            <ComboBox materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" x:Name="CbCmdList" IsEditable="True" ToolTip="{x:Static p:Resources.VenteCredit}" materialDesign:HintAssist.HintOpacity=".26" SelectionChanged="CbCmdList_SelectionChanged" Margin="16 30 16 16" FontSize="20"/>
+
+        </StackPanel>
+        <!--End Commande-->
+
+        <!--Client-->
+        <StackPanel Style="{StaticResource StackPanelStyle}">
+            <ComboBox materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" x:Name="CbClientList" IsEditable="True" ToolTip="{x:Static p:Resources.Client}" materialDesign:HintAssist.HintOpacity=".26" SelectionChanged="CbClientList_SelectionChanged" Margin="16 30 16 16" FontSize="20"/>
+        </StackPanel>
+        <!--End Client-->
+        
+        
+        <!--Produits à vendre-->
+            <StackPanel Margin="0 15 0 0">
+                <ScrollViewer x:Name="lstScroll" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <Grid Margin="15 10 15 5" x:Name="ProdGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <ComboBox Grid.Column="0" Grid.Row="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" x:Name="CbProdList" IsEditable="True" ToolTip="{x:Static p:Resources.SelectionProduit}" materialDesign:HintAssist.HintOpacity=".26" Margin="16 30 16 16" FontSize="20" LostFocus="Cb_LostFocus"/>
+                        <TextBox
+  materialDesign:HintAssist.Hint="{x:Static p:Resources.QuantiteVendu}" Grid.Column="1" Grid.Row="0" 
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" x:Name="txtprod" Margin="16" FontSize="20" KeyUp="Tb_KeyUp" LostKeyboardFocus="Tb_LostKeyboardFocus" ToolTip="{x:Static p:Resources.QuantiteVendu}"/>
+                    </Grid>
+                </ScrollViewer>
+
+            </StackPanel>
+        <!--End Produits à vendre-->
+
+       
+
+        <!--Button-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Style="{StaticResource StackPanelStyle2}">
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnadd" Content="{x:Static p:Resources.BtnAdd}"
+    ToolTip="{x:Static p:Resources.BtnAdd}" Click="btnadd_Click" Width="120" FontWeight="Bold" FontSize="18"/>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnminus" Margin="5 0 55 0" Content="{x:Static p:Resources.BtnDelete}" Width="120"
+    ToolTip="{x:Static p:Resources.BtnDelete}" FontWeight="Bold" Click="btnminus_Click" FontSize="18"/>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnSave" Content="{x:Static p:Resources.BtnSave}" Width="120" Margin="0 0 5 0"
+    ToolTip="{x:Static p:Resources.BtnSave}" FontWeight="Bold" Click="btnSave_Click" FontSize="18" IsDefault="True"/>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCancel" Content="{x:Static p:Resources.BtnCancel}" Width="120"
+    ToolTip="{x:Static p:Resources.BtnCancel}" FontWeight="Bold" Click="btnCancel_Click" FontSize="18" IsCancel="True"/>
+        </StackPanel>
+        <!--End Button-->
+    </StackPanel>
+    </materialDesign:DialogHost>
+</Window>

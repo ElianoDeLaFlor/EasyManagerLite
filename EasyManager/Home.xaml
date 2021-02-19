@@ -1,0 +1,252 @@
+﻿<Window x:Class="EasyManager.Home"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EasyManager"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:menu="clr-namespace:EasyManager.MenuItems"
+        mc:Ignorable="d"
+        xmlns:p = "clr-namespace:EasyManager.Properties"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:Charts="clr-namespace:EasyManager.Charts"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Icon="Logo/LogoB.png"
+        Title="{x:Static p:Resources.Home}"  Loaded="Window_Loaded" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
+
+    <materialDesign:DialogHost Identifier="RootDialog" SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
+        <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
+            <materialDesign:DrawerHost.LeftDrawerContent>
+                <DockPanel x:Name="drawer">
+                    <DockPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#6600DE00"/>
+                            <GradientStop Color="#66FFFF00" Offset="1"/>
+                        </LinearGradientBrush>
+                    </DockPanel.Background>
+                    <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
+                                    DockPanel.Dock="Top"
+                                    HorizontalAlignment="Right" Margin="16"
+                                    IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
+                    <Button DockPanel.Dock="Top" Style="{StaticResource MaterialDesignIconForegroundButton}" ToolTip="{x:Static p:Resources.ShowText}" Name="btnshowtext" Click="btnshowtext_Click" HorizontalAlignment="Left" Margin="10 0 0 0">
+                        <materialDesign:PackIcon Kind="Forwardburger" />
+                    </Button>
+
+                    <ListBox x:Name="MenuItemsListBox" Margin="0 16 0 16" PreviewMouseLeftButtonUp="UIElement_OnPreviewMouseLeftButtonUp" ItemsSource="{Binding MenuContents}" SelectedIndex="{Binding MenuIndex}" >
+                        <ListBox.Resources>
+                            <Style TargetType="{x:Type ListBoxItem}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                            <Border x:Name="Bd"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            Padding="{TemplateBinding Padding}"
+                            SnapsToDevicePixels="true">
+                                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <MultiTrigger>
+                                                    <MultiTrigger.Conditions>
+                                                        <Condition Property="ListBoxItem.IsMouseOver" Value="false" />
+                                                        <Condition Property="ListBoxItem.IsSelected" Value="true"/>
+                                                    </MultiTrigger.Conditions>
+                                                    <Setter Property="Background"
+                                    TargetName="Bd"
+                                    Value="#36C238" />
+                                                    <Setter Property="Foreground" Value="Yellow"/>
+                                                    <Setter Property="FontFamily" Value="{StaticResource UbuntuBold}"/>
+                                                </MultiTrigger>
+                                                <MultiTrigger>
+                                                    <MultiTrigger.Conditions>
+                                                        <Condition Property="ListBoxItem.IsMouseOver" Value="true" />
+                                                        <Condition Property="ListBoxItem.IsSelected" Value="true"/>
+                                                    </MultiTrigger.Conditions>
+                                                    <Setter Property="Background"
+                                    TargetName="Bd"
+                                    Value="#A9D99B" />
+                                                    <Setter Property="Foreground" Value="Yellow"/>
+                                                    <Setter Property="FontFamily" Value="{StaticResource UbuntuMedium}"/>
+                                                </MultiTrigger>
+                                                <MultiTrigger>
+                                                    <MultiTrigger.Conditions>
+                                                        <Condition Property="ListBoxItem.IsSelected" Value="false" />
+                                                        <Condition Property="ListBoxItem.IsMouseOver" Value="true"/>
+                                                    </MultiTrigger.Conditions>
+                                                    <Setter Property="Background"
+                                    TargetName="Bd"
+                                    Value="#A9D99B" />
+                                                    <Setter Property="Foreground" Value="BlueViolet"/>
+                                                    <Setter Property="FontFamily" Value="{StaticResource UbuntuLight}"/>
+                                                </MultiTrigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="FontSize" Value="18"/>
+                                <Setter Property="Margin" Value="0 7"/>
+                                <Setter Property="Padding" Value="20 0 0 0"/>
+                            </Style>
+                            <!--<Style TargetType="ListBoxItem">
+                                <Setter Property="FontSize" Value="25"/>
+                                <Setter Property="Margin" Value="0 7"/>
+                            </Style>-->
+                            <Style TargetType="ScrollBar" BasedOn="{StaticResource MaterialDesignScrollBarMinimal}"/>
+                        </ListBox.Resources>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate >
+                                <DataTemplate.Resources>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="TextAlignment" Value="Center"/>
+                                    </Style>
+                                </DataTemplate.Resources>
+                                <StackPanel Orientation="Horizontal" TextBlock.FontSize="20">
+                                    <materialDesign:PackIcon Width="30" Height="30" Kind="{Binding Icon}" ToolTip="{Binding Name}" Margin="0 0 10 0" VerticalAlignment="Center"/>
+                                    <!--<Image Source="Logo/Logo.png" Width="24" Height="24"/>-->
+                                    <TextBlock x:Name="MenuText" Text="{Binding Name}" ToolTip="{Binding ToolTip}" VerticalAlignment="Center" Visibility="{Binding ShowText}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+
+                    </ListBox>
+                </DockPanel>
+            </materialDesign:DrawerHost.LeftDrawerContent>
+            <DockPanel>
+                <!--Title bar-->
+                <materialDesign:ColorZone Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                                            Mode="PrimaryMid" DockPanel.Dock="Top">
+                    <DockPanel>
+                        <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False"
+                                        x:Name="MenuToggleButton"/>
+                        <!--Popup menu-->
+                        <materialDesign:PopupBox DockPanel.Dock="Right" TextBlock.Foreground="Black" Content="blabla" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Foreground="Black" Visibility="{Binding IsConnected}">
+                            <StackPanel>
+                                <Button Name="btnrapport" ToolTip="{x:Static p:Resources.Rapport}" Click="btnrapport_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="FileDocumentBoxOutline" Width="20" Height="20" Margin="0 0 10 0" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{x:Static p:Resources.Rapport}" FontSize="20" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Separator/>
+                                <Button Name="btnChangePassword" Click="btnChangePassword_Click"  ToolTip="{x:Static p:Resources.ChangePassword}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="AccountConvert" Width="20" Height="20" Margin="0 0 10 0" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{x:Static p:Resources.ChangePassword}" FontSize="20" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <!--CancelOrder-->
+                                <Button Name="btncanceledsell"  ToolTip="{x:Static p:Resources.AnnulationVente}" Click="btncanceledsell_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Cancel" Width="20" Height="20" Margin="0 0 10 0" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{x:Static p:Resources.AnnulationVente}" FontSize="20" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <!--End CancelOrder-->
+                                <Separator/>
+                                <!--New Supplier-->
+                                <Button Name="btnnewsupplier" Click="btnnewsupplier_Click"  ToolTip="{x:Static p:Resources.NewSupplier}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="CarElectric" Width="20" Height="20" Margin="0 0 10 0" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{x:Static p:Resources.NewSupplier}" FontSize="20" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <!--End New Supplier-->
+
+                                <!--List Supplier-->
+                                <Button Name="btnlistsupplier" Click="btnlistsupplier_Click"  ToolTip="{x:Static p:Resources.Supplier}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="CarMultiple" Width="20" Height="20" Margin="0 0 10 0" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{x:Static p:Resources.Supplier}" FontSize="20" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <!--End List Supplier-->
+                                <Separator/>
+                                <!--Caisse-->
+                                <Button Name="btncaisse" Click="Btncaisse_Click"  ToolTip="{x:Static p:Resources.GestionCaisse}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Cube" Width="20" Height="20" Margin="0 0 10 0" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{x:Static p:Resources.GestionCaisse}" FontSize="20" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <!--End Caisse-->
+                                <Separator/>
+                                <!--Paametre-->
+                                <Button Name="btnparametre" Click="btnparametre_Click" ToolTip="{x:Static p:Resources.ModuleSettings}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="GearOutline" Width="20" Height="20" Margin="0 0 10 0" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{x:Static p:Resources.ModuleSettings}" FontSize="20" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <!--End Parametre-->
+                                <Separator/>
+                                <!--Activation-->
+                                <Button x:Name="btnactivation" Click="btnactivation_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="AllInclusive" Width="20" Height="20" Margin="0 0 10 0" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{x:Static p:Resources.Activation}" FontSize="20" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <!--End Activation-->
+                                <Separator/>
+                                <!--About-->
+                                <Button x:Name="btninfo" Click="Btninfo_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="InformationCircle" Width="20" Height="20" Margin="0 0 10 0" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{x:Static p:Resources.About}" FontSize="20" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <!--End About-->
+                            </StackPanel>
+                        </materialDesign:PopupBox>
+                        <!--Notification-->
+                        <materialDesign:Badged Visibility="{Binding IsConnected}" Badge="{Binding NotificationCount}" BadgeColorZoneMode="Accent">
+                            <Button x:Name="btnnotif" Style="{StaticResource MaterialDesignIconForegroundButton}" ToolTip="{x:Static p:Resources.Notification}" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Click="btnnotif_Click">
+                                <materialDesign:PackIcon Kind="BellOutline" />
+                            </Button>
+                        </materialDesign:Badged>
+                        <!--End Notification-->
+
+                        <!--Connected User-->
+
+                        <Button Visibility="{Binding IsConnected}" ToolTip="{x:Static p:Resources.Logout}" DockPanel.Dock="Right" x:Name="BtnDeconnexion" Content="{Binding ConnectedUser.Login}"  FontSize="20" Click="BtnDeconnexion_Click"/>
+                        <!--End Connected User-->
+
+                        <!--End Popup menu-->
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" FontWeight="Bold" Text="{x:Static p:Resources.MainTitle}" x:Name="MainTitle" FontFamily="/EasyManager;component/Fonts/#Ubuntu"/>
+                    </DockPanel>
+
+                </materialDesign:ColorZone>
+
+                <!--End Title bar-->
+
+                <!--Body-->
+                <Grid Margin="0 30">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <ProgressBar Grid.Row="0" IsIndeterminate="True" Visibility="{Binding Progress}" />
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                        <ContentControl x:Name="body" Content="{Binding ElementName=MenuItemsListBox, Path=SelectedItem.Content}"/>
+                    </ScrollViewer>
+                    <materialDesign:Snackbar HorizontalAlignment="Stretch" MessageQueue="{materialDesign:MessageQueue}" x:Name="MainSnackbar" Grid.Row="1" />
+
+                </Grid>
+                <!--End Body-->
+
+            </DockPanel>
+
+        </materialDesign:DrawerHost>
+
+    </materialDesign:DialogHost>
+</Window>

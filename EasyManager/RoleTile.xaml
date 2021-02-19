@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="EasyManager.RoleTile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyManager"
+             mc:Ignorable="d"
+             xmlns:p = "clr-namespace:EasyManager.Properties"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel Margin="0 0 0 20">
+        <materialDesign:Card x:Name="card" Margin="5" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="10">
+            <StackPanel>
+                <!--Title-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="{Binding Role.Libelle}" FontFamily="Roboto" FontSize="20" Style="{StaticResource TextBlockStyleHeader}"/>
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" DockPanel.Dock="Right">
+                        <Button Style="{StaticResource MaterialDesignIconButton}" ToolTip="{x:Static p:Resources.Edition}" x:Name="btnedit" Click="btnedit_Click">
+                            <materialDesign:PackIcon Kind="Edit" />
+                        </Button>
+                        <Button Style="{StaticResource MaterialDesignIconButton}" ToolTip="{x:Static p:Resources.Delete}" x:Name="btndelete" Click="Btndelete_Click">
+                            <materialDesign:PackIcon Kind="Delete" />
+                        </Button>
+                    </StackPanel>
+                </Grid>
+                <!--End Title-->
+                
+                <!--Module List-->
+                    <DataGrid x:Name="Datagrid" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="10" materialDesign:DataGridAssist.ColumnHeaderPadding="10" SelectionMode="Single" AlternatingRowBackground="LightGreen" AlternationCount="1" ItemsSource="{Binding LibelleModules}">
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="BorderThickness" Value="0,0,0,0"/>
+                            <Setter Property="Margin" Value="0 0 0 0"/>
+                        </Style>
+                        <Style TargetType="{x:Type DataGridRow}">
+                        </Style>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="Margin" Value="0 0 0 0"/>
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*" Binding="{Binding ItemOne}" FontSize="18" Typography.NumeralStyle="Lining" IsReadOnly="True"/>
+                        <DataGridTextColumn Width="*" Binding="{Binding ItemTwo}" FontSize="18" Typography.NumeralStyle="Lining" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                <!--End Module List-->
+            </StackPanel>
+        </materialDesign:Card>
+    </StackPanel>
+</UserControl>

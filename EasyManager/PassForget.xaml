@@ -1,0 +1,41 @@
+﻿<Window x:Class="EasyManager.PassForget"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EasyManager"
+        xmlns:p = "clr-namespace:EasyManager.Properties"
+        Title="{x:Static p:Resources.Reset}"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <materialDesign:ColorZone Mode="PrimaryDark" Padding="16" CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" Text="{x:Static p:Resources.PassReset}" Style="{StaticResource TextBlockStyle}" FontSize="35" x:Name="Titre" Foreground="Black"/>
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <StackPanel HorizontalAlignment="Center" MinWidth="550">
+            <!--Login-->
+            <StackPanel Margin="0 30 0 0" >
+                <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.Login}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtlogin"/>
+            </StackPanel>
+            <!--End Login-->
+
+            <!--New pass-->
+            <StackPanel Margin="0 30 0 0" >
+                <PasswordBox materialDesign:HintAssist.Hint="{x:Static p:Resources.NewPass}" materialDesign:HintAssist.Foreground="Green" materialDesign:TextFieldAssist.UnderlineBrush="Green" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtnewpass"/>
+            </StackPanel>
+            <!--End new pass-->
+
+            <!--Confirmation-->
+            <StackPanel Margin="0 30 0 0" >
+                <PasswordBox materialDesign:HintAssist.Hint="{x:Static p:Resources.Confirmation}" materialDesign:HintAssist.Foreground="Green" materialDesign:TextFieldAssist.UnderlineBrush="Green" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtconf"/>
+            </StackPanel>
+            <!--End Confirmation-->
+
+            <!--Button-->
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" Margin="30 20"  FontFamily="{StaticResource UbuntuLight}" FontSize="20" x:Name="btnValidate" Content="{x:Static p:Resources.BtnValidate}" Click="btnValidate_Click" IsDefault="True"/>
+            <!--End Button-->
+        </StackPanel>
+    </StackPanel>
+</Window>

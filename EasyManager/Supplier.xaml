@@ -1,0 +1,48 @@
+﻿<Window x:Class="EasyManager.Supplier"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EasyManager"
+        mc:Ignorable="d"
+        Icon="Logo/LogoB.png"
+        xmlns:p = "clr-namespace:EasyManager.Properties"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="{x:Static p:Resources.Supplier}" Height="450" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <materialDesign:ColorZone
+  Mode="PrimaryDark"
+  Padding="16"
+  CornerRadius="0"
+  materialDesign:ShadowAssist.ShadowDepth="Depth3"
+  Margin="0">
+            <StackPanel
+    Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock
+      VerticalAlignment="Center"
+      Margin="16 0 0 0" Text="{x:Static p:Resources.NewSupplier}" Style="{StaticResource TextBlockStyle}" FontSize="35" Foreground="Black"/>
+
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="600" Margin="0 20 0 0">
+
+            <StackPanel>
+                <!--Mom-->
+                <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.Nom}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtlabel" KeyUp="txtlabel_KeyUp"/>
+                <!--End Mon-->
+
+                <!--Contact-->
+                <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.Contact}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtcontact" KeyUp="txtcontact_KeyUp"/>
+                <!--End Contact-->
+
+                <!--Email-->
+                <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.EmailAdress}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtmail"/>
+                <!--End Email-->
+
+                <!--Button-->
+                <Button x:Name="btnSave" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip= "{x:Static p:Resources.BtnSave}" Content="{x:Static p:Resources.BtnSave}" Margin="25 10" FontWeight="Bold" FontSize="20" Height="40" Click="btnSave_Click" IsDefault="True"/>
+                <!--End Button-->
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</Window>

@@ -1,0 +1,1 @@
+﻿Vu qu'il est possibile qu'il y est des produits qui sont hors taxe,des produits à taxe fixe en dessous du normal, on va créer un attribut(lié au tva) au niveau du produit qui, par défaut sera le tva par défaut . Il indiquera si le produit est exhonoré ou a un tva propre.

@@ -1,0 +1,120 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:EasyManager">
+
+    <Style TargetType="{x:Type Control}" x:Key="HLabelStyle">
+        <Setter Property="FontFamily" Value="{StaticResource UbuntuBold}"/>
+        <Setter Property="FontSize" Value="35"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="10 15 10 10"/>
+    </Style>
+
+    <Style TargetType="{x:Type Grid}" x:Key="tblRowStyle">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="false">
+                <Setter Property="Opacity" Value="1"/>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Opacity" Value=".5"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="TextBlockInfoStyle">
+        <Setter Property="FontFamily" Value="{StaticResource UbuntuMedium}"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Margin" Value="0 3 0 3"/>
+        <Setter Property="Foreground" Value="SaddleBrown"/>
+    </Style>
+    <Style TargetType="{x:Type CheckBox}" x:Key="ChkStyleHeader">
+        <Setter Property="FontFamily" Value="{StaticResource UbuntuMedium}"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Margin" Value="0 3 0 3"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+    <Style TargetType="{x:Type CheckBox}" x:Key="ChkStyle">
+        <Setter Property="FontFamily" Value="{StaticResource UbuntuMedium}"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Margin" Value="0 3 0 3"/>
+    </Style>
+    <Style TargetType="{x:Type TextBlock}" x:Key="TextBlockStyle">
+        <Setter Property="FontFamily" Value="{StaticResource UbuntuLight}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Margin" Value="0 0 0 3"/>
+    </Style>
+    
+    <Style TargetType="{x:Type TextBlock}" x:Key="TextBlockStyleHeader">
+        <Setter Property="FontFamily" Value="{StaticResource UbuntuLight}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+    <Style TargetType="{x:Type TextBox}" x:Key="TextBoxStyle">
+        <Setter Property="FontFamily" Value="{StaticResource UbuntuLight}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Padding" Value="2"/>
+    </Style>
+
+    <Style TargetType="{x:Type ComboBox}" x:Key="CbStyle">
+        <Setter Property="FontFamily" Value="{StaticResource UbuntuBold}"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="IsEditable" Value="True"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Margin" Value="0 0 10 0"/>
+    </Style>
+    
+    <Style TargetType="{x:Type ComboBox}" x:Key="CbStyle2">
+        <Setter Property="FontFamily" Value="{StaticResource UbuntuBold}"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="IsEditable" Value="True"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="Padding" Value="5"/>
+    </Style>
+
+    <Style TargetType="{x:Type ComboBox}" x:Key="CbStyle3">
+        <Setter Property="FontFamily" Value="{StaticResource UbuntuBold}"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="IsEditable" Value="True"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Margin" Value="0 0 0 0"/>
+    </Style>
+
+    <Style TargetType="{x:Type Button}" x:Key="BtnLStyle">
+        <Setter Property="FontFamily" Value="{StaticResource UbuntuBold}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Margin" Value="0 0 5 0"/>
+        <Setter Property="Width" Value="120"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="TextElement.Background" Value="AntiqueWhite"/>
+    </Style>
+
+    <Style TargetType="{x:Type Button}" x:Key="BtnRStyle">
+        <Setter Property="FontFamily" Value="{StaticResource UbuntuBold}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Margin" Value="5 0 0 0"/>
+        <Setter Property="Width" Value="120"/>
+        <Setter Property="Padding" Value="5"/>
+    </Style>
+
+    <Style TargetType="{x:Type StackPanel}" x:Key="StackPanelStyle">
+        <Setter Property="Margin" Value="15 10 15 5"/>
+    </Style>
+
+    <Style TargetType="{x:Type StackPanel}" x:Key="StackPanelStyle2">
+        <Setter Property="Margin" Value="0 30 0 0"/>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="LabelStyle">
+        <Setter Property="FontFamily" Value="Roboto"/>
+        <Setter Property="FontSize" Value="18"/>
+    </Style>
+
+
+</ResourceDictionary>

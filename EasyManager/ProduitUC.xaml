@@ -1,0 +1,107 @@
+﻿<UserControl x:Class="EasyManager.ProduitUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyManager"
+             mc:Ignorable="d"
+             xmlns:p="clr-namespace:EasyManager.Properties"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal" TextOptions.TextRenderingMode="Auto" FontFamily="{DynamicResource MaterialDesignFont}" Loaded="UserControl_Loaded" SizeChanged="UserControl_SizeChanged">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="container">
+        <ScrollViewer x:Name="lstScroll" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <!--Nom-->
+                <StackPanel Style="{StaticResource StackPanelStyle}">
+                    <TextBox
+  materialDesign:HintAssist.Hint="{x:Static p:Resources.Nom}" 
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" x:Name="txtNom" Margin="16" FontSize="20" ToolTip="{x:Static p:Resources.Nom}"/>
+                </StackPanel>
+                <!--End Nom-->
+
+                <!--Description-->
+                <StackPanel Style="{StaticResource StackPanelStyle}">
+                    <TextBox
+                x:Name="txtDescription" TextWrapping="Wrap" VerticalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="{x:Static p:Resources.Description}" Height="80" Margin="16" FontSize="20" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                </StackPanel>
+                <!--End Description-->
+
+                <!--Prix unitaire-->
+                <StackPanel Style="{StaticResource StackPanelStyle}">
+                    <TextBox
+  materialDesign:HintAssist.Hint="{x:Static p:Resources.Price}" 
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" x:Name="txtPrix" Margin="16" FontSize="20" ToolTip="{x:Static p:Resources.Price}" KeyUp="txtPrix_KeyUp"/>
+                </StackPanel>
+                <!--End Prix unitaire-->
+
+                <!--Prix grossite-->
+                <StackPanel Style="{StaticResource StackPanelStyle}">
+                    <TextBox
+  materialDesign:HintAssist.Hint="{x:Static p:Resources.WholeSalePrice}" 
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" x:Name="txtPrixgrossiste" Margin="16" FontSize="20" ToolTip="{x:Static p:Resources.WholeSalePrice}" KeyUp="txtPrix_KeyUp"/>
+                </StackPanel>
+                <!--End Prix grossiste-->
+
+                <!--Prix Quantité totale-->
+                <StackPanel Style="{StaticResource StackPanelStyle}">
+                    <TextBox
+  materialDesign:HintAssist.Hint="{x:Static p:Resources.TotalQuantity}" 
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" x:Name="txtQuantiteTotal" Margin="16" FontSize="20" ToolTip="{x:Static p:Resources.TotalQuantity}" KeyUp="txtQuantiteTotal_KeyUp"/>
+                </StackPanel>
+                <!--End Quantité totale-->
+
+                <!--Categorie-->
+                <Grid Margin="15 10 15 5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" Grid.Column="0" Grid.Row="0" x:Name="CbCatList" IsEditable="True" ToolTip="{x:Static p:Resources.Category}" materialDesign:HintAssist.HintOpacity=".26" SelectionChanged="CbCatList_SelectionChanged"  Margin="16" FontSize="20"/>
+
+                    <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNewCat" Content="{x:Static p:Resources.NewCategorie}"
+    ToolTip="{x:Static p:Resources.NewCategorie}" FontWeight="Bold" Click="btnNewCat_Click" FontSize="18"/>
+                </Grid>
+                <!--End Categorie-->
+
+                <!--Categorie-->
+                <Grid Margin="15 10 15 5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" Grid.Column="0" Grid.Row="0" x:Name="CbSupList" IsEditable="True" ToolTip="{x:Static p:Resources.Supplier}" materialDesign:HintAssist.HintOpacity=".26" SelectionChanged="CbSupList_SelectionChanged" Margin="16" FontSize="20"/>
+
+                    <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNewSup" Content="{x:Static p:Resources.NewSupplier}" ToolTip="{x:Static p:Resources.NewSupplier}" FontWeight="Bold" FontSize="18" Click="btnNewSup_Click"/>
+                </Grid>
+                <!--End Categorie-->
+
+                <!--Prix Quantité alerte-->
+                <StackPanel Style="{StaticResource StackPanelStyle}">
+                    <TextBox
+  materialDesign:HintAssist.Hint="{x:Static p:Resources.AlertQuantity}" 
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" x:Name="txtQuantiteAlerte" Margin="16" FontSize="20" ToolTip="{x:Static p:Resources.AlertQuantity}" KeyUp="txtQuantiteAlerte_KeyUp"/>
+                </StackPanel>
+                <!--End Quantité alerte-->
+
+                <!--Button-->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Style="{StaticResource StackPanelStyle2}" Margin="0 20">
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnSave" Content="{x:Static p:Resources.BtnSave}"
+    ToolTip="{x:Static p:Resources.BtnSave}" FontWeight="Bold" FontSize="20" Click="btnSave_Click" Width="130" IsDefault="True"/>
+
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCancel" Content="{x:Static p:Resources.BtnCancel}"
+    ToolTip="{x:Static p:Resources.BtnCancel}" FontWeight="Bold" FontSize="20" Width="130" Margin="5 0 55 0" IsCancel="True"/>
+                </StackPanel>
+                <!--End Button-->
+            
+        </StackPanel>
+        </ScrollViewer>
+    </StackPanel>
+</UserControl>

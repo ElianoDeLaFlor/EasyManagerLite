@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="EasyManager.ClientUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyManager"
+             mc:Ignorable="d" 
+             xmlns:p = "clr-namespace:EasyManager.Properties"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     FontFamily="{DynamicResource MaterialDesignFont}" Loaded="UserControl_Loaded">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="600">
+        <StackPanel>
+            <!--Mom-->
+            <TextBox
+  materialDesign:HintAssist.Hint="{x:Static p:Resources.Nom}"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" Margin="16" FontSize="20" MaxLength="25" Name="txtlabel"/>
+            <!--End Mon-->
+
+            <!--Prenom-->
+            <TextBox
+  materialDesign:HintAssist.Hint="{x:Static p:Resources.Prenom}"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" Margin="16" FontSize="20" MaxLength="35" Name="txtprenom"/>
+            <!--End Prenom-->
+
+            <!--Contact-->
+            <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.Contact}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtcontact" MaxLength="20" KeyUp="txtcontact_KeyUp"/>
+            <!--End Contact-->
+
+            <!--ClientType-->
+            <ComboBox materialDesign:HintAssist.Hint="{x:Static p:Resources.ClientType}" Margin="16" VerticalAlignment="Center" FontSize="20" x:Name="cbclienttype">
+                <ComboBoxItem Content="{x:Static p:Resources.SimpleClient}" Tag="1" IsSelected="True"/>
+                <ComboBoxItem Content="{x:Static p:Resources.WholeSaleClient}" Tag="2"/>
+            </ComboBox>
+            <!--End ClientType-->
+
+            <!--Button-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Style="{StaticResource StackPanelStyle2}" Margin="0,100,0,00">
+                <Button x:Name="btnSave"
+    Style="{StaticResource MaterialDesignRaisedButton}"
+    Width="140"
+    ToolTip= "{x:Static p:Resources.BtnSave}" Content="{x:Static p:Resources.BtnSave}" Click="BtnSave_Click" Margin="0 0 5 10" FontWeight="Bold" FontSize="20" Height="40" IsDefault="True"/>
+                <Button x:Name="btnCancel"
+    Style="{StaticResource MaterialDesignRaisedButton}"
+    Width="140"
+    ToolTip= "{x:Static p:Resources.BtnCancel}" Content="{x:Static p:Resources.BtnCancel}" Click="btnCancel_Click" Margin="5 0 0 10" FontWeight="Bold" FontSize="20" Height="40" IsCancel="True"/>
+            </StackPanel>
+            <!--End Button-->
+        </StackPanel>
+    </StackPanel>
+</UserControl>

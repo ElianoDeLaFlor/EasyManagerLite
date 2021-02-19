@@ -1,0 +1,100 @@
+﻿<Window x:Class="EasyManager.RoleAttribution"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EasyManager"
+        xmlns:p="clr-namespace:EasyManager.Properties"
+        mc:Ignorable="d"
+        Name="rolewindows"
+        Title="{x:Static p:Resources.RoleTitle}" Height="530" Width="600" SizeChanged="Rolewindows_SizeChanged">
+    
+    <StackPanel>
+        <TabControl Height="500" Name="tab">
+            <TabControl.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="{StaticResource ColorOneGTwo}" Offset="0"/>
+                    <GradientStop Color="{StaticResource ColorOneGOne}" Offset="1"/>
+                </LinearGradientBrush>
+            </TabControl.Background>
+            <!--Role tab-->
+            <TabItem Header="{x:Static p:Resources.RoleTitle}">
+                <StackPanel Margin="50 5 50 5" VerticalAlignment="Center">
+                    <Label FontFamily="{StaticResource UbuntuBold}" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1 20 10 20" Content="{x:Static p:Resources.RoleTitle}"/>
+
+                    <!--Libelle-->
+                    <StackPanel Margin="15 25 15 10">
+                        <TextBlock Text="{x:Static p:Resources.Libelle}" FontFamily="{StaticResource UbuntuMedium}" FontSize="20" Margin="0 0 0 3"/>
+                        <TextBox x:Name="txtlibelle" FontFamily="{StaticResource UbuntuLight}" FontSize="20"/>
+                    </StackPanel>
+                    <!--End Libelle-->
+                    <!--Button-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 45 0 0">
+                        <Button Padding="5" Margin="5 5 15 5" FontFamily="{StaticResource UbuntuLight}" FontSize="20" x:Name="btnValidate" Content="{x:Static p:Resources.BtnValidate}" Width="90" />
+                        <Button Padding="5" Margin="15 5 5 5" FontFamily="{StaticResource UbuntuLight}" FontSize="20" x:Name="btnCancel" Content="{x:Static p:Resources.BtnCancel}" Width="90"/>
+                    </StackPanel>
+                    <!--End Button-->
+                </StackPanel>
+            </TabItem>
+            <!--End Role tab-->
+            
+            <!--Attribution role-->        
+            <TabItem Header="{x:Static p:Resources.AtrributionRole}">
+                <StackPanel Margin="50 5 50 5">
+                    <Label FontFamily="{StaticResource UbuntuBold}" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1 20 10 20" Content="{x:Static p:Resources.UserRole}"/>
+                    <GroupBox Header="{x:Static p:Resources.Modules}" FontFamily="{StaticResource UbuntuBold}" FontSize="20" Height="auto"  Padding="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <!--Column 1-->
+                            <StackPanel Grid.Column="0" Name="lstOne" Margin="5">
+                                <CheckBox x:Name="chk0" Content="Module One" Margin="2"/>
+                                <CheckBox x:Name="chk1" Content="Module Two" Margin="2"/>
+                                <CheckBox x:Name="chk2" Content="Module Three" Margin="2"/>
+                                <CheckBox x:Name="chk3" Content="Module Four" Margin="2"/>
+                                <CheckBox x:Name="chk4" Content="Module Five" Margin="2"/>
+                                <CheckBox x:Name="chk5" Content="Module Six" Margin="2"/>
+                            </StackPanel>
+                            <!--End Column 1-->
+                            
+                            
+                            <!--Column 2-->
+                            <StackPanel Grid.Column="1" Name="lsttwo" Margin="5">
+                                <CheckBox x:Name="chk6" Content="Module One" Margin="2"/>
+                                <CheckBox x:Name="chk7" Content="Module Two" Margin="2"/>
+                                <CheckBox x:Name="chk8" Content="Module Three" Margin="2"/>
+                                <CheckBox x:Name="chk9" Content="Module Four" Margin="2"/>
+                                <CheckBox x:Name="chk10" Content="Module Five" Margin="2"/>
+                                <CheckBox x:Name="chk11" Content="Module Six" Margin="2"/>
+                            </StackPanel>
+                            <!--End Column 2-->
+                        </Grid>
+                        
+                    </GroupBox>
+                    <StackPanel Margin="0 50 0 0">
+                        <ComboBox Grid.Column="1" x:Name="CbUserList" Text="{x:Static p:Resources.User}" IsEditable="True" IsReadOnly="True" Padding="5" FontFamily="{StaticResource UbuntuBold}" FontSize="15" FontWeight="Bold">
+                            <ComboBoxItem Content="User One"/>
+                            <ComboBoxItem Content="User Two"/>
+                        </ComboBox>
+                        <Grid Margin="3 10">
+                            <!--<Grid.Effect>
+                                <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" ShadowDepth="2"/>
+                            </Grid.Effect>-->
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Margin="0 5" Padding="5" Grid.Column="0" x:Name="btnvalide" Content="{x:Static p:Resources.BtnValidate}"/>
+                            <Button Margin="5 5 0 5" Padding="5" Grid.Column="1" x:Name="btncancel" Content="{x:Static p:Resources.BtnCancel}" />
+                            
+                        </Grid>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <!--End Attribution role-->
+        </TabControl>
+
+    </StackPanel>
+</Window>

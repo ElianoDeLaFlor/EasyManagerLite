@@ -1,0 +1,136 @@
+﻿<Window x:Class="EasyManager.DiscountEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        xmlns:p="clr-namespace:EasyManager.Properties"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        Icon="Logo/LogoB.png"
+        TextOptions.TextFormattingMode="Ideal" TextOptions.TextRenderingMode="Auto" FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="{x:Static p:Resources.DiscountEdit}" Loaded="UserControl_Loaded" d:DesignWidth="969" d:DesignHeight="881.911" WindowStartupLocation="CenterScreen" SizeChanged="Window_SizeChanged">
+    <StackPanel>
+        <materialDesign:ColorZone Mode="PrimaryDark" Padding="16" CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" Text="{x:Static p:Resources.EditDiscount}" Style="{StaticResource TextBlockStyle}" FontSize="35" x:Name="Titre" Foreground="Black"/>
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <ScrollViewer x:Name="scroll" VerticalScrollBarVisibility="Auto">
+            <StackPanel HorizontalAlignment="Center" Margin="0 15" MinWidth="700">
+
+                <!--Taux-->
+                <StackPanel Margin="25 25 25 0">
+
+                    <TextBlock Text="{x:Static p:Resources.Taux}" FontFamily="Roboto" FontSize="18"  VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                    <Slider x:Name="tauxslide" Minimum="0" Maximum="100" Style="{StaticResource MaterialDesignDiscreteSlider}" ToolTip="{x:Static p:Resources.Taux}" Value="{Binding DiscountUC.TauxDisc}" Width="auto"/>
+
+                </StackPanel>
+                <!--End Taux-->
+
+                <!--DateDebut-->
+                <StackPanel Margin="25 15 25 0">
+
+                    <TextBlock Margin="0 15 0 15" FontFamily="Roboto" FontSize="18" Text="{x:Static p:Resources.DateDebut}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="DateDebut" Text="{Binding DatePicker.Date, StringFormat={}{0:dd-MM-yyyy HH:mm:ss}}" VerticalAlignment="Center" FontSize="24" />
+                        <Button Margin="8 0 0 0" Content="..." Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" materialDesign:DialogHost.DialogOpenedAttached="CombinedDialogOpenedEventHandler" materialDesign:DialogHost.DialogClosingAttached="CombinedDialogClosingEventHandler">
+                            <Button.CommandParameter>
+                                <Grid Margin="-1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <StackPanel
+                                    Grid.Row="0" Orientation="Horizontal">
+                                        <Calendar x:Name="CombinedCalendar" Margin="-1 -4 -1 0" FontWeight="Bold" />
+                                        <materialDesign:Clock x:Name="CombinedClock" DisplayAutomation="CycleWithSeconds" Is24Hours="True" />
+                                    </StackPanel>
+                                    <StackPanel
+                                    Grid.Row="1" Margin="8" HorizontalAlignment="Right" Orientation="Horizontal">
+                                        <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandParameter="0" Style="{DynamicResource MaterialDesignFlatLightBgButton}" Content="{x:Static p:Resources.BtnCancel}" FontSize="20" FontStyle="Normal" FontWeight="DemiBold"/>
+
+                                        <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandParameter="1" Style="{DynamicResource MaterialDesignFlatDarkBgButton}" Content="{x:Static p:Resources.Accept}" FontSize="20"/>
+
+                                    </StackPanel>
+                                </Grid>
+                            </Button.CommandParameter>
+                        </Button>
+                    </StackPanel>
+
+                </StackPanel>
+                <!--End DateDebut-->
+
+                <!--DateFin-->
+                <StackPanel Margin="25 15 25 0">
+
+                    <TextBlock Margin="0 15 0 15" FontFamily="Roboto" FontSize="18" Text="{x:Static p:Resources.DateFin}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="DateFin" Text="{Binding DatePicker.DateF, StringFormat={}{0:dd-MM-yyyy HH:mm:ss}}" VerticalAlignment="Center" FontSize="24" />
+                        <Button Margin="8 0 0 0" Content="..." Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" materialDesign:DialogHost.DialogOpenedAttached="CombinedFDialogOpenedEventHandler" materialDesign:DialogHost.DialogClosingAttached="CombinedFDialogClosingEventHandler">
+                            <Button.CommandParameter>
+                                <Grid Margin="-1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <StackPanel
+                                    Grid.Row="0" Orientation="Horizontal">
+                                        <Calendar x:Name="CombinedCalendarF" Margin="-1 -4 -1 0" FontWeight="Bold" />
+                                        <materialDesign:Clock x:Name="CombinedClockF" DisplayAutomation="CycleWithSeconds" Is24Hours="True" />
+                                    </StackPanel>
+                                    <StackPanel
+                                    Grid.Row="1" Margin="8" HorizontalAlignment="Right" Orientation="Horizontal">
+                                        <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandParameter="0" Style="{DynamicResource MaterialDesignFlatLightBgButton}" Content="{x:Static p:Resources.BtnCancel}" FontSize="20" FontStyle="Normal" FontWeight="DemiBold"/>
+
+                                        <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandParameter="1" Style="{DynamicResource MaterialDesignFlatDarkBgButton}" Content="{x:Static p:Resources.Accept}" FontSize="20"/>
+
+                                    </StackPanel>
+                                </Grid>
+                            </Button.CommandParameter>
+                        </Button>
+                    </StackPanel>
+
+                </StackPanel>
+                <!--End DateFin-->
+
+                <!--ProduitNom-->
+                <StackPanel Style="{StaticResource StackPanelStyle}">
+                    <ComboBox materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" x:Name="CbProdLst" IsEditable="True" ToolTip="{x:Static p:Resources.NomProduit}" materialDesign:HintAssist.HintOpacity=".26" SelectionChanged="CbProdLst_SelectionChanged"  Margin="16 30 16 16" FontSize="20"/>
+                </StackPanel>
+                <!--End ProduitNom-->
+
+                <!--Categorie-->
+                <StackPanel Style="{StaticResource StackPanelStyle}">
+                    <ComboBox materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" x:Name="CbCatLst" IsEditable="True" ToolTip="{x:Static p:Resources.Category}" materialDesign:HintAssist.HintOpacity=".26" SelectionChanged="CbCatLst_SelectionChanged"  Margin="16 30 16 16" FontSize="20"/>
+                </StackPanel>
+                <!--End Categorie-->
+
+                <!--Client-->
+                <StackPanel Style="{StaticResource StackPanelStyle}">
+                    <ComboBox materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" x:Name="CbClientLst" IsEditable="True" ToolTip="{x:Static p:Resources.Client}" materialDesign:HintAssist.HintOpacity=".26" SelectionChanged="CbClientLst_SelectionChanged"  Margin="16 30 16 16" FontSize="20"/>
+                </StackPanel>
+                <!--End Client-->
+
+                <!--IsValidForCredit-->
+                <StackPanel Margin="25" Orientation="Horizontal">
+                    <TextBlock Margin="0 0 35 0" FontFamily="Roboto" FontSize="18" Text="{x:Static p:Resources.TauxApplicable}"/>
+                    <ToggleButton x:Name="Credit"  Style="{StaticResource MaterialDesignSwitchDarkToggleButton}" ToolTip="{x:Static p:Resources.TauxApplicable}" IsChecked="{Binding DiscountEdit.AppliquerCredit}" />
+                </StackPanel>
+                <!--End IsValidForCredit-->
+
+                <!--Button-->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 15">
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnSave" Content="{x:Static p:Resources.BtnSave}" Width="125" Margin="0 0 5 0"
+    ToolTip="{x:Static p:Resources.BtnSave}" FontWeight="Bold" Click="btnSave_Click"  FontSize="18" IsDefault="True"/>
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCancel" Content="{x:Static p:Resources.BtnCancel}" Width="125"
+    ToolTip="{x:Static p:Resources.BtnCancel}" FontWeight="Bold" Click="btnCancel_Click"  FontSize="18" IsCancel="True"/>
+                </StackPanel>
+                <!--End Button-->
+
+            </StackPanel>
+        </ScrollViewer>
+    </StackPanel>
+</Window>

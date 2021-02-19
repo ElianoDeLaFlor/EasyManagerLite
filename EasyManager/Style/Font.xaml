@@ -1,0 +1,28 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:EasyManager">
+
+    <FontFamily x:Key="UbuntuLight">pack://application;,,,/Fonts/#Ubuntu Light</FontFamily>
+    <FontFamily x:Key="UbuntuBold">pack://application;,,,/Fonts/#Ubuntu Bold</FontFamily>
+    <FontFamily x:Key="Ubuntu">pack://application;,,,/Fonts/#Ubuntu</FontFamily>
+    <FontFamily x:Key="UbuntuItalic">pack://application;,,,/Fonts/#Ubuntu Italic</FontFamily>
+    <FontFamily x:Key="UbuntuMedium">pack://application;,,,/Fonts/#Ubuntu Medium</FontFamily>
+    <FontFamily x:Key="UbuntuMonoBold">pack://application;,,,/Fonts/#Ubuntu Mono Bold</FontFamily>
+
+
+    <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
+        <Setter Property="FontFamily" Value="{StaticResource UbuntuLight}"/>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
+        <Setter Property="FontFamily" Value="{StaticResource UbuntuLight}"/>
+    </Style>
+
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}"/>
+    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BaseStyle}"/>
+    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseStyle}"/>
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}"/>
+    <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource BaseStyle}"/>
+
+
+</ResourceDictionary>

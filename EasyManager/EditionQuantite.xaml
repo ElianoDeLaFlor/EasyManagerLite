@@ -1,0 +1,73 @@
+﻿<Window x:Class="EasyManager.EditionProduit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EasyManager"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        ResizeMode="CanMinimize"
+        Icon="Logo/LogoB.png"
+        xmlns:p = "clr-namespace:EasyManager.Properties"
+        Title="{x:Static p:Resources.EditionQuantite}" Height="530" Width="800" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <materialDesign:DialogHost Identifier="RootDialog">
+        <StackPanel>
+            <materialDesign:ColorZone
+  Mode="PrimaryDark"
+  Padding="16"
+  CornerRadius="0"
+  materialDesign:ShadowAssist.ShadowDepth="Depth3"
+  Margin="0">
+                <StackPanel
+    Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock
+      VerticalAlignment="Center"
+      Margin="16 0 0 0" Text="{x:Static p:Resources.EditionQuantite}" Style="{StaticResource TextBlockStyle}" FontSize="35"/>
+
+                </StackPanel>
+            </materialDesign:ColorZone>
+            <StackPanel>
+                <!--Poduit-->
+                <StackPanel Style="{StaticResource StackPanelStyle}">
+
+                    <ComboBox materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" x:Name="CbCatList" IsEditable="True" ToolTip="{x:Static p:Resources.SelectionProduit}" materialDesign:HintAssist.HintOpacity=".26" SelectionChanged="CbCatList_SelectionChanged" Margin="16 30 16 16" FontSize="20"/>
+                </StackPanel>
+                <!--End Produit-->
+
+                <!--Quantite-->
+                <StackPanel Style="{StaticResource StackPanelStyle}">
+                    <TextBox
+  materialDesign:HintAssist.Hint="{x:Static p:Resources.AddQuantity}" 
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" x:Name="txtqantite" Margin="16" FontSize="20" KeyUp="txtqantite_KeyUp" ToolTip="{x:Static p:Resources.AddQuantity}"/>
+                </StackPanel>
+                <!--End Quantite-->
+
+                <!--Prix Unitaire-->
+                <StackPanel Style="{StaticResource StackPanelStyle}">
+                    <TextBox
+  materialDesign:HintAssist.Hint="{x:Static p:Resources.Price}" 
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" x:Name="txtprixunitaire" Margin="16" FontSize="20" KeyUp="txtprixunitaire_KeyUp" ToolTip="{x:Static p:Resources.Price}"/>
+                </StackPanel>
+                <!--End Prix Unitaire-->
+
+                <!--Button-->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Style="{StaticResource StackPanelStyle2}">
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btncreate" Content="{x:Static p:Resources.BtnAdd}"
+    ToolTip="{x:Static p:Resources.BtnAdd}" Click="btncreate_Click" Width="120" FontWeight="Bold" FontSize="18" IsDefault="True"/>
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btncancel" Content="{x:Static p:Resources.BtnCancel}"
+    ToolTip="{x:Static p:Resources.BtnAdd}" Click="btncancel_Click" Width="120" FontWeight="Bold" FontSize="18" Margin="5 0 0 0" IsCancel="True"/>
+                </StackPanel>
+                <!--End Button-->
+            </StackPanel>
+        </StackPanel>
+    </materialDesign:DialogHost>
+</Window>

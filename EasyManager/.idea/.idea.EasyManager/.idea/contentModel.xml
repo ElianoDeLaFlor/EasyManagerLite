@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Eliano\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Eliano\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_EasyManager.1397042715.00" t="ExcludeRecursive" />
+    <e p="D:\MSVS\EasyManager" t="IncludeRecursive">
+      <e p="About.xaml" t="Include" />
+      <e p="About.xaml.cs" t="Include" />
+      <e p="Accueil.xaml" t="Include" />
+      <e p="Accueil.xaml.cs" t="Include" />
+      <e p="Activation.xaml" t="Include" />
+      <e p="Activation.xaml.cs" t="Include" />
+      <e p="AjoutProduit.xaml" t="Include" />
+      <e p="AjoutProduit.xaml.cs" t="Include" />
+      <e p="App.config" t="Include" />
+      <e p="app.manifest" t="Include" />
+      <e p="App.xaml" t="Include" />
+      <e p="App.xaml.cs" t="Include" />
+      <e p="Await.xaml" t="Include" />
+      <e p="Await.xaml.cs" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="CaisseItem.xaml" t="Include" />
+      <e p="CaisseItem.xaml.cs" t="Include" />
+      <e p="CaisseUC.xaml" t="Include" />
+      <e p="CaisseUC.xaml.cs" t="Include" />
+      <e p="CaisseVenteItem.xaml" t="Include" />
+      <e p="CaisseVenteItem.xaml.cs" t="Include" />
+      <e p="Categorie.xaml" t="Include" />
+      <e p="Categorie.xaml.cs" t="Include" />
+      <e p="CategorieListeUC.xaml" t="Include" />
+      <e p="CategorieListeUC.xaml.cs" t="Include" />
+      <e p="CategorieTuile.xaml" t="Include" />
+      <e p="CategorieTuile.xaml.cs" t="Include" />
+      <e p="CategorieUC.xaml" t="Include" />
+      <e p="CategorieUC.xaml.cs" t="Include" />
+      <e p="Charts" t="Include">
+        <e p="AngularGauge.xaml" t="Include" />
+        <e p="AngularGauge.xaml.cs" t="Include" />
+        <e p="ColumnChart.xaml" t="Include" />
+        <e p="ColumnChart.xaml.cs" t="Include" />
+        <e p="Doughnutchart.xaml" t="Include" />
+        <e p="Doughnutchart.xaml.cs" t="Include" />
+        <e p="DragableSections.xaml" t="Include" />
+        <e p="DragableSections.xaml.cs" t="Include" />
+        <e p="HeatSeries.xaml" t="Include" />
+        <e p="HeatSeries.xaml.cs" t="Include" />
+        <e p="LabelChart.xaml" t="Include" />
+        <e p="LabelChart.xaml.cs" t="Include" />
+        <e p="OHLC.xaml" t="Include" />
+        <e p="OHLC.xaml.cs" t="Include" />
+        <e p="PieChart.xaml" t="Include" />
+        <e p="PieChart.xaml.cs" t="Include" />
+        <e p="Staked.xaml" t="Include" />
+        <e p="Staked.xaml.cs" t="Include" />
+      </e>
+      <e p="CheckoutHome.xaml" t="Include" />
+      <e p="CheckoutHome.xaml.cs" t="Include" />
+      <e p="Client.xaml" t="Include" />
+      <e p="Client.xaml.cs" t="Include" />
+      <e p="ClientClass" t="Include">
+        <e p="SlideModel.cs" t="Include" />
+        <e p="Toggle.cs" t="Include" />
+      </e>
+      <e p="ClientListeUC.xaml" t="Include" />
+      <e p="ClientListeUC.xaml.cs" t="Include" />
+      <e p="ClientUC.xaml" t="Include" />
+      <e p="ClientUC.xaml.cs" t="Include" />
+      <e p="Commands" t="Include">
+        <e p="OperationCaisseCancelCommand.cs" t="Include" />
+        <e p="OperationCaisseCommand.cs" t="Include" />
+        <e p="OperationCaisseLoadCommand.cs" t="Include" />
+        <e p="OperationCancelCommand.cs" t="Include" />
+        <e p="OperationCommand.cs" t="Include" />
+      </e>
+      <e p="Compte.xaml" t="Include" />
+      <e p="Compte.xaml.cs" t="Include" />
+      <e p="CompteUC.xaml" t="Include" />
+      <e p="CompteUC.xaml.cs" t="Include" />
+      <e p="Connexion.xaml" t="Include" />
+      <e p="Connexion.xaml.cs" t="Include" />
+      <e p="ConnexionUC.xaml" t="Include" />
+      <e p="ConnexionUC.xaml.cs" t="Include" />
+      <e p="DialogBox.xaml" t="Include" />
+      <e p="DialogBox.xaml.cs" t="Include" />
+      <e p="DiscountEdit.xaml" t="Include" />
+      <e p="DiscountEdit.xaml.cs" t="Include" />
+      <e p="DiscountListUC.xaml" t="Include" />
+      <e p="DiscountListUC.xaml.cs" t="Include" />
+      <e p="DiscountUC.xaml" t="Include" />
+      <e p="DiscountUC.xaml.cs" t="Include" />
+      <e p="EasyManager.csproj" t="IncludeRecursive" />
+      <e p="EasyManager.sln" t="IncludeFlat" />
+      <e p="EasyManagerDb.db" t="Include" />
+      <e p="EditionQuantite.xaml" t="Include" />
+      <e p="EditionQuantite.xaml.cs" t="Include" />
+      <e p="EditionQuantiteListeUC.xaml" t="Include" />
+      <e p="EditionQuantiteListeUC.xaml.cs" t="Include" />
+      <e p="EditionQuantiteUC.xaml" t="Include" />
+      <e p="EditionQuantiteUC.xaml.cs" t="Include" />
+      <e p="Files" t="Include">
+        <e p="Caisse_Prototype.dotx" t="Include" />
+        <e p="Facture_Prototype.dotx" t="Include" />
+        <e p="ListeAppro_Prototype.dotx" t="Include" />
+        <e p="ListeClient_Prototype.dotx" t="Include" />
+        <e p="ListeDiscount_Prototype.dotx" t="Include" />
+        <e p="ListeOperationCaisse_Prototype.dotx" t="Include" />
+        <e p="ListeProduit_Prototype.dotx" t="Include" />
+        <e p="ListeProduitVendu_Prototype.dotx" t="Include" />
+        <e p="ListeProduitVenduCredit_Prototype.dotx" t="Include" />
+        <e p="ListeVente_Prototype.dotx" t="Include" />
+        <e p="ListeVenteCredit_Prototype.dotx" t="Include" />
+        <e p="Rapport_Prototype.dotx" t="Include" />
+      </e>
+      <e p="Fonts" t="Include">
+        <e p="Ubuntu-B.ttf" t="Include" />
+        <e p="Ubuntu-BI.ttf" t="Include" />
+        <e p="Ubuntu-C.ttf" t="Include" />
+        <e p="Ubuntu-L.ttf" t="Include" />
+        <e p="Ubuntu-LI.ttf" t="Include" />
+        <e p="Ubuntu-M.ttf" t="Include" />
+        <e p="Ubuntu-MI.ttf" t="Include" />
+        <e p="Ubuntu-R.ttf" t="Include" />
+        <e p="Ubuntu-RI.ttf" t="Include" />
+        <e p="UbuntuMono-B.ttf" t="Include" />
+        <e p="UbuntuMono-BI.ttf" t="Include" />
+        <e p="UbuntuMono-R.ttf" t="Include" />
+        <e p="UbuntuMono-RI.ttf" t="Include" />
+      </e>
+      <e p="GestionDeCaisse.xaml" t="Include" />
+      <e p="GestionDeCaisse.xaml.cs" t="Include" />
+      <e p="Home.xaml" t="Include" />
+      <e p="Home.xaml.cs" t="Include" />
+      <e p="KeyActivation.xaml" t="Include" />
+      <e p="KeyActivation.xaml.cs" t="Include" />
+      <e p="ListClient.xaml" t="Include" />
+      <e p="ListClient.xaml.cs" t="Include" />
+      <e p="ListeProduitCommende.xaml" t="Include" />
+      <e p="ListeProduitCommende.xaml.cs" t="Include" />
+      <e p="ListeProduitVendu.xaml" t="Include" />
+      <e p="ListeProduitVendu.xaml.cs" t="Include" />
+      <e p="Logo" t="Include">
+        <e p="Logo.png" t="Include" />
+        <e p="LogoB.png" t="Include" />
+      </e>
+      <e p="MakeOperation.xaml" t="Include" />
+      <e p="MakeOperation.xaml.cs" t="Include" />
+      <e p="MenuItems" t="Include">
+        <e p="CaisseHomeViewModel.cs" t="Include" />
+        <e p="CaisseViewModel.cs" t="Include" />
+        <e p="DatePickerViewModel.cs" t="Include" />
+        <e p="DateValueConverter.cs" t="Include" />
+        <e p="GestionCaisseViewModel.cs" t="Include" />
+        <e p="MainWindowViewModel.cs" t="Include" />
+        <e p="MenuContent.cs" t="Include" />
+        <e p="MontantFormatter.cs" t="Include" />
+        <e p="OperationCaisseViewModel.cs" t="Include" />
+        <e p="OperationTypeConverter.cs" t="Include" />
+        <e p="OperationViewModel.cs" t="Include" />
+      </e>
+      <e p="NotificationUC.xaml" t="Include" />
+      <e p="NotificationUC.xaml.cs" t="Include" />
+      <e p="NotificationUI.xaml" t="Include" />
+      <e p="NotificationUI.xaml.cs" t="Include" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="About.g.cs" t="Include" />
+          <e p="Accueil.g.cs" t="Include" />
+          <e p="Activation.g.cs" t="Include" />
+          <e p="AjoutProduit.g.cs" t="Include" />
+          <e p="App.g.cs" t="Include" />
+          <e p="Await.g.cs" t="Include" />
+          <e p="CaisseItem.g.cs" t="Include" />
+          <e p="CaisseUC.g.cs" t="Include" />
+          <e p="CaisseVenteItem.g.cs" t="Include" />
+          <e p="Categorie.g.cs" t="Include" />
+          <e p="CategorieListeUC.g.cs" t="Include" />
+          <e p="CategorieTuile.g.cs" t="Include" />
+          <e p="CategorieUC.g.cs" t="Include" />
+          <e p="Charts" t="Include">
+            <e p="AngularGauge.g.cs" t="Include" />
+            <e p="ColumnChart.g.cs" t="Include" />
+            <e p="Doughnutchart.g.cs" t="Include" />
+            <e p="DragableSections.g.cs" t="Include" />
+            <e p="HeatSeries.g.cs" t="Include" />
+            <e p="LabelChart.g.cs" t="Include" />
+            <e p="OHLC.g.cs" t="Include" />
+            <e p="PieChart.g.cs" t="Include" />
+            <e p="Staked.g.cs" t="Include" />
+          </e>
+          <e p="CheckoutHome.g.cs" t="Include" />
+          <e p="Client.g.cs" t="Include" />
+          <e p="ClientListeUC.g.cs" t="Include" />
+          <e p="ClientUC.g.cs" t="Include" />
+          <e p="Compte.g.cs" t="Include" />
+          <e p="CompteUC.g.cs" t="Include" />
+          <e p="Connexion.g.cs" t="Include" />
+          <e p="ConnexionUC.g.cs" t="Include" />
+          <e p="DialogBox.g.cs" t="Include" />
+          <e p="DiscountEdit.g.cs" t="Include" />
+          <e p="DiscountListUC.g.cs" t="Include" />
+          <e p="DiscountUC.g.cs" t="Include" />
+          <e p="EasyManager_Content.g.cs" t="Include" />
+          <e p="EditionQuantite.g.cs" t="Include" />
+          <e p="EditionQuantiteListeUC.g.cs" t="Include" />
+          <e p="EditionQuantiteUC.g.cs" t="Include" />
+          <e p="GeneratedInternalTypeHelper.g.cs" t="Include" />
+          <e p="GestionDeCaisse.g.cs" t="Include" />
+          <e p="Home.g.cs" t="Include" />
+          <e p="KeyActivation.g.cs" t="Include" />
+          <e p="ListClient.g.cs" t="Include" />
+          <e p="ListeProduitCommende.g.cs" t="Include" />
+          <e p="ListeProduitVendu.g.cs" t="Include" />
+          <e p="MakeOperation.g.cs" t="Include" />
+          <e p="NotificationUC.g.cs" t="Include" />
+          <e p="NotificationUI.g.cs" t="Include" />
+          <e p="Operation.g.cs" t="Include" />
+          <e p="OperationCaisseEdit.g.cs" t="Include" />
+          <e p="OperationCaisseListeUC.g.cs" t="Include" />
+          <e p="OperationCaisseTuile.g.cs" t="Include" />
+          <e p="OperationCaisseUC.g.cs" t="Include" />
+          <e p="OperationEdit.g.cs" t="Include" />
+          <e p="OperationListUC.g.cs" t="Include" />
+          <e p="OperationTuile.g.cs" t="Include" />
+          <e p="OperationUC.g.cs" t="Include" />
+          <e p="Parametre.g.cs" t="Include" />
+          <e p="PasseChange.g.cs" t="Include" />
+          <e p="PassForget.g.cs" t="Include" />
+          <e p="ProductResumeTile.g.cs" t="Include" />
+          <e p="Produit.g.cs" t="Include" />
+          <e p="ProduitListe.g.cs" t="Include" />
+          <e p="ProduitListUC.g.cs" t="Include" />
+          <e p="ProduitStateInfo.g.cs" t="Include" />
+          <e p="ProduitUC.g.cs" t="Include" />
+          <e p="Rapport.g.cs" t="Include" />
+          <e p="ReglementUI.g.cs" t="Include" />
+          <e p="RoleAttribution.g.cs" t="Include" />
+          <e p="RoleListUC.g.cs" t="Include" />
+          <e p="RoleModuleUC.g.cs" t="Include" />
+          <e p="RoleTile.g.cs" t="Include" />
+          <e p="RoleUC.g.cs" t="Include" />
+          <e p="ShowDocument.g.cs" t="Include" />
+          <e p="Slides" t="Include">
+            <e p="Slide_1.g.cs" t="Include" />
+            <e p="Slide_2.g.cs" t="Include" />
+            <e p="Slide_3.g.cs" t="Include" />
+            <e p="Slide_4.g.cs" t="Include" />
+            <e p="Slide_5.g.cs" t="Include" />
+            <e p="Slide_6.g.cs" t="Include" />
+            <e p="Slide_7.g.cs" t="Include" />
+            <e p="Slide_8.g.cs" t="Include" />
+            <e p="Transitions.g.cs" t="Include" />
+          </e>
+          <e p="StockStateUC.g.cs" t="Include" />
+          <e p="Supplier.g.cs" t="Include" />
+          <e p="SupplierList.g.cs" t="Include" />
+          <e p="SupplierTile.g.cs" t="Include" />
+          <e p="SupplierUC.g.cs" t="Include" />
+          <e p="UserControls" t="Include">
+            <e p="ToggleControl.g.cs" t="Include" />
+          </e>
+          <e p="UserList.g.cs" t="Include" />
+          <e p="UserListUC.g.cs" t="Include" />
+          <e p="UserTile.g.cs" t="Include" />
+          <e p="Vente.g.cs" t="Include" />
+          <e p="VenteACredit.g.cs" t="Include" />
+          <e p="VenteCreditListe.g.cs" t="Include" />
+          <e p="VenteCreditListeUC.g.cs" t="Include" />
+          <e p="VenteCreditUC.g.cs" t="Include" />
+          <e p="VenteListeUC.g.cs" t="Include" />
+          <e p="VenteUC.g.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Operation.xaml" t="Include" />
+      <e p="Operation.xaml.cs" t="Include" />
+      <e p="OperationCaisseEdit.xaml" t="Include" />
+      <e p="OperationCaisseEdit.xaml.cs" t="Include" />
+      <e p="OperationCaisseListeUC.xaml" t="Include" />
+      <e p="OperationCaisseListeUC.xaml.cs" t="Include" />
+      <e p="OperationCaisseTuile.xaml" t="Include" />
+      <e p="OperationCaisseTuile.xaml.cs" t="Include" />
+      <e p="OperationCaisseUC.xaml" t="Include" />
+      <e p="OperationCaisseUC.xaml.cs" t="Include" />
+      <e p="OperationEdit.xaml" t="Include" />
+      <e p="OperationEdit.xaml.cs" t="Include" />
+      <e p="OperationListUC.xaml" t="Include" />
+      <e p="OperationListUC.xaml.cs" t="Include" />
+      <e p="OperationTuile.xaml" t="Include" />
+      <e p="OperationTuile.xaml.cs" t="Include" />
+      <e p="OperationUC.xaml" t="Include" />
+      <e p="OperationUC.xaml.cs" t="Include" />
+      <e p="packages" t="ExcludeRecursive">
+        <e p="MSTest.TestAdapter.2.0.0\build\_common\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll" t="Include" />
+        <e p="MSTest.TestAdapter.2.0.0\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" t="Include" />
+        <e p="MSTest.TestAdapter.2.0.0\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" t="Include" />
+        <e p="SQLite.3.13.0\runtimes\win7-x64\native\sqlite3.dll" t="Include" />
+        <e p="SQLite.3.13.0\runtimes\win7-x86\native\sqlite3.dll" t="Include" />
+      </e>
+      <e p="packages.config" t="Include" />
+      <e p="Parametre.xaml" t="Include" />
+      <e p="Parametre.xaml.cs" t="Include" />
+      <e p="PasseChange.xaml" t="Include" />
+      <e p="PasseChange.xaml.cs" t="Include" />
+      <e p="PassForget.xaml" t="Include" />
+      <e p="PassForget.xaml.cs" t="Include" />
+      <e p="ProductResumeTile.xaml" t="Include" />
+      <e p="ProductResumeTile.xaml.cs" t="Include" />
+      <e p="Produit.xaml" t="Include" />
+      <e p="Produit.xaml.cs" t="Include" />
+      <e p="ProduitListe.xaml" t="Include" />
+      <e p="ProduitListe.xaml.cs" t="Include" />
+      <e p="ProduitListUC.xaml" t="Include" />
+      <e p="ProduitListUC.xaml.cs" t="Include" />
+      <e p="ProduitStateInfo.xaml" t="Include" />
+      <e p="ProduitStateInfo.xaml.cs" t="Include" />
+      <e p="ProduitUC.xaml" t="Include" />
+      <e p="ProduitUC.xaml.cs" t="Include" />
+      <e p="Properties" t="Include">
+        <e p="AssemblyInfo.cs" t="Include" />
+        <e p="Resources.Designer.cs" t="Include" />
+        <e p="Resources.en.Designer.cs" t="Include" />
+        <e p="Resources.en.resx" t="Include" />
+        <e p="Resources.fr.Designer.cs" t="Include" />
+        <e p="Resources.fr.resx" t="Include" />
+        <e p="Resources.resx" t="Include" />
+        <e p="Settings.Designer.cs" t="Include" />
+        <e p="Settings.settings" t="Include" />
+      </e>
+      <e p="Rapport.xaml" t="Include" />
+      <e p="Rapport.xaml.cs" t="Include" />
+      <e p="ReglementUI.xaml" t="Include" />
+      <e p="ReglementUI.xaml.cs" t="Include" />
+      <e p="Resources" t="Include">
+        <e p="Logo EasyManager4_4 - Copy~1.ico" t="Include" />
+        <e p="Logo EasyManager4_4.jpg" t="Include" />
+      </e>
+      <e p="RoleAttribution.xaml" t="Include" />
+      <e p="RoleAttribution.xaml.cs" t="Include" />
+      <e p="RoleListUC.xaml" t="Include" />
+      <e p="RoleListUC.xaml.cs" t="Include" />
+      <e p="RoleModuleUC.xaml" t="Include" />
+      <e p="RoleModuleUC.xaml.cs" t="Include" />
+      <e p="RoleTile.xaml" t="Include" />
+      <e p="RoleTile.xaml.cs" t="Include" />
+      <e p="RoleUC.xaml" t="Include" />
+      <e p="RoleUC.xaml.cs" t="Include" />
+      <e p="ShowDocument.xaml" t="Include" />
+      <e p="ShowDocument.xaml.cs" t="Include" />
+      <e p="Slides" t="Include">
+        <e p="Slide_1.xaml" t="Include" />
+        <e p="Slide_1.xaml.cs" t="Include" />
+        <e p="Slide_2.xaml" t="Include" />
+        <e p="Slide_2.xaml.cs" t="Include" />
+        <e p="Slide_3.xaml" t="Include" />
+        <e p="Slide_3.xaml.cs" t="Include" />
+        <e p="Slide_4.xaml" t="Include" />
+        <e p="Slide_4.xaml.cs" t="Include" />
+        <e p="Slide_5.xaml" t="Include" />
+        <e p="Slide_5.xaml.cs" t="Include" />
+        <e p="Slide_6.xaml" t="Include" />
+        <e p="Slide_6.xaml.cs" t="Include" />
+        <e p="Slide_7.xaml" t="Include" />
+        <e p="Slide_7.xaml.cs" t="Include" />
+        <e p="Slide_8.xaml" t="Include" />
+        <e p="Slide_8.xaml.cs" t="Include" />
+        <e p="Transitions.xaml" t="Include" />
+        <e p="Transitions.xaml.cs" t="Include" />
+      </e>
+      <e p="StockStateUC.xaml" t="Include" />
+      <e p="StockStateUC.xaml.cs" t="Include" />
+      <e p="Style" t="Include">
+        <e p="ButtonsStyle.xaml" t="Include" />
+        <e p="Color.xaml" t="Include" />
+        <e p="ControlsStyles.xaml" t="Include" />
+        <e p="Font.xaml" t="Include" />
+      </e>
+      <e p="Supplier.xaml" t="Include" />
+      <e p="Supplier.xaml.cs" t="Include" />
+      <e p="SupplierList.xaml" t="Include" />
+      <e p="SupplierList.xaml.cs" t="Include" />
+      <e p="SupplierTile.xaml" t="Include" />
+      <e p="SupplierTile.xaml.cs" t="Include" />
+      <e p="SupplierUC.xaml" t="Include" />
+      <e p="SupplierUC.xaml.cs" t="Include" />
+      <e p="Todo" t="Include">
+        <e p="todo.txt" t="Include" />
+      </e>
+      <e p="UserControls" t="Include">
+        <e p="ToggleControl.xaml" t="Include" />
+        <e p="ToggleControl.xaml.cs" t="Include" />
+      </e>
+      <e p="UserList.xaml" t="Include" />
+      <e p="UserList.xaml.cs" t="Include" />
+      <e p="UserListUC.xaml" t="Include" />
+      <e p="UserListUC.xaml.cs" t="Include" />
+      <e p="UserTile.xaml" t="Include" />
+      <e p="UserTile.xaml.cs" t="Include" />
+      <e p="Vente.xaml" t="Include" />
+      <e p="Vente.xaml.cs" t="Include" />
+      <e p="VenteACredit.xaml" t="Include" />
+      <e p="VenteACredit.xaml.cs" t="Include" />
+      <e p="VenteCreditListe.xaml" t="Include" />
+      <e p="VenteCreditListe.xaml.cs" t="Include" />
+      <e p="VenteCreditListeUC.xaml" t="Include" />
+      <e p="VenteCreditListeUC.xaml.cs" t="Include" />
+      <e p="VenteCreditUC.xaml" t="Include" />
+      <e p="VenteCreditUC.xaml.cs" t="Include" />
+      <e p="VenteListeUC.xaml" t="Include" />
+      <e p="VenteListeUC.xaml.cs" t="Include" />
+      <e p="VenteUC.xaml" t="Include" />
+      <e p="VenteUC.xaml.cs" t="Include" />
+    </e>
+    <e p="D:\MSVS\EasyManagerDb" t="IncludeRecursive">
+      <e p="App.config" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="DbManager.cs" t="Include" />
+      <e p="EasyManagerDb.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages.config" t="Include" />
+      <e p="Properties" t="Include">
+        <e p="AssemblyInfo.cs" t="Include" />
+      </e>
+      <e p="Servante.cs" t="Include" />
+    </e>
+    <e p="D:\MSVS\EasyManagerLibrary" t="IncludeRecursive">
+      <e p="AlertQuantityEventArgs.cs" t="Include" />
+      <e p="App.config" t="Include" />
+      <e p="BackupDeviceInfo.cs" t="Include" />
+      <e p="BackupInfo.cs" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="Caisse.cs" t="Include" />
+      <e p="Categorie.cs" t="Include" />
+      <e p="ChartDataPie.cs" t="Include" />
+      <e p="Client.cs" t="Include" />
+      <e p="ClientComparer.cs" t="Include" />
+      <e p="CompanyInfo.cs" t="Include" />
+      <e p="DeleteRef.cs" t="Include" />
+      <e p="DeleteRefComparer.cs" t="Include" />
+      <e p="Discount.cs" t="Include" />
+      <e p="EasyManagerLibrary.csproj" t="IncludeRecursive" />
+      <e p="IAccessControl.cs" t="Include" />
+      <e p="InfoChecker.cs" t="Include" />
+      <e p="Language.cs" t="Include" />
+      <e p="LibelleModule.cs" t="Include" />
+      <e p="LicenceInformation.cs" t="Include" />
+      <e p="Module.cs" t="Include" />
+      <e p="NotificationComparer.cs" t="Include" />
+      <e p="NotificationEventArgs.cs" t="Include" />
+      <e p="Notifications.cs" t="Include" />
+      <e p="NumberToLetter.cs" t="Include" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Office.cs" t="Include" />
+      <e p="Operation.cs" t="Include" />
+      <e p="OperationCaisse.cs" t="Include" />
+      <e p="OperationCaisseComparer.cs" t="Include" />
+      <e p="packages.config" t="Include" />
+      <e p="Personne.cs" t="Include" />
+      <e p="Produit.cs" t="Include" />
+      <e p="ProduitCredit.cs" t="Include" />
+      <e p="ProduitSorti.cs" t="Include" />
+      <e p="ProduitSortiCompairer.cs" t="Include" />
+      <e p="ProduitVendu.cs" t="Include" />
+      <e p="Properties" t="Include">
+        <e p="AssemblyInfo.cs" t="Include" />
+      </e>
+      <e p="QuantiteEdition.cs" t="Include" />
+      <e p="RapportProduit.cs" t="Include" />
+      <e p="Reglement.cs" t="Include" />
+      <e p="Role.cs" t="Include" />
+      <e p="RoleModule.cs" t="Include" />
+      <e p="RoleModuleComparer.cs" t="Include" />
+      <e p="Supplier.cs" t="Include" />
+      <e p="ToCSVFile.cs" t="Include" />
+      <e p="Tva.cs" t="Include" />
+      <e p="UserRole.cs" t="Include" />
+      <e p="Utilisateur.cs" t="Include" />
+      <e p="Vente.cs" t="Include" />
+      <e p="VenteCredit.cs" t="Include" />
+      <e p="VersionInfo.cs" t="Include" />
+    </e>
+    <e p="D:\MSVS\EasyManagerSetup" t="IncludeRecursive">
+      <e p="EasyManagerSetup.vdproj" t="IncludeRecursive" />
+    </e>
+    <e p="D:\MSVS\EasyManagerUnitTest" t="IncludeRecursive">
+      <e p="App.config" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="EasyManagerDb.db" t="Include" />
+      <e p="EasyManagerUnitTest.csproj" t="IncludeRecursive" />
+      <e p="InfoCheckerTest.cs" t="Include" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages.config" t="Include" />
+      <e p="Properties" t="Include">
+        <e p="AssemblyInfo.cs" t="Include" />
+      </e>
+      <e p="x64" t="Include" />
+      <e p="x86" t="Include" />
+    </e>
+    <e p="D:\MSVS\Licence" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="EasyLicence.csproj" t="IncludeRecursive" />
+      <e p="Essaie.cs" t="Include" />
+      <e p="LicenceInfo.cs" t="Include" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Properties" t="Include">
+        <e p="AssemblyInfo.cs" t="Include" />
+      </e>
+    </e>
+    <e p="D:\MSVS\NumberLetterLibrary" t="IncludeRecursive">
+      <e p="Billion.cs" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="Centaine.cs" t="Include" />
+      <e p="Dizaine.cs" t="Include" />
+      <e p="Letter.cs" t="Include" />
+      <e p="Millieme.cs" t="Include" />
+      <e p="Millionnieme.cs" t="Include" />
+      <e p="NumberLetterLibrary.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Properties" t="Include">
+        <e p="AssemblyInfo.cs" t="Include" />
+      </e>
+      <e p="Shared.cs" t="Include" />
+      <e p="Unite.cs" t="Include" />
+    </e>
+  </component>
+</project>

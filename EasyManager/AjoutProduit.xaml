@@ -1,0 +1,48 @@
+﻿<Window x:Class="EasyManager.AjoutProduit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EasyManager"
+        mc:Ignorable="d"
+        xmlns:p = "clr-namespace:EasyManager.Properties"
+        ResizeMode="CanMinimize"
+        Title="{x:Static p:Resources.AddProduct}" Height="430" Width="600">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="{StaticResource ColorOneGTwo}" Offset="0"/>
+            <GradientStop Color="{StaticResource ColorOneGOne}" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <StackPanel>
+        <Label Style="{StaticResource HLabelStyle}" Content="{x:Static p:Resources.AddProduct}"/>
+        <StackPanel Style="{StaticResource StackPanelStyle}">
+            <TextBlock Text="{x:Static p:Resources.AddQuantity}" Style="{StaticResource TextBlockStyle}"/>
+            <ComboBox Grid.Column="0" x:Name="CbCatList" Text="{x:Static p:Resources.Category}" Style="{StaticResource CbStyle3}">
+                <ComboBoxItem Content="Categorie One"/>
+                <ComboBoxItem Content="Categorie Two"/>
+            </ComboBox>
+        </StackPanel>
+
+        <!--Quantite-->
+        <StackPanel Style="{StaticResource StackPanelStyle}">
+            <TextBlock Text="{x:Static p:Resources.AddQuantity}" Style="{StaticResource TextBlockStyle}"/>
+            <TextBox x:Name="txtNom" Style="{StaticResource TextBoxStyle}" />
+        </StackPanel>
+        <!--End Quantite-->
+
+        <!--Prix unitaire-->
+        <StackPanel Style="{StaticResource StackPanelStyle}">
+            <TextBlock Text="{x:Static p:Resources.Price}" Style="{StaticResource TextBlockStyle}"/>
+            <TextBox x:Name="txtprice" Style="{StaticResource TextBoxStyle}" />
+        </StackPanel>
+        <!--End Prix unitaire-->
+
+        <!--Button-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Style="{StaticResource StackPanelStyle2}">
+            <Button x:Name="btnSave" Content="{x:Static p:Resources.BtnSave}" Style="{StaticResource BtnLStyle}"/>
+            <Button x:Name="btnCancel" Content="{x:Static p:Resources.BtnCancel}" Style="{StaticResource BtnRStyle}"/>
+        </StackPanel>
+        <!--End Button-->
+    </StackPanel>
+</Window>

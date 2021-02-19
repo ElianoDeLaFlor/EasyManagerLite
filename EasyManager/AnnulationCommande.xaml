@@ -1,0 +1,75 @@
+﻿<Window x:Class="EasyManager.AnnulationCommande"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EasyManager"
+        mc:Ignorable="d"
+        xmlns:p = "clr-namespace:EasyManager.Properties" 
+        Icon="Logo/LogoB.png" 
+        WindowStartupLocation="CenterScreen"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="{x:Static p:Resources.AnnulationCommand}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{StaticResource Ubuntu}">
+    <StackPanel>
+        <materialDesign:ColorZone Mode="PrimaryDark" Padding="16" CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" Text="{x:Static p:Resources.AnnulationCommand}" Style="{StaticResource TextBlockStyle}" FontSize="35" Foreground="Black"/>
+
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <ProgressBar IsIndeterminate="True" x:Name="progress"/>
+        <StackPanel>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" MinHeight="500">
+                <StackPanel>
+                    <StackPanel>
+                        <!--Prenom-->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <!--Liste vente-->
+                            <ComboBox materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" Grid.Column="0" x:Name="CbventeList" IsEditable="True" SelectedIndex="{Binding Index}" ToolTip="{x:Static p:Resources.NumCommand}" materialDesign:HintAssist.HintOpacity=".26"  Margin="16" FontSize="20"/>
+
+                            <!--End Liste vente-->
+
+
+                        </Grid>
+                        <!--End Prenom-->
+
+                        <!--Facture resume-->
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <ItemsControl ItemsSource="{Binding Path=ProductList}" x:Name="azert">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <local:FactureDetail GetProduct="{Binding}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                        </ScrollViewer>
+                        <!--End Facture resume-->
+                    </StackPanel>
+                    <StackPanel Margin="0 20 0 0">
+                        <StackPanel x:Name="ResumeStack">
+                            <local:VenteResumeUC />
+                        </StackPanel>
+                        <Button  Margin="10 20" Height="40" ToolTip="{x:Static p:Resources.BtnCancel}" x:Name="btncancel" Click="btncancel_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Delete" Width="35" Height="35"/>
+                                <TextBlock Text="{x:Static p:Resources.BtnCancel}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" FontFamily="{StaticResource Ubuntu}"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>
+    </StackPanel>
+</Window>

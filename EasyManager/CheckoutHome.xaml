@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="EasyManager.CheckoutHome"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyManager"
+             xmlns:p = "clr-namespace:EasyManager.Properties"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:Chart="clr-namespace:EasyManager.Charts"
+             xmlns:vm="clr-namespace:EasyManager.MenuItems"
+             mc:Ignorable="d" Loaded="UserControl_Loaded">
+    <UserControl.DataContext>
+        <vm:CaisseHomeViewModel/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <vm:DateValueConverter x:Key="converter"/>
+    </UserControl.Resources>
+    <StackPanel Margin="10">
+        <Grid Margin="0 30 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <materialDesign:Card Margin="5" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="35">
+                <StackPanel>
+                    <Chart:ColumnChart MinHeight="350" MinWidth="400" XTitle="{x:Static p:Resources.Montant}" x:Name="Columnchart"/>
+                </StackPanel>
+            </materialDesign:Card>
+
+            <materialDesign:Card Margin="5" Grid.Column="1" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="35">
+                <StackPanel>
+                    <StackPanel>
+                        <Chart:PieChart MinHeight="350" x:Name="piechart"/>
+                    </StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                    
+                </StackPanel>
+            </materialDesign:Card>
+        </Grid>
+        <StackPanel Orientation="Horizontal" Margin="0 90 0 0" HorizontalAlignment="Center">
+            <!--Date debut-->
+            <StackPanel Orientation="Horizontal" Margin="0 0 30 0">
+                <TextBlock Text="{x:Static p:Resources.DateDebut}" VerticalAlignment="Center" FontSize="24" Margin="0 0 10 0"/>
+                <TextBlock x:Name="txtdatedebut" Text="{Binding DatePicker.Date,Converter={StaticResource converter}}" VerticalAlignment="Center" FontSize="24"/>
+                <Button Margin="8 0 0 0" Content="..." Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" materialDesign:DialogHost.DialogOpenedAttached="CalendarDialogOpenedEventHandler" materialDesign:DialogHost.DialogClosingAttached="CalendarDialogClosingEventHandler">
+                    <Button.CommandParameter>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Calendar x:Name="Calendar" Margin="-1 -4 -1 0" />
+                            <StackPanel Grid.Row="1" Margin="8" HorizontalAlignment="Right" Orientation="Horizontal">
+                                <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandParameter="0"
+            Style="{DynamicResource MaterialDesignFlatButton}" Content="{x:Static p:Resources.BtnCancel}"/>
+
+                                <Button
+            Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+            CommandParameter="1"
+            Style="{DynamicResource MaterialDesignFlatButton}" Content="{x:Static p:Resources.Accept}"/>
+
+                            </StackPanel>
+                        </Grid>
+                    </Button.CommandParameter>
+                </Button>
+            </StackPanel>
+            <!--End Date debut-->
+
+            <!--Date fin-->
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{x:Static p:Resources.DateFin}" VerticalAlignment="Center" FontSize="24" Margin="0 0 10 0"/>
+                <TextBlock x:Name="txtdatefin" Text="{Binding DatePicker.DateF,Converter={StaticResource converter}}" VerticalAlignment="Center" FontSize="24" />
+                <Button Margin="8 0 0 0" Content="..." Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" materialDesign:DialogHost.DialogOpenedAttached="CalendarDialogOpenedEventHandlerF" materialDesign:DialogHost.DialogClosingAttached="CalendarDialogClosingEventHandlerF">
+                    <Button.CommandParameter>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Calendar x:Name="CalendarF" Margin="-1 -4 -1 0" />
+                            <StackPanel Grid.Row="1" Margin="8" HorizontalAlignment="Right" Orientation="Horizontal">
+                                <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandParameter="0"
+            Style="{DynamicResource MaterialDesignFlatButton}" Content="{x:Static p:Resources.BtnCancel}"/>
+
+                                <Button
+            Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+            CommandParameter="1"
+            Style="{DynamicResource MaterialDesignFlatButton}" Content="{x:Static p:Resources.Accept}"/>
+
+                            </StackPanel>
+                        </Grid>
+                    </Button.CommandParameter>
+                </Button>
+            </StackPanel>
+            <!--End Date fin-->
+        </StackPanel>
+    </StackPanel>
+</UserControl>

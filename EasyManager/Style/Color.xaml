@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:EasyManager">
+
+    <Color x:Key="ColorOneGOne">#FFF0EA72</Color>
+    <SolidColorBrush x:Key="ColorOneGOneBrush" Color="{StaticResource ColorOneGOne}"/>
+
+    <Color x:Key="ColorTwoGOne">#FF8B4949</Color>
+    <SolidColorBrush x:Key="ColorTwoGOneBrush" Color="{StaticResource ColorTwoGOne}"/>
+
+    <Color x:Key="ColorOneGTwo">#FF37A85B</Color>
+    <SolidColorBrush x:Key="ColorOneGTwoBrush" Color="{StaticResource ColorOneGTwo}"/>
+
+    <Color x:Key="ColorTwoGTwo">#FF378EA8</Color>
+    <SolidColorBrush x:Key="ColorTwoGTwoBrush" Color="{StaticResource ColorTwoGTwo}"/>
+
+
+
+</ResourceDictionary>

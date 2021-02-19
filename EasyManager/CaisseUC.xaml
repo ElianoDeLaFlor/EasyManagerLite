@@ -1,0 +1,222 @@
+﻿<UserControl x:Class="EasyManager.CaisseUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyManager"
+             xmlns:p = "clr-namespace:EasyManager.Properties"
+             xmlns:Chart="clr-namespace:EasyManager.Charts"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:vm="clr-namespace:EasyManager.MenuItems"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <UserControl.DataContext>
+        <vm:CaisseViewModel/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <vm:DateValueConverter x:Key="converter"/>
+        <vm:MontantFormatter x:Key="CurrencyFormatter"/>
+    </UserControl.Resources>
+    <StackPanel>
+        <StackPanel>
+            <!--#region Date selector-->
+            <Grid Margin="20 60 20 30" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!--Date debut-->
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Text="{x:Static p:Resources.DateDebut}" VerticalAlignment="Center" FontSize="24" Margin="0 0 10 0"/>
+                    <TextBlock x:Name="txtdatedebut" Text="{Binding DatePicker.Date,Converter={StaticResource converter}}" VerticalAlignment="Center" FontSize="24"/>
+                    <Button Margin="8 0 0 0" Content="..." Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" materialDesign:DialogHost.DialogOpenedAttached="CalendarDialogOpenedEventHandler" materialDesign:DialogHost.DialogClosingAttached="CalendarDialogClosingEventHandler">
+                        <Button.CommandParameter>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Calendar x:Name="Calendar" Margin="-1 -4 -1 0" />
+                                <StackPanel Grid.Row="1" Margin="8" HorizontalAlignment="Right" Orientation="Horizontal">
+                                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandParameter="0"
+            Style="{DynamicResource MaterialDesignFlatButton}" Content="{x:Static p:Resources.BtnCancel}"/>
+
+                                    <Button
+            Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+            CommandParameter="1"
+            Style="{DynamicResource MaterialDesignFlatButton}" Content="{x:Static p:Resources.Accept}"/>
+
+                                </StackPanel>
+                            </Grid>
+                        </Button.CommandParameter>
+                    </Button>
+                </StackPanel>
+                <!--End Date debut-->
+
+                <!--Date fin-->
+                <StackPanel Orientation="Horizontal" Grid.Column="1">
+                    <TextBlock Text="{x:Static p:Resources.DateFin}" VerticalAlignment="Center" FontSize="24" Margin="0 0 10 0"/>
+                    <TextBlock x:Name="txtdatefin" Text="{Binding DatePicker.DateF, Converter={StaticResource converter}}" VerticalAlignment="Center" FontSize="24" />
+                    <Button Margin="8 0 0 0" Content="..." Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" materialDesign:DialogHost.DialogOpenedAttached="CalendarDialogOpenedEventHandlerF" materialDesign:DialogHost.DialogClosingAttached="CalendarDialogClosingEventHandlerF">
+                        <Button.CommandParameter>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Calendar x:Name="CalendarF" Margin="-1 -4 -1 0" />
+                                <StackPanel Grid.Row="1" Margin="8" HorizontalAlignment="Right" Orientation="Horizontal">
+                                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandParameter="0"
+            Style="{DynamicResource MaterialDesignFlatButton}" Content="{x:Static p:Resources.BtnCancel}"/>
+
+                                    <Button
+            Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+            CommandParameter="1"
+            Style="{DynamicResource MaterialDesignFlatButton}" Content="{x:Static p:Resources.Accept}"/>
+
+                                </StackPanel>
+                            </Grid>
+                        </Button.CommandParameter>
+                    </Button>
+                </StackPanel>
+                <!--End Date fin-->
+
+                <!--Button Print-->
+                <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.IsSharedSizeScope="True">
+                    <Button ToolTip="{x:Static p:Resources.Print}" x:Name="BtnPrintAll" Click="BtnPrintAll_Click">
+                        <materialDesign:PackIcon Kind="PrinterSettings" Height="18" Width="18"/>
+                    </Button>
+                </StackPanel>
+                <!--End Button Print-->
+
+            </Grid>
+            <!--#endregion-->
+        </StackPanel>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0 40 0 0" x:Name="scroll">
+            <StackPanel Margin="0 0 0 60">
+                <StackPanel Margin="0 0 0 10 ">
+                    <!--#region Graphe-->
+                    <Expander HorizontalAlignment="Stretch" Header="{x:Static p:Resources.Graph}" FontSize="20" FontWeight="Bold">
+                        <Expander.Background>
+                            <LinearGradientBrush EndPoint="0.999,0.06" StartPoint="0.001,0.055">
+                                <GradientStop Color="#FFDED03B" Offset="0"/>
+                                <GradientStop Color="#FF235B70" Offset="1"/>
+                                <GradientStop Color="#FF74CB38" Offset="0.33"/>
+                                <GradientStop Color="#FF5FCBC1" Offset="0.702"/>
+                            </LinearGradientBrush>
+                        </Expander.Background>
+                        <StackPanel Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}" Margin="24,8,24,16">
+                            <StackPanel>
+                                <Chart:Doughnutchart x:Name="piechart" Height="600" Raduis="100"/>
+                            </StackPanel>
+
+                        </StackPanel>
+                    </Expander>
+                    <!--#endregion-->
+
+                    <!--#region Sortie-->
+                    <Expander HorizontalAlignment="Stretch" Header="{x:Static p:Resources.Sortie}" Margin="0 20 0 0">
+                        <Expander.Background>
+                            <LinearGradientBrush EndPoint="0.981,0.086" StartPoint="0.026,0.087">
+                                <GradientStop Color="#FFE61616" Offset="0"/>
+                                <GradientStop Color="#FFE0E086" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Expander.Background>
+                        <StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5.5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Orientation="Horizontal"  Grid.Column="0">
+                                    <TextBlock Text="{x:Static p:Resources.Total}" Margin="0 0 30 0" Style="{StaticResource MaterialDesignHeadline2TextBlock}" />
+                                    <TextBlock Text="{Binding SortieTotale,Converter={StaticResource CurrencyFormatter}}" Style="{StaticResource MaterialDesignHeadline4TextBlock}"/>
+
+                                </StackPanel>
+                                <Button x:Name="btnprintsortie" ToolTip="{x:Static p:Resources.Print}" Width="50" Grid.Column="1" Margin="0 0 20 0" Click="Btnprintsortie_Click">
+                                    <materialDesign:PackIcon Kind="PrinterSettings" Height="18" Width="18"/>
+                                </Button>
+                            </Grid>
+
+                            <StackPanel x:Name="PnlSortie">
+
+                            </StackPanel>
+                        </StackPanel>
+                    </Expander>
+                    <!--#endregion-->
+
+                    <!--#region Entree-->
+                    <Expander HorizontalAlignment="Stretch" Header="{x:Static p:Resources.Entree}" Background="LightGreen" Margin="0 20 0 0">
+                        <StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5.5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{x:Static p:Resources.Total}" Margin="0 0 30 0" Style="{StaticResource MaterialDesignHeadline2TextBlock}"/>
+                                    <TextBlock Text="{Binding EntreTotale,Converter={StaticResource CurrencyFormatter}}" Style="{StaticResource MaterialDesignHeadline4TextBlock}"/>
+                                </StackPanel>
+                                <Button x:Name="btnprintentree" ToolTip="{x:Static p:Resources.Print}" Width="50" Grid.Column="1" Margin="0 0 20 0" Click="Btnprintentree_Click">
+                                    <materialDesign:PackIcon Kind="PrinterSettings" Height="18" Width="18"/>
+                                </Button>
+                            </Grid>
+
+                            <StackPanel x:Name="PnlEntree">
+
+                            </StackPanel>
+                        </StackPanel>
+                    </Expander>
+                    <!--#endregion-->
+
+                    <!--#region Vente-->
+                    <Expander HorizontalAlignment="Stretch" Header="{x:Static p:Resources.ModuleVente}" Background="DarkSeaGreen" Margin="0 20 0 0">
+                        <StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5.5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{x:Static p:Resources.Total}" Margin="0 0 30 0" Style="{StaticResource MaterialDesignHeadline2TextBlock}"/>
+                                    <TextBlock Text="{Binding VenteTotale,Converter={StaticResource CurrencyFormatter}}" Style="{StaticResource MaterialDesignHeadline4TextBlock}"/>
+                                </StackPanel>
+                                <Button x:Name="BtnMore" Click="Btnvente_Click" ToolTip="{x:Static p:Resources.Print}" Width="50" Grid.Column="1" Margin="0 0 20 0">
+                                    <materialDesign:PackIcon Kind="MoreVert" Height="18" Width="18"/>
+                                </Button>
+                            </Grid>
+
+                            <StackPanel x:Name="Pnlvente">
+
+                            </StackPanel>
+                        </StackPanel>
+                    </Expander>
+                    <!--#endregion-->
+
+                    <!--#region Resume-->
+                    <Expander HorizontalAlignment="Stretch" Header="{x:Static p:Resources.Resume}" Background="Green" Margin="0 20 0 0">
+                        <StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5.5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{x:Static p:Resources.SumCheckout}" Margin="0 0 30 0" Style="{StaticResource MaterialDesignHeadline2TextBlock}"/>
+                                    <TextBlock Text="{Binding SommeEnCaisse,Converter={StaticResource CurrencyFormatter}}" Style="{StaticResource MaterialDesignHeadline4TextBlock}"/>
+                                </StackPanel>
+                                
+                            </Grid>
+
+                            <StackPanel x:Name="Pnlresume">
+
+                            </StackPanel>
+                        </StackPanel>
+                    </Expander>
+                    <!--#endregion-->
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </StackPanel>
+</UserControl>

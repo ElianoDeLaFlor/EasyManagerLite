@@ -1,0 +1,2 @@
+# EasyManager
+ Stock Manager

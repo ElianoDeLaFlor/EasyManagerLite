@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="EasyManager.Accueil"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyManager"
+             mc:Ignorable="d" 
+             xmlns:p = "clr-namespace:EasyManager.Properties"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:Chart="clr-namespace:EasyManager.Charts"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}" d:DesignHeight="850" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <StackPanel>
+        <!--Stock state-->
+        <ScrollViewer x:Name="scroll" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden">
+            <StackPanel x:Name="CatStatusPnl" Orientation="Horizontal" Margin="10">
+                
+            </StackPanel>
+        </ScrollViewer>
+
+        <!--End Stock state-->
+
+        <!--Graph-->
+        <StackPanel Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <materialDesign:Card Grid.Column="0" Grid.RowSpan="2" Margin="5" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="35">
+                    <StackPanel>
+                        <TextBlock Margin="0 0 0 40" Text="{x:Static p:Resources.SellStatus}" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="40"/>
+                        <StackPanel>
+                            <Chart:PieChart x:Name="PieChart" Height="420" Width="300"/>
+                        </StackPanel>
+                        <StackPanel Margin="0 55 0 0">
+                            <TextBlock x:Name="LblInfo" Style="{StaticResource TextBlockStyle}"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <ComboBox Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" x:Name="Prod" IsEditable="True" ToolTip="{x:Static p:Resources.ProduitTitle}" materialDesign:HintAssist.HintOpacity=".26" Margin="16 30 16 16" FontSize="20" SelectionChanged="Prod_SelectionChanged" SelectedIndex="0"/>
+
+                                <ComboBox Grid.Column="1" materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" x:Name="NbrJour" IsEditable="True" ToolTip="{x:Static p:Resources.NombreJour}" materialDesign:HintAssist.HintOpacity=".26" Margin="16 30 16 16" FontSize="20" SelectionChanged="NbrJour_SelectionChanged" SelectedIndex="0"/>
+                            </Grid>
+                        </StackPanel>
+                    </StackPanel>
+                    
+                </materialDesign:Card>
+
+                <materialDesign:Card Grid.Column="1" Grid.Row="0" Margin="5" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="15">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.3*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{x:Static p:Resources.CategorySells}" Width="200" Grid.Column="0" VerticalAlignment="Center" FontFamily="Roboto" FontSize="40" TextWrapping="WrapWithOverflow"/>
+                        <Chart:ColumnChart Grid.Column="1" Height="290" Width="300" x:Name="ChartColumn"/>
+                    </Grid>
+                </materialDesign:Card>
+
+                <materialDesign:Card VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1" Margin="5" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="15">
+                    <StackPanel>
+                        <Chart:Doughnutchart Title="{x:Static p:Resources.StockStatus}" x:Name="StockChart" Height="300" Width="500" />
+                        <ComboBox Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" x:Name="ProdName" IsEditable="True" ToolTip="{x:Static p:Resources.ProduitTitle}" materialDesign:HintAssist.HintOpacity=".26" Margin="16 30 16 16" FontSize="20" SelectionChanged="ProdName_SelectionChanged" SelectedIndex="0"/>
+                    </StackPanel>
+                    
+                </materialDesign:Card>
+
+            </Grid>
+        </StackPanel>
+        <!--End Graph-->
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,88 @@
+﻿<Window x:Class="EasyManager.Connexion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EasyManager"
+        xmlns:p="clr-namespace:EasyManager.Properties"
+        mc:Ignorable="d"
+        Icon="Logo/LogoB.png"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="{x:Static p:Resources.ConnexionTitle}" ResizeMode="CanResize" SizeChanged="Window_SizeChanged" Height="430" Width="450" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
+    
+    <materialDesign:DialogHost Identifier="RootDialog">
+        <StackPanel >
+            <materialDesign:ColorZone Mode="PrimaryDark" Padding="16" CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth3"
+  Margin="0">
+                <StackPanel
+    Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock VerticalAlignment="Center"
+      Margin="16 0 0 0" Text="{x:Static p:Resources.ConnexionTitle}" Style="{StaticResource TextBlockStyle}" FontSize="35"/>
+
+                </StackPanel>
+            </materialDesign:ColorZone>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" x:Name="scrollb">
+                <StackPanel>
+                    <StackPanel>
+                        <!--Nom-->
+                        <StackPanel Margin="0 30 0 0" >
+                            <TextBox
+  materialDesign:HintAssist.Hint="{x:Static p:Resources.Login}"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtlogin"/>
+                        </StackPanel>
+                        <!--End Nom-->
+
+                        <!--Mot de passe-->
+                        <StackPanel>
+
+                            <PasswordBox
+  x:Name="txtpasse"
+  materialDesign:HintAssist.Hint="{x:Static p:Resources.Password}"
+  materialDesign:HintAssist.Foreground="{DynamicResource PrimaryHueDarkBrush}"
+  materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryHueDarkBrush}"
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="16" FontSize="20" />
+                        </StackPanel>
+                        <!--End Mot de passe-->
+
+                        <!--Button-->
+                        <StackPanel Margin="0 60 0 0">
+                            <Button Style="{StaticResource MaterialDesignRaisedButton}" Padding="5" Margin="5" FontFamily="{StaticResource UbuntuLight}" FontSize="20" x:Name="btnValidate" Content="{x:Static p:Resources.BtnValidate}" Click="BtnValidate_Click" IsDefault="True" />
+                        </StackPanel>
+                        <!--End Button-->
+                    </StackPanel>
+                    <StackPanel
+  VerticalAlignment="Center">
+                        <Button
+    Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+    Width="128"
+    Margin="0 32 0 0" Name="btnmsgbox" Visibility="Hidden">
+                            <Button.CommandParameter>
+                                <StackPanel
+        Margin="16">
+                                    <Label Name="MsgContent" Content="kqf slfqdsl" FontWeight="Bold"/>
+                                    <Button
+          Style="{StaticResource MaterialDesignFlatButton}"
+          IsCancel="True"
+          Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+          CommandParameter="Sample2Cancel"
+          HorizontalAlignment="Center" Name="btnOk" Content="Ok" />
+
+                                </StackPanel>
+                            </Button.CommandParameter>
+                            PASS MODEL
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+            
+        </StackPanel>
+    </materialDesign:DialogHost>
+</Window>

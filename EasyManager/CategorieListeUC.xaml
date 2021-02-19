@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="EasyManager.CategorieListeUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyManager"
+             mc:Ignorable="d"
+             xmlns:p = "clr-namespace:EasyManager.Properties"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Margin="20 0 0 0" Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.Reaserch}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" FontSize="25" x:Name="TxtSearch"/>
+            <Button Grid.Column="1" x:Name="btnSearch" Style="{StaticResource MaterialDesignIconButton}" ToolTip="{x:Static p:Resources.Reaserch}" HorizontalAlignment="Left" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Click="BtnSearch_Click">
+                <materialDesign:PackIcon Kind="SearchWeb"/>
+            </Button>
+        </Grid>
+        <StackPanel x:Name="CategorieList">
+            
+        </StackPanel>
+    </StackPanel>
+</UserControl>

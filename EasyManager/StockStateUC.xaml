@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="EasyManager.StockStateUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyManager"
+             mc:Ignorable="d" 
+             xmlns:p = "clr-namespace:EasyManager.Properties"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto">
+    <StackPanel Margin="10" Width="250">
+        <materialDesign:Card Background="{Binding Colors}" ToolTip="{Binding Categorie.Description}"  Grid.Column="0" Margin="5" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="10">
+            <StackPanel>
+                <!--Nom-->
+                <TextBlock x:Name="NomCat" Text="{Binding Categorie.Libelle}" FontFamily="Roboto" FontSize="20" Style="{StaticResource TextBlockStyleHeader}"/>
+                <!--End Nom-->
+
+                <!--Status-->
+                <TextBlock x:Name="Status" Text="{Binding Rapport}" Style="{StaticResource LabelStyle}"/>
+                <!--End Status-->
+                
+                <!--Graph-->
+                <ProgressBar Value="{Binding ProgressValue}" materialDesign:TransitionAssist.DisableTransitions="True" Margin="0 5"/>
+                <!--End Graph-->
+                
+                <!--Remaining-->
+                <TextBlock x:Name="Remain" Text="{Binding LeftItem}" Style="{StaticResource LabelStyle}"/>
+                <!--End Remaining-->
+            </StackPanel>
+        </materialDesign:Card>
+    </StackPanel>
+</UserControl>

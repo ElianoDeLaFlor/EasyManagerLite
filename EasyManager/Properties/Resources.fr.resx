@@ -1,0 +1,1232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddProduct" xml:space="preserve">
+    <value>Ajout de produit</value>
+  </data>
+  <data name="AddQuantity" xml:space="preserve">
+    <value>Quantité à ajouter</value>
+  </data>
+  <data name="AlertQuantity" xml:space="preserve">
+    <value>Quantité d'alerte</value>
+  </data>
+  <data name="AtrributionRole" xml:space="preserve">
+    <value>Attribution rôle</value>
+  </data>
+  <data name="BtnAdd" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="BtnCancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="BtnCompte" xml:space="preserve">
+    <value>Compte</value>
+  </data>
+  <data name="BtnCreate" xml:space="preserve">
+    <value>Créer</value>
+  </data>
+  <data name="BtnSave" xml:space="preserve">
+    <value>Enregistrer</value>
+  </data>
+  <data name="BtnValidate" xml:space="preserve">
+    <value>Valider</value>
+  </data>
+  <data name="Cash" xml:space="preserve">
+    <value>Cash</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Categorie</value>
+  </data>
+  <data name="CategoryTitle" xml:space="preserve">
+    <value>Enregistrer une categorie</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Client</value>
+  </data>
+  <data name="ClientTitle" xml:space="preserve">
+    <value>Enregistrement de client</value>
+  </data>
+  <data name="VenteCredit" xml:space="preserve">
+    <value>VenteCredit</value>
+  </data>
+  <data name="VenteCreditTitle" xml:space="preserve">
+    <value>Enregistrer une vente à crédit</value>
+  </data>
+  <data name="CompteTitle" xml:space="preserve">
+    <value>Création de compte</value>
+  </data>
+  <data name="Confirmation" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
+  <data name="ConnexionTitle" xml:space="preserve">
+    <value>Connexion</value>
+  </data>
+  <data name="Credit" xml:space="preserve">
+    <value>Crédit</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Entree" xml:space="preserve">
+    <value>Entrée</value>
+  </data>
+  <data name="Facture" xml:space="preserve">
+    <value>N° Facture</value>
+  </data>
+  <data name="Libelle" xml:space="preserve">
+    <value>Libellé</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Pseudo</value>
+  </data>
+  <data name="MainTitle" xml:space="preserve">
+    <value>EasyManager</value>
+  </data>
+  <data name="MakeOperation" xml:space="preserve">
+    <value>Effectuer une opération</value>
+  </data>
+  <data name="MakeSelection" xml:space="preserve">
+    <value>Selectionnez</value>
+  </data>
+  <data name="Modules" xml:space="preserve">
+    <value>Modules</value>
+  </data>
+  <data name="Montant" xml:space="preserve">
+    <value>Montant</value>
+  </data>
+  <data name="NewCategorie" xml:space="preserve">
+    <value>Nouvelle catégorie</value>
+  </data>
+  <data name="Nom" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="Operation" xml:space="preserve">
+    <value>Opération</value>
+  </data>
+  <data name="OperationType" xml:space="preserve">
+    <value>Type d'opération</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="PayementMode" xml:space="preserve">
+    <value>Mode de paiement</value>
+  </data>
+  <data name="Prenom" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Prix unitaire</value>
+  </data>
+  <data name="ProduitTitle" xml:space="preserve">
+    <value>Produit</value>
+  </data>
+  <data name="ReglementTitle" xml:space="preserve">
+    <value>Règlement</value>
+  </data>
+  <data name="RoleTitle" xml:space="preserve">
+    <value>Rôle</value>
+  </data>
+  <data name="SaveNewProduct" xml:space="preserve">
+    <value>Enregistrer un nouveau produit</value>
+  </data>
+  <data name="SaveOperation" xml:space="preserve">
+    <value>Enregistrer une opération</value>
+  </data>
+  <data name="Selle" xml:space="preserve">
+    <value>Vente</value>
+  </data>
+  <data name="SellQuantity" xml:space="preserve">
+    <value>Quantité vendue</value>
+  </data>
+  <data name="Sortie" xml:space="preserve">
+    <value>Sortie</value>
+  </data>
+  <data name="TotalQuantity" xml:space="preserve">
+    <value>Quantité totale</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Utilisateur</value>
+  </data>
+  <data name="UserRole" xml:space="preserve">
+    <value>Rôle utilisateur</value>
+  </data>
+  <data name="Compte" xml:space="preserve">
+    <value>Compte</value>
+  </data>
+  <data name="ConfirmationError" xml:space="preserve">
+    <value>La confirmation est incorrecte</value>
+  </data>
+  <data name="FieldRequired" xml:space="preserve">
+    <value>Champ requis</value>
+  </data>
+  <data name="InvalidCaracters" xml:space="preserve">
+    <value>Votre saisi est incorrecte</value>
+  </data>
+  <data name="CheckEntre" xml:space="preserve">
+    <value>Vérifiez vos saisis et réessayez s'il vous plaît</value>
+  </data>
+  <data name="EmptyField" xml:space="preserve">
+    <value>Remplissez tous les champs s'il vous plaît !</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Oops! Une erreur est survenue. Réessayez plus tard s'il vous plaît.</value>
+  </data>
+  <data name="LoginExist" xml:space="preserve">
+    <value>Le pseudo existe déjà !</value>
+  </data>
+  <data name="Org" xml:space="preserve">
+    <value>PICSEL</value>
+  </data>
+  <data name="PassError" xml:space="preserve">
+    <value>Le format ou la confirmation est incorrecte (6 caractères minimum et alphanumerique)</value>
+  </data>
+  <data name="Succes" xml:space="preserve">
+    <value>Opération éffectuée avec succès !</value>
+  </data>
+  <data name="UserExist" xml:space="preserve">
+    <value>Cet utilisateur existe déjà !</value>
+  </data>
+  <data name="Exist" xml:space="preserve">
+    <value>Exist déjà !</value>
+  </data>
+  <data name="LblExist" xml:space="preserve">
+    <value>Le libellé exist déjà !</value>
+  </data>
+  <data name="ShortEnter" xml:space="preserve">
+    <value>Votre saisie est trop courte.</value>
+  </data>
+  <data name="CatSelectionError" xml:space="preserve">
+    <value>Selectionnez une catégorie s'il vous plaît !</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="ContactError" xml:space="preserve">
+    <value>Le numero saisi est incorrecte !</value>
+  </data>
+  <data name="EditionQuantite" xml:space="preserve">
+    <value>Approvisionnement</value>
+  </data>
+  <data name="ProductNameExist" xml:space="preserve">
+    <value>Un produit existe déjà avec ce nom !</value>
+  </data>
+  <data name="QuantiteVendu" xml:space="preserve">
+    <value>La quantité vendue</value>
+  </data>
+  <data name="SelectionProduit" xml:space="preserve">
+    <value>Selectionnez un produit</value>
+  </data>
+  <data name="BtnDelete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="ForgetClient" xml:space="preserve">
+    <value>Vous avez oublié de selectionner le client</value>
+  </data>
+  <data name="NumCommand" xml:space="preserve">
+    <value>Numéro de commande</value>
+  </data>
+  <data name="QuantiteManquante" xml:space="preserve">
+    <value>La quantité restante est insuffisante</value>
+  </data>
+  <data name="ModuleList" xml:space="preserve">
+    <value>Catégorie,Client,Compte,Réduction,Produit,Approvisionnement,Vente,Vente à crédit,Liste des catégories,Liste des clients,Liste des utilisateurs,Liste des réductions,Liste des produits,Liste des approvisionnements,Liste des ventes,Liste des ventes à credit,Liste des rôles,Paramètres,Rapport,Fournisseur,Caisse</value>
+  </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="VenteCreditQuantityCheck" xml:space="preserve">
+    <value>La quantité dépasse la quantité vendue</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Tout</value>
+  </data>
+  <data name="ClientList" xml:space="preserve">
+    <value>Liste des clients</value>
+  </data>
+  <data name="LstNum" xml:space="preserve">
+    <value>Numéro</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>Tout selectionner</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="Edition" xml:space="preserve">
+    <value>Editer</value>
+  </data>
+  <data name="EditionClient" xml:space="preserve">
+    <value>Edition Client</value>
+  </data>
+  <data name="Reaserch" xml:space="preserve">
+    <value>Recherche</value>
+  </data>
+  <data name="EmptyResult" xml:space="preserve">
+    <value>Il n'y a pas de résultats corespondants à votre recherche</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filtre</value>
+  </data>
+  <data name="ListCommand" xml:space="preserve">
+    <value>Liste des commandes</value>
+  </data>
+  <data name="ProductCmd" xml:space="preserve">
+    <value>Produit commendé</value>
+  </data>
+  <data name="ListProductCmd" xml:space="preserve">
+    <value>Liste des produits commendés</value>
+  </data>
+  <data name="CmdTimeError" xml:space="preserve">
+    <value>La commande que vous éssayez de supprimer ne date pas de aumoins un mois</value>
+  </data>
+  <data name="NewClient" xml:space="preserve">
+    <value>Nouveau Client</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Imprimé</value>
+  </data>
+  <data name="AllCmdListe" xml:space="preserve">
+    <value>Liste de ventes à credit</value>
+  </data>
+  <data name="AllCmdNonSolde" xml:space="preserve">
+    <value>Liste des ventes à crédit non soldées</value>
+  </data>
+  <data name="AllCmdSolde" xml:space="preserve">
+    <value>Liste des ventes à crédit soldées</value>
+  </data>
+  <data name="DeleteDialog" xml:space="preserve">
+    <value>Vous êtes sûr de vouloir continuer ?</value>
+  </data>
+  <data name="ProductList" xml:space="preserve">
+    <value>Liste des produits</value>
+  </data>
+  <data name="ListVenteCredit" xml:space="preserve">
+    <value>Liste des ventes à credit</value>
+  </data>
+  <data name="LstProduit" xml:space="preserve">
+    <value>Liste des produits</value>
+  </data>
+  <data name="LstProduitCredit" xml:space="preserve">
+    <value>Liste des produits à crédit</value>
+  </data>
+  <data name="LstProduitNonSolde" xml:space="preserve">
+    <value>Liste des produits non soldés</value>
+  </data>
+  <data name="LstProduitSolde" xml:space="preserve">
+    <value>Liste des produits soldés</value>
+  </data>
+  <data name="LblInfoOne" xml:space="preserve">
+    <value>Le graph des ventes de</value>
+  </data>
+  <data name="LblInfoThree" xml:space="preserve">
+    <value>derniers jours</value>
+  </data>
+  <data name="LblInfoTwo" xml:space="preserve">
+    <value>sur les</value>
+  </data>
+  <data name="NombreJour" xml:space="preserve">
+    <value>Nombre de jours</value>
+  </data>
+  <data name="MenuClient" xml:space="preserve">
+    <value>Client</value>
+  </data>
+  <data name="MenuCompte" xml:space="preserve">
+    <value>Compte</value>
+  </data>
+  <data name="MenuConnexion" xml:space="preserve">
+    <value>Connexion</value>
+  </data>
+  <data name="MenuHome" xml:space="preserve">
+    <value>Tableau de bord</value>
+  </data>
+  <data name="MenuListeClient" xml:space="preserve">
+    <value>Liste client</value>
+  </data>
+  <data name="MenuProduit" xml:space="preserve">
+    <value>Produit</value>
+  </data>
+  <data name="MenuProduitListe" xml:space="preserve">
+    <value>Liste produit</value>
+  </data>
+  <data name="MenuVente" xml:space="preserve">
+    <value>Vente</value>
+  </data>
+  <data name="MenuVenteCredit" xml:space="preserve">
+    <value>Vente à credit</value>
+  </data>
+  <data name="MenuVenteCreditliste" xml:space="preserve">
+    <value>Liste vente à credit</value>
+  </data>
+  <data name="WelcomMessage" xml:space="preserve">
+    <value>Bienvenue dans EasyManager</value>
+  </data>
+  <data name="ListeProduitCredit" xml:space="preserve">
+    <value>Liste des produits à credit</value>
+  </data>
+  <data name="FirstTime" xml:space="preserve">
+    <value>Pour une première utilisation vous devez créer un compte administrateur</value>
+  </data>
+  <data name="Module" xml:space="preserve">
+    <value>Module</value>
+  </data>
+  <data name="RoleModuleTitle" xml:space="preserve">
+    <value>Selectionnez les actions que peuvent effectuer les utilisateurs ayant  pour rôle</value>
+  </data>
+  <data name="RoleParametre" xml:space="preserve">
+    <value>Le rôle a été parametré avec succès</value>
+  </data>
+  <data name="RoleParametreErreur" xml:space="preserve">
+    <value>Oops! Une erreure est survenue lors du parametrage du rôle. Voulez-vous réessayez ?</value>
+  </data>
+  <data name="ListClient" xml:space="preserve">
+    <value>Liste des clients</value>
+  </data>
+  <data name="SelectRole" xml:space="preserve">
+    <value>Selectionnez le rôle s'il vous plaît.</value>
+  </data>
+  <data name="ListeClientAvecdette" xml:space="preserve">
+    <value>Liste des clients avec dette</value>
+  </data>
+  <data name="ListeClientSansDette" xml:space="preserve">
+    <value>Liste des clients sans dette</value>
+  </data>
+  <data name="ClientEdit" xml:space="preserve">
+    <value>Edition de client</value>
+  </data>
+  <data name="DeleteNotification" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir éffectuer la suppression ?</value>
+  </data>
+  <data name="ListeAchatClient" xml:space="preserve">
+    <value>Liste des achats du client</value>
+  </data>
+  <data name="WrongCredential" xml:space="preserve">
+    <value>Le pseudo ou le mot de passe est incorrecte</value>
+  </data>
+  <data name="DateDebut" xml:space="preserve">
+    <value>Date de début</value>
+  </data>
+  <data name="DateFin" xml:space="preserve">
+    <value>Date de fin</value>
+  </data>
+  <data name="NomProduit" xml:space="preserve">
+    <value>Nom du produit</value>
+  </data>
+  <data name="Taux" xml:space="preserve">
+    <value>Taux de réduction</value>
+  </data>
+  <data name="Discount" xml:space="preserve">
+    <value>Réduction</value>
+  </data>
+  <data name="DiscountEdit" xml:space="preserve">
+    <value>Edition de réduction</value>
+  </data>
+  <data name="DiscountList" xml:space="preserve">
+    <value>Liste des réductions</value>
+  </data>
+  <data name="TauxApplicable" xml:space="preserve">
+    <value>Appliquer aux ventes à crédit</value>
+  </data>
+  <data name="TauxCancel" xml:space="preserve">
+    <value>Indique si la réduction a expiré ou est annulée. Oui = Expiré/Annuler Non=En cours</value>
+  </data>
+  <data name="TauxCritere" xml:space="preserve">
+    <value>Selectionnez un critère pour la réduction</value>
+  </data>
+  <data name="TauxError" xml:space="preserve">
+    <value>Le tau de réduction est invalide</value>
+  </data>
+  <data name="TauxIntervalError" xml:space="preserve">
+    <value>L'intervale entre la date de début et la date de fin est incorrecte</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>jour(s). Voulez-vous le changer maintenant ?</value>
+  </data>
+  <data name="PassExpire" xml:space="preserve">
+    <value>Votre mot de passe a expiré. Voulez-vous le changer maintenant ?</value>
+  </data>
+  <data name="PassExpireSoon" xml:space="preserve">
+    <value>Votre mot de passe expire dans</value>
+  </data>
+  <data name="NewPass" xml:space="preserve">
+    <value>Nouveau mot de passe</value>
+  </data>
+  <data name="OldPass" xml:space="preserve">
+    <value>Ancien mot de passe</value>
+  </data>
+  <data name="PassChangeTitle" xml:space="preserve">
+    <value>Changement de mot de passe</value>
+  </data>
+  <data name="PasswordIncorrect" xml:space="preserve">
+    <value>Le mot de passe est incorrecte</value>
+  </data>
+  <data name="RoleList" xml:space="preserve">
+    <value>Administrator,Storekeeper</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Se déconnecter</value>
+  </data>
+  <data name="ModuleCategorie" xml:space="preserve">
+    <value>Catégorie</value>
+  </data>
+  <data name="ModuleClient" xml:space="preserve">
+    <value>Client</value>
+  </data>
+  <data name="ModuleCompte" xml:space="preserve">
+    <value>Compte</value>
+  </data>
+  <data name="ModuleDiscount" xml:space="preserve">
+    <value>Réduction</value>
+  </data>
+  <data name="ModuleDiscountList" xml:space="preserve">
+    <value>Liste des réductions</value>
+  </data>
+  <data name="ModuleEditonQuantite" xml:space="preserve">
+    <value>Approvisionnement</value>
+  </data>
+  <data name="ModuleListClient" xml:space="preserve">
+    <value>Liste des clients</value>
+  </data>
+  <data name="ModuleListeProduits" xml:space="preserve">
+    <value>Liste des produits</value>
+  </data>
+  <data name="ModuleListeVente" xml:space="preserve">
+    <value>Liste des ventes</value>
+  </data>
+  <data name="ModuleListeVenteCredit" xml:space="preserve">
+    <value>Liste des ventes à credit</value>
+  </data>
+  <data name="ModuleProduit" xml:space="preserve">
+    <value>Produit</value>
+  </data>
+  <data name="ModuleRoleModule" xml:space="preserve">
+    <value>Attribution de rôles</value>
+  </data>
+  <data name="ModuleVenteCredit" xml:space="preserve">
+    <value>Vente à crédit</value>
+  </data>
+  <data name="AlreadyConnected" xml:space="preserve">
+    <value>Vous êtes déja connecté</value>
+  </data>
+  <data name="SellStatus" xml:space="preserve">
+    <value>Etat des ventes</value>
+  </data>
+  <data name="StockStatus" xml:space="preserve">
+    <value>Etat des stocks</value>
+  </data>
+  <data name="ModuleVente" xml:space="preserve">
+    <value>Vente</value>
+  </data>
+  <data name="ModuleListeCategorie" xml:space="preserve">
+    <value>Liste des catégories</value>
+  </data>
+  <data name="ModuleListeRole" xml:space="preserve">
+    <value>Liste des rôles</value>
+  </data>
+  <data name="ModuleListeUtilisateur" xml:space="preserve">
+    <value>Liste des utilisateurs</value>
+  </data>
+  <data name="ModuleRole" xml:space="preserve">
+    <value>Rôle</value>
+  </data>
+  <data name="MontantRestant" xml:space="preserve">
+    <value>Montant restant</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Numéro</value>
+  </data>
+  <data name="Soldee" xml:space="preserve">
+    <value>Soldée</value>
+  </data>
+  <data name="LeftQuantity" xml:space="preserve">
+    <value>Quantité restante</value>
+  </data>
+  <data name="EmptyDataBase" xml:space="preserve">
+    <value>La base de données est vide</value>
+  </data>
+  <data name="ListProduitVendu" xml:space="preserve">
+    <value>Liste des produits vendus</value>
+  </data>
+  <data name="NumVente" xml:space="preserve">
+    <value>N° Vente</value>
+  </data>
+  <data name="NumVenteCredit" xml:space="preserve">
+    <value>N° VenteCredit</value>
+  </data>
+  <data name="Applicable" xml:space="preserve">
+    <value>Appliquer</value>
+  </data>
+  <data name="CancelActive" xml:space="preserve">
+    <value>Etat</value>
+  </data>
+  <data name="Canceled" xml:space="preserve">
+    <value>Annulé</value>
+  </data>
+  <data name="EditDiscount" xml:space="preserve">
+    <value>Edition d'une réduction</value>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>En cours</value>
+  </data>
+  <data name="VenteACredit" xml:space="preserve">
+    <value>Vente à crédit</value>
+  </data>
+  <data name="Selled" xml:space="preserve">
+    <value>Vendu</value>
+  </data>
+  <data name="RoleExist" xml:space="preserve">
+    <value>Ce rôle existe déjà !</value>
+  </data>
+  <data name="CategorySells" xml:space="preserve">
+    <value>Vente par catégoie</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="Designation" xml:space="preserve">
+    <value>Désig.</value>
+  </data>
+  <data name="PrintBill" xml:space="preserve">
+    <value>Imprimer le reçu</value>
+  </data>
+  <data name="Quantite" xml:space="preserve">
+    <value>Quantité</value>
+  </data>
+  <data name="Arrete" xml:space="preserve">
+    <value>Arrêté la présente Facture à la somme de</value>
+  </data>
+  <data name="FactureDU" xml:space="preserve">
+    <value>Du</value>
+  </data>
+  <data name="FactureNO" xml:space="preserve">
+    <value>N°</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="TypeFacture" xml:space="preserve">
+    <value>Facture</value>
+  </data>
+  <data name="WordNotInstalled" xml:space="preserve">
+    <value>Microsoft word n'est pas installé sur vortre machine</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Ouvrir</value>
+  </data>
+  <data name="OpenFile" xml:space="preserve">
+    <value>Ouvrir un fichier</value>
+    <comment>Open file dialog window title</comment>
+  </data>
+  <data name="ShowDocument" xml:space="preserve">
+    <value>Visionneuse de document</value>
+  </data>
+  <data name="TypeCommande" xml:space="preserve">
+    <value>Commande</value>
+  </data>
+  <data name="ArreteCmd" xml:space="preserve">
+    <value>Arrêté la présente Commande à la somme de</value>
+  </data>
+  <data name="Rembourssement" xml:space="preserve">
+    <value>Rembourssement de la commande N°:</value>
+  </data>
+  <data name="ResteAPayer" xml:space="preserve">
+    <value>Reste à payer</value>
+  </data>
+  <data name="At" xml:space="preserve">
+    <value>à</value>
+  </data>
+  <data name="Au" xml:space="preserve">
+    <value>au</value>
+  </data>
+  <data name="CommandeClient" xml:space="preserve">
+    <value>Client/Commande</value>
+  </data>
+  <data name="Liste" xml:space="preserve">
+    <value>Liste</value>
+  </data>
+  <data name="Solde" xml:space="preserve">
+    <value>Soldé</value>
+  </data>
+  <data name="CanceledDiscountList" xml:space="preserve">
+    <value>Liste des réductions annulées</value>
+  </data>
+  <data name="DiscountApplyedToCredit" xml:space="preserve">
+    <value>Liste des réductions appliquées aux crédits</value>
+  </data>
+  <data name="WorkingDiscountList" xml:space="preserve">
+    <value>Liste des réductions en cours</value>
+  </data>
+  <data name="DiscountFolder" xml:space="preserve">
+    <value>Reduction</value>
+  </data>
+  <data name="ApplyTVA" xml:space="preserve">
+    <value>Appliquer la TVA</value>
+  </data>
+  <data name="HT" xml:space="preserve">
+    <value>Total HT</value>
+  </data>
+  <data name="TTC" xml:space="preserve">
+    <value>Total TTC</value>
+  </data>
+  <data name="TVA" xml:space="preserve">
+    <value>TVA</value>
+  </data>
+  <data name="MontantTotalCredit" xml:space="preserve">
+    <value>Montant total crédit</value>
+  </data>
+  <data name="CompagnyInfoHint" xml:space="preserve">
+    <value>Ces informations sont utilisées pour remplir l'entête des factures</value>
+  </data>
+  <data name="CompanyInfo" xml:space="preserve">
+    <value>Informations  Entreprise</value>
+  </data>
+  <data name="EmailAdress" xml:space="preserve">
+    <value>Addresse e-mail</value>
+  </data>
+  <data name="Setting" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="TauxTva" xml:space="preserve">
+    <value>Taux (%)</value>
+  </data>
+  <data name="EmailError" xml:space="preserve">
+    <value>L'adresse e-mail est incorrecte</value>
+  </data>
+  <data name="Reglement" xml:space="preserve">
+    <value>Règlement</value>
+  </data>
+  <data name="RegSelectionError" xml:space="preserve">
+    <value>Vous avez omis de selectionner la vente à credit</value>
+  </data>
+  <data name="QuantiteNotification" xml:space="preserve">
+    <value>Le stock est presque épuisé</value>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="EmptyList" xml:space="preserve">
+    <value>Liste vide</value>
+  </data>
+  <data name="Approvisionnement" xml:space="preserve">
+    <value>Approvisionnement</value>
+  </data>
+  <data name="ApprovisionnementNotif" xml:space="preserve">
+    <value>Approvisionnement éffectué avec succès</value>
+  </data>
+  <data name="EmptyStock" xml:space="preserve">
+    <value>Le stock est au plus bas niveau</value>
+  </data>
+  <data name="CanAccess" xml:space="preserve">
+    <value>Désolé, vous n'êtes pas authorisé a éffectué cette action</value>
+  </data>
+  <data name="ModuleSettings" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="ModuleEditonQuantiteListe" xml:space="preserve">
+    <value>Liste des approvisionnements</value>
+  </data>
+  <data name="ShowText" xml:space="preserve">
+    <value>Afficher le text</value>
+  </data>
+  <data name="Reste" xml:space="preserve">
+    <value>Reste</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Logo_250X250" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo EasyManager4_4 - Copy~1.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo EasyManager4_4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Acceuil</value>
+  </data>
+  <data name="ChangeEffet" xml:space="preserve">
+    <value>Le changement prend éffet lors de la prochaine connection</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Changer de mot de passe</value>
+  </data>
+  <data name="LoginIncorrect" xml:space="preserve">
+    <value>Ce pseudo n'existe pas</value>
+  </data>
+  <data name="OldPassEqualNewPass" xml:space="preserve">
+    <value>Vous ne pouvez pas utiliser votre ancien mot de passe</value>
+  </data>
+  <data name="PassReset" xml:space="preserve">
+    <value>Mot de passe oublier</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Réinitilisation</value>
+  </data>
+  <data name="CatCannotBeDeleted" xml:space="preserve">
+    <value>La catégorie ne peut pas être supprimée. Elle contient des produits</value>
+  </data>
+  <data name="DeleteError" xml:space="preserve">
+    <value>Nous n'avons pas pû éffectuer la suppression.</value>
+  </data>
+  <data name="Graph" xml:space="preserve">
+    <value>Graphique</value>
+  </data>
+  <data name="Rapport" xml:space="preserve">
+    <value>Rapport</value>
+  </data>
+  <data name="RapportActivite" xml:space="preserve">
+    <value>Rapport des activités</value>
+  </data>
+  <data name="NewSupplier" xml:space="preserve">
+    <value>Nouveau fournisseur</value>
+  </data>
+  <data name="Supplier" xml:space="preserve">
+    <value>Fournisseur</value>
+  </data>
+  <data name="SupplierExist" xml:space="preserve">
+    <value>Ce fournisseur existe déjà</value>
+  </data>
+  <data name="PayedQuanity" xml:space="preserve">
+    <value>Quantité credit payé</value>
+  </data>
+  <data name="PayedQuanityCost" xml:space="preserve">
+    <value>Somme total des crédits payés</value>
+  </data>
+  <data name="CreditSellQuantity" xml:space="preserve">
+    <value>Quantité totale vendue à credit</value>
+  </data>
+  <data name="CreditSellTotalCost" xml:space="preserve">
+    <value>Somme totale des crédits</value>
+  </data>
+  <data name="Activate" xml:space="preserve">
+    <value>Activer</value>
+  </data>
+  <data name="ActivationEnd" xml:space="preserve">
+    <value>Votre activation prend fin le</value>
+  </data>
+  <data name="ActivationStatus" xml:space="preserve">
+    <value>Statut d'activation :</value>
+  </data>
+  <data name="LeftDays" xml:space="preserve">
+    <value>Jours restants</value>
+  </data>
+  <data name="AreYouSureToContinue" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir continuer ?</value>
+  </data>
+  <data name="ActivateTryInfo" xml:space="preserve">
+    <value>Vous avez 30 jours pour éssayer EasyManager !</value>
+  </data>
+  <data name="AppNotActivate" xml:space="preserve">
+    <value>Nous avons du mal à vérifier votre licence !</value>
+  </data>
+  <data name="BtnActivate" xml:space="preserve">
+    <value>Activer ou Ettendre la licence</value>
+  </data>
+  <data name="BtnTry" xml:space="preserve">
+    <value>Essaie</value>
+  </data>
+  <data name="LicenceEnd" xml:space="preserve">
+    <value>Votre activation prend fin le :</value>
+  </data>
+  <data name="NoLicence" xml:space="preserve">
+    <value>Pas de licence</value>
+  </data>
+  <data name="Restart" xml:space="preserve">
+    <value>EasyManager va redémarrer!</value>
+  </data>
+  <data name="Try" xml:space="preserve">
+    <value>Essayer EasyManager</value>
+  </data>
+  <data name="Activated" xml:space="preserve">
+    <value>Activer</value>
+  </data>
+  <data name="Activation" xml:space="preserve">
+    <value>Activation</value>
+  </data>
+  <data name="ActivationExpire" xml:space="preserve">
+    <value>Votre activation a pris fin le</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>jour(s)</value>
+  </data>
+  <data name="IsTryVersion" xml:space="preserve">
+    <value>Version d'éssaie</value>
+  </data>
+  <data name="TryExpired" xml:space="preserve">
+    <value>Essaie expiré</value>
+  </data>
+  <data name="ActivationCode" xml:space="preserve">
+    <value>Code d'activation</value>
+  </data>
+  <data name="ActivationCodeInvalid" xml:space="preserve">
+    <value>Le code d'activation est invalide</value>
+  </data>
+  <data name="CheckCode" xml:space="preserve">
+    <value>Vérifiez le code que vous avez entré s'il vous plaît.</value>
+  </data>
+  <data name="ActivationError" xml:space="preserve">
+    <value>Oops! Nous avons du mal a activé votre application. Redémarrez l'application et réessayez.</value>
+  </data>
+  <data name="ActivationSuccess" xml:space="preserve">
+    <value>Votre application a été activé avec succès !</value>
+  </data>
+  <data name="ActivationExpired" xml:space="preserve">
+    <value>Votre activation a pris fin</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Durée (en mois)</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>Date d'expiration</value>
+  </data>
+  <data name="LicenceMoreInfo" xml:space="preserve">
+    <value>Informations supplémentaires</value>
+  </data>
+  <data name="PaymentDate" xml:space="preserve">
+    <value>Date de paiement</value>
+  </data>
+  <data name="PaymentMode" xml:space="preserve">
+    <value>Mode de paiement</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Date d'activation</value>
+  </data>
+  <data name="SupplierInfo" xml:space="preserve">
+    <value>Informations fournisseur</value>
+  </data>
+  <data name="SlideFive" xml:space="preserve">
+    <value>Gérez votre clientèle à l'instar d'un Pro.</value>
+  </data>
+  <data name="SlideFour" xml:space="preserve">
+    <value>Ayez un visuel sur l'évolution de votre activité.</value>
+  </data>
+  <data name="SlideOne" xml:space="preserve">
+    <value>Quelle que soit la taille de votre activité EasyManager vous aide à le gérer.</value>
+  </data>
+  <data name="SlideSix" xml:space="preserve">
+    <value>Bientôt disponible en ligne!</value>
+  </data>
+  <data name="SlideThree" xml:space="preserve">
+    <value>Soyez maître de votre finance grâce à EasyManager.</value>
+  </data>
+  <data name="SlideTwo" xml:space="preserve">
+    <value>Avec EasyManager, soyez à l'abris des ruptures de stock suprise.</value>
+  </data>
+  <data name="ActivationEntredExpire" xml:space="preserve">
+    <value>Le code d'activation saisi a expiré</value>
+  </data>
+  <data name="RoleCanNotBeDeleted" xml:space="preserve">
+    <value>Ce role ne peut pas être supprimé. Il est attribué à des utilisateurs.</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="ModuleFournisseur" xml:space="preserve">
+    <value>Fournisseur</value>
+  </data>
+  <data name="ModuleRapport" xml:space="preserve">
+    <value>Rapport</value>
+  </data>
+  <data name="UserIsConnected" xml:space="preserve">
+    <value>Vous ne pouvez pas supprimer cet utilisateur. Il est l'utilisateur connecté.</value>
+  </data>
+  <data name="CodeUsed" xml:space="preserve">
+    <value>Le code d'activation est déjà utilisé</value>
+  </data>
+  <data name="AccountDeleted" xml:space="preserve">
+    <value>Ce compte a été supprimé</value>
+  </data>
+  <data name="AddCheckOutOperation" xml:space="preserve">
+    <value>Ajouter une opération de caisse</value>
+  </data>
+  <data name="AddOperation" xml:space="preserve">
+    <value>Ajouter une opération</value>
+  </data>
+  <data name="Checkout" xml:space="preserve">
+    <value>Caisse</value>
+  </data>
+  <data name="CheckOutOperations" xml:space="preserve">
+    <value>Liste des opérations de caisse</value>
+  </data>
+  <data name="GestionCaisse" xml:space="preserve">
+    <value>Gestion de caisse</value>
+  </data>
+  <data name="Operations" xml:space="preserve">
+    <value>Liste des opérations</value>
+  </data>
+  <data name="OperationExist" xml:space="preserve">
+    <value>Le type d'opération existe déjà !</value>
+  </data>
+  <data name="AmountError" xml:space="preserve">
+    <value>Entrez un montant valide s'il vous plaît </value>
+  </data>
+  <data name="OpCannotBeDeleted" xml:space="preserve">
+    <value>Le type d'opération contient des opérations de caisses, et ne peut être supprimé</value>
+  </data>
+  <data name="DeleteTime" xml:space="preserve">
+    <value>L'élément que vous assayez de supprimer ne date pas d'au moins 1 mois</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>Résumé</value>
+  </data>
+  <data name="Expenses" xml:space="preserve">
+    <value>Dépenses</value>
+  </data>
+  <data name="Incomings" xml:space="preserve">
+    <value>Recettes</value>
+  </data>
+  <data name="SumCheckout" xml:space="preserve">
+    <value>Somme dans la caisse</value>
+  </data>
+  <data name="CheckoutOperation" xml:space="preserve">
+    <value>Opération de caisse</value>
+  </data>
+  <data name="CheckoutOperationPrint" xml:space="preserve">
+    <value>OperationCaisse</value>
+  </data>
+  <data name="PrintEntree" xml:space="preserve">
+    <value>Liste des opérations d'entrée en caisse</value>
+  </data>
+  <data name="PrintSortie" xml:space="preserve">
+    <value>Liste des opérations de sortie en caisse</value>
+  </data>
+  <data name="Enter" xml:space="preserve">
+    <value>Entree</value>
+  </data>
+  <data name="Backup" xml:space="preserve">
+    <value>Sauvegarde</value>
+  </data>
+  <data name="BackupLocation" xml:space="preserve">
+    <value>Chemin du sauvegarde</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>Chemin</value>
+  </data>
+  <data name="BackupInfo" xml:space="preserve">
+    <value>Quand le chemin est spécifié, le back up est automatique</value>
+  </data>
+  <data name="ManuelBackup" xml:space="preserve">
+    <value>Faire une sauvegarde manuelle</value>
+  </data>
+  <data name="Restauration" xml:space="preserve">
+    <value>Restauration des données</value>
+  </data>
+  <data name="LastBackup" xml:space="preserve">
+    <value>Dernière sauvegarde</value>
+  </data>
+  <data name="EditCompte" xml:space="preserve">
+    <value>Editer mon compte</value>
+  </data>
+  <data name="DriveAdded" xml:space="preserve">
+    <value>Périphérique de sauvegarde remis en place</value>
+  </data>
+  <data name="DriveRemoved" xml:space="preserve">
+    <value>Vous venez de retirer le périphérique de sauvegarde</value>
+  </data>
+  <data name="ModuleCaisse" xml:space="preserve">
+    <value>Caisse</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value> A propos</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="ShopIcon" xml:space="preserve">
+    <value>Ici vous choisissez le logo de votre shop qui sera sur la facture</value>
+  </data>
+  <data name="AnnulationVente" xml:space="preserve">
+    <value>Annulation de Vente</value>
+  </data>
+  <data name="WholeSalePrice" xml:space="preserve">
+    <value>Prix grossiste</value>
+  </data>
+  <data name="WholeSaleWarning" xml:space="preserve">
+    <value>Vous avez omis la valeur du prix grossiste. La valeur du prix unitaire sera pris en compte pour les ventes grossistes</value>
+  </data>
+  <data name="AnnulationCommand" xml:space="preserve">
+    <value>Annulation de Commande</value>
+  </data>
+  <data name="ClientType" xml:space="preserve">
+    <value>Catégorie du client</value>
+  </data>
+  <data name="SimpleClient" xml:space="preserve">
+    <value>Client simple</value>
+  </data>
+  <data name="WholeSaleClient" xml:space="preserve">
+    <value>Client grossiste</value>
+  </data>
+  <data name="Consigne" xml:space="preserve">
+    <value>Consigne</value>
+  </data>
+  <data name="ConsigneInfo" xml:space="preserve">
+    <value>Exemple de consigne:Aucun retour de produit après 24 h</value>
+  </data>
+  <data name="AppId" xml:space="preserve">
+    <value>Application Id</value>
+  </data>
+  <data name="AppUserContact" xml:space="preserve">
+    <value>Contact de l'utilisateur de l'application</value>
+  </data>
+  <data name="AppUserEmail" xml:space="preserve">
+    <value>E-mail de l'utilisateur de l'application</value>
+  </data>
+  <data name="AppUserInfo" xml:space="preserve">
+    <value>Informations de l'utilisateur de l'application</value>
+  </data>
+  <data name="AppUserName" xml:space="preserve">
+    <value>Nom de l'utilisateur de l'application</value>
+  </data>
+  <data name="OnlineBackup" xml:space="preserve">
+    <value>Sauvegarde en ligne</value>
+  </data>
+  <data name="OnlineBackupInfo" xml:space="preserve">
+    <value>Quand les informations utilisateur sont fournies, la sauvegarde en ligne est automatique</value>
+  </data>
+  <data name="NoConnection" xml:space="preserve">
+    <value>Oops! Il n'ya pas d'internet. Vérifiez votre connection internet et rééssayez.</value>
+  </data>
+  <data name="ThereIsNoUpdate" xml:space="preserve">
+    <value>Votre application est à jour</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Mise à jour</value>
+  </data>
+  <data name="UpdateInfo" xml:space="preserve">
+    <value>Rechercher une mise à jour</value>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Progression</value>
+  </data>
+  <data name="ThereIsUpdate" xml:space="preserve">
+    <value>Nous avons trouver une mise à jour. Voullez-vous la télécharger maintenant ?</value>
+  </data>
+  <data name="UpdateNotification" xml:space="preserve">
+    <value>Il y a une nouvelle mise à jour disponible</value>
+  </data>
+  <data name="NoBackup" xml:space="preserve">
+    <value>Nous n'avons trouvé aucune sauvegarde</value>
+  </data>
+  <data name="FileCSV" xml:space="preserve">
+    <value>Exporter vers un fichier csv</value>
+  </data>
+</root>
