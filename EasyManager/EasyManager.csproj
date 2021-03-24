@@ -278,6 +278,9 @@
     <Compile Include="FactureDetail.xaml.cs">
       <DependentUpon>FactureDetail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FactureStyleUC.xaml.cs">
+      <DependentUpon>FactureStyleUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GestionDeCaisse.xaml.cs">
       <DependentUpon>GestionDeCaisse.xaml</DependentUpon>
     </Compile>
@@ -292,6 +295,7 @@
     <Compile Include="MenuItems\ClientIdConverter.cs" />
     <Compile Include="MenuItems\DatePickerViewModel.cs" />
     <Compile Include="MenuItems\DateValueConverter.cs" />
+    <Compile Include="MenuItems\FactureStyleViewModel.cs" />
     <Compile Include="MenuItems\GestionCaisseViewModel.cs" />
     <Compile Include="MenuItems\MainWindowViewModel.cs" />
     <Compile Include="MenuItems\MenuContent.cs" />
@@ -640,6 +644,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FactureStyleUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GestionDeCaisse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -943,6 +951,27 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Resource Include="Todo\todo.txt" />
+    <Content Include="FacturesDesign\FactureBlanc.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FacturesDesign\FactureBleue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FacturesDesign\FactureGris.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FacturesDesign\FactureOr.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FacturesDesign\FactureOrange.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FacturesDesign\FactureVerte.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FacturesDesign\FactureViolet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Logo\Coporate.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -963,7 +992,25 @@
     <Content Include="Files\Caisse_Prototype.dotx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Files\Facture.dotx">
+    <Content Include="Files\FactureVert.dotx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\FactureBlanc.dotx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\FactureBleu.dotx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\FactureGris.dotx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\FactureOr.dotx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\FactureOrange.dotx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\FactureViolet.dotx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\Logo EasyManager4_4 - Copy~1.ico" />

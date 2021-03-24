@@ -799,13 +799,37 @@ namespace EasyManager
             office.SommeTtc = SommeTtc;
             office.MontantTotalCredit = Properties.Resources.MontantTotalCredit;
 
-            if (office.GenFactureNew(System.IO.Path.GetFullPath("Files\\Facture.dotx"), SaveLocation))
+            var facturesettings = GetFactureStyle();
+            string facture = "";
+
+            if (facturesettings == null)
+            {
+                // not set
+                facture = "FactureVert";
+            }
+            else
+            {
+                facture = facturesettings.Data;
+            }
+
+            if (office.GenFactureNew(System.IO.Path.GetFullPath("Files\\"+facture+".dotx"), SaveLocation))
             {
                 //PerformClick(btndialogclose);
                 return true;
             }
             else
                 return false;
+        }
+
+        private Settings GetFactureStyle()
+        {
+            var query = "SELECT * FROM  Settings WHERE Name='FactureStyle'";
+            var rslt = DbManager.CustumQuery<Settings>(query);
+
+            if (rslt.Count == 0)
+                return null;
+            else
+                return rslt.FirstOrDefault();
         }
 
         private string GetShopLogo()

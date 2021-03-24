@@ -886,7 +886,7 @@ namespace EasyManagerLibrary
             }
 
             //Nom client
-            Writter(27, $"{Client} {ClientName()}");
+            Writter(27, $"{Client}: {ClientName()}");
             
             decimal disc = 0;
             if(decimal.TryParse(DiscountValue,out disc))

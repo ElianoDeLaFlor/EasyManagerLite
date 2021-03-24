@@ -1229,4 +1229,28 @@
   <data name="FileCSV" xml:space="preserve">
     <value>Export to csv file</value>
   </data>
+  <data name="BillBlue" xml:space="preserve">
+    <value>Invoice in blue color</value>
+  </data>
+  <data name="BillGold" xml:space="preserve">
+    <value>Invoice in gold color</value>
+  </data>
+  <data name="BillGreen" xml:space="preserve">
+    <value>Invoice in green color</value>
+  </data>
+  <data name="BillGrey" xml:space="preserve">
+    <value>Invoice in gray color</value>
+  </data>
+  <data name="BillOrange" xml:space="preserve">
+    <value>Invoice in orange color</value>
+  </data>
+  <data name="BillPurple" xml:space="preserve">
+    <value>Invoice in purple color</value>
+  </data>
+  <data name="BillWhite" xml:space="preserve">
+    <value>Invoice in white color</value>
+  </data>
+  <data name="BillStyles" xml:space="preserve">
+    <value>Invoice styles</value>
+  </data>
 </root>

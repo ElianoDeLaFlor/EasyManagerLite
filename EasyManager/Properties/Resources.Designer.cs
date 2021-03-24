@@ -502,6 +502,78 @@ namespace EasyManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Facture en couleur bleue.
+        /// </summary>
+        public static string BillBlue {
+            get {
+                return ResourceManager.GetString("BillBlue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Facture en couleur or.
+        /// </summary>
+        public static string BillGold {
+            get {
+                return ResourceManager.GetString("BillGold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Facture en couleur verte.
+        /// </summary>
+        public static string BillGreen {
+            get {
+                return ResourceManager.GetString("BillGreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Facture en couleur grise.
+        /// </summary>
+        public static string BillGrey {
+            get {
+                return ResourceManager.GetString("BillGrey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Facture en couleur orange.
+        /// </summary>
+        public static string BillOrange {
+            get {
+                return ResourceManager.GetString("BillOrange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Facture en couleur violette.
+        /// </summary>
+        public static string BillPurple {
+            get {
+                return ResourceManager.GetString("BillPurple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Models de factures.
+        /// </summary>
+        public static string BillStyles {
+            get {
+                return ResourceManager.GetString("BillStyles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Facture en couleur blanche.
+        /// </summary>
+        public static string BillWhite {
+            get {
+                return ResourceManager.GetString("BillWhite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Activer ou Ettendre la licence.
         /// </summary>
         public static string BtnActivate {

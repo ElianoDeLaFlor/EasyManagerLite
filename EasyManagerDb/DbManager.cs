@@ -22,7 +22,7 @@ namespace EasyManagerDb
             // object type
             string TypeName = result.GetType().Name;
 
-            using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+            using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
             {
                 var r = idb.Query<T>($"select * from {TypeName}", new DynamicParameters());
                 return r.ToList();
@@ -37,7 +37,7 @@ namespace EasyManagerDb
             // object type
             string TypeName = result.GetType().Name;
 
-            using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+            using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
             {
                 //SELECT * FROM Notifications ORDER by Date DESC
                 var r = idb.Query<T>($"SELECT * FROM {TypeName} ORDER BY {orderedbycomumn} DESC", new DynamicParameters());
@@ -53,7 +53,7 @@ namespace EasyManagerDb
             // object type
             string TypeName = result.GetType().Name;
 
-            using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+            using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
             {
                 try
                 {
@@ -66,6 +66,7 @@ namespace EasyManagerDb
                 }
             };
 
+
         }
 
         public static List<T> GetByColumnName<T>(string column, string param) where T : class, new()
@@ -74,7 +75,7 @@ namespace EasyManagerDb
             // object type
             string TypeName = result.GetType().Name;
 
-            using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+            using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
             {
                 try
                 {
@@ -95,7 +96,7 @@ namespace EasyManagerDb
             // object type
             string TypeName = result.GetType().Name;
 
-            using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+            using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
             {
                 try
                 {
@@ -110,17 +111,18 @@ namespace EasyManagerDb
 
 
         }
+
         public static List<T> GetDataByDate<T>(string column, string datedebut, string datefin, bool canceled = false) where T : class, new()
         {
             T result = new T();
             // object type
             string TypeName = result.GetType().Name;
 
-            using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+            using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
             {
                 try
                 {
-                    var r = idb.Query<T>($"SELECT * FROM {TypeName} WHERE Canceled='{canceled}' AND {column} BETWEEN '{datedebut}' AND '{datefin}'", new DynamicParameters());
+                    var r = idb.Query<T>($"SELECT * FROM {TypeName} WHERE Canceled={canceled} AND {column} BETWEEN '{datedebut}' AND '{datefin}'", new DynamicParameters());
                     return r.ToList();
                 }
                 catch
@@ -138,7 +140,7 @@ namespace EasyManagerDb
             // object type
             string TypeName = result.GetType().Name;
 
-            using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+            using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
             {
                 try
                 {
@@ -156,7 +158,7 @@ namespace EasyManagerDb
 
         public static List<T> CustumQuery<T>(string query) where T : class, new()
         {
-            using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+            using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
             {
                 try
                 {
@@ -177,7 +179,7 @@ namespace EasyManagerDb
                 // object type
                 string TypeName = result.GetType().Name;
 
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     var r = idb.Query<T>($"select * from {TypeName} WHERE {cln}=NULL", new DynamicParameters());
                 };
@@ -199,7 +201,7 @@ namespace EasyManagerDb
                 // object type
                 string TypeName = result.GetType().Name;
 
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     var r = idb.Query<T>($"SELECT * FROM {TypeName}", new DynamicParameters());
                 };
@@ -221,7 +223,7 @@ namespace EasyManagerDb
                 // object type
                 string TypeName = result.GetType().Name;
                 string query = $"ALTER TABLE {TypeName} ADD COLUMN {cln} {type} DEFAULT {defaultvalue}";
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     try
                     {
@@ -243,7 +245,7 @@ namespace EasyManagerDb
         {
             try
             {
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     try
                     {
@@ -268,7 +270,7 @@ namespace EasyManagerDb
             {
                 //UPDATE
                 string query = $"UPDATE Utilisateur SET Password=\"{newpassword}\",PassDate=\"{newpassdate}\" WHERE Id={id}";
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     var r = idb.Execute(query);
                     return true;
@@ -285,7 +287,7 @@ namespace EasyManagerDb
             try
             {
                 //UPDATE
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     var r = idb.Execute(query);
                     return true;
@@ -303,8 +305,8 @@ namespace EasyManagerDb
             {
                 //UPDATE
                 int k = cancel == true ? 1 : 0;
-                string query = $"UPDATE Discount SET Canceled='{k}' WHERE Id={id}";
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                string query = $"UPDATE Discount SET Canceled={k} WHERE Id={id}";
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     var r = idb.Execute(query);
                     return true;
@@ -318,7 +320,7 @@ namespace EasyManagerDb
 
         public static List<VenteCredit> GetVenteCreditSolde()
         {
-            using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+            using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
             {
                 var r = idb.Query<VenteCredit>($"select * from VenteCredit where MontantRestant= 0", new DynamicParameters());
                 return r.ToList();
@@ -327,7 +329,7 @@ namespace EasyManagerDb
 
         public static List<VenteCredit> GetVenteCreditNonSolde()
         {
-            using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+            using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
             {
                 var r = idb.Query<VenteCredit>($"select * from VenteCredit where MontantRestant> 0", new DynamicParameters());
                 return r.ToList();
@@ -336,7 +338,7 @@ namespace EasyManagerDb
 
         public static List<ProduitVendu> GetAllProductByVente(int VenteId)
         {
-            using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+            using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
             {
                 var r = idb.Query<ProduitVendu>($"select * from ProduitVendu where VenteId={VenteId} ", new DynamicParameters());
                 var lst = r.ToList();
@@ -353,7 +355,7 @@ namespace EasyManagerDb
 
         public static List<ProduitCredit> GetAllProductByCmd(int CmdId)
         {
-            using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+            using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
             {
                 var r = idb.Query<ProduitCredit>($"select * from ProduitCredit where CommandeId={CmdId} ", new DynamicParameters());
                 var lst = r.ToList();
@@ -370,7 +372,7 @@ namespace EasyManagerDb
 
         public static List<ProduitVendu> GetAllProductByVnt(int VenteId)
         {
-            using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+            using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
             {
                 var r = idb.Query<ProduitVendu>($"select * from ProduitVendu where VenteId={VenteId} ", new DynamicParameters());
                 var lst = r.ToList();
@@ -387,7 +389,7 @@ namespace EasyManagerDb
 
         public static List<ProduitCredit> GetProduitCreditSolde(int Cmdid)
         {
-            using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+            using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
             {
                 var r = idb.Query<ProduitCredit>($"select * from ProduitCredit where QuantiteRestante= 0 and CommandeId={Cmdid}", new DynamicParameters());
                 return r.ToList();
@@ -396,7 +398,7 @@ namespace EasyManagerDb
 
         public static List<ProduitCredit> GetProduitCreditNonSolde(int Cmdid)
         {
-            using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+            using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
             {
                 var r = idb.Query<ProduitCredit>($"select * from ProduitCredit where QuantiteRestante> 0 and CommandeId={Cmdid}", new DynamicParameters());
                 return r.ToList();
@@ -405,7 +407,7 @@ namespace EasyManagerDb
 
         public static List<ProduitCredit> GetProduitCredit(int Cmdid)
         {
-            using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+            using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
             {
                 var r = idb.Query<ProduitCredit>($"select * from ProduitCredit where CommandeId={Cmdid}", new DynamicParameters());
                 return r.ToList();
@@ -420,7 +422,7 @@ namespace EasyManagerDb
         /// <returns></returns>
         public static ProduitCredit GetProductByIdCmdId(int CmdId, int ProdId)
         {
-            using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+            using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
             {
                 var r = idb.Query<ProduitCredit>($"select * from ProduitCredit where CommandeId={CmdId} and ProduitId={ProdId} ", new DynamicParameters()).Single();
                 return r;
@@ -428,7 +430,7 @@ namespace EasyManagerDb
         }
         public static Notifications GetNotificationByType(string prodname, bool isappro)
         {
-            using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+            using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
             {
                 try
                 {
@@ -448,7 +450,7 @@ namespace EasyManagerDb
             {
                 //UPDATE Categorie SET Libelle="catone_" WHERE Id='1';
                 string query = $"UPDATE ProduitCredit SET QuantiteRestante={QR} WHERE CommandeId={CmdId} and ProduitId={ProdId} ";
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     var r = idb.Execute(query);
                     return true;
@@ -467,7 +469,7 @@ namespace EasyManagerDb
             {
                 //UPDATE Categorie SET Libelle="catone_" WHERE Id='1';
                 string query = $"UPDATE VenteCredit SET MontantRestant={leftcost} WHERE Id={CmdId}";
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     var r = idb.Execute(query);
                     return true;
@@ -484,7 +486,7 @@ namespace EasyManagerDb
         {
             try
             {
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     var r = idb.Query<Utilisateur>($"SELECT * FROM Utilisateur WHERE Nom='{n}' and Prenom='{l}'", new DynamicParameters()).Single();
                     return r;
@@ -503,7 +505,7 @@ namespace EasyManagerDb
         {
             try
             {
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     var r = idb.Query<Utilisateur>($"SELECT * FROM Utilisateur WHERE Login='{log}'", new DynamicParameters()).Single();
                     return r;
@@ -520,7 +522,7 @@ namespace EasyManagerDb
         {
             try
             {
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     var r = idb.Query<Client>($"SELECT * FROM Client WHERE Nom='{log}'", new DynamicParameters()).Single();
                     return r;
@@ -542,7 +544,7 @@ namespace EasyManagerDb
         {
             try
             {
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     var r = idb.Query<Categorie>($"SELECT * FROM Categorie WHERE Libelle='{lbl}'", new DynamicParameters()).Single();
                     return r;
@@ -559,7 +561,7 @@ namespace EasyManagerDb
         {
             try
             {
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     var r = idb.Query<Produit>($"SELECT * FROM Produit WHERE Nom='{lbl}'", new DynamicParameters()).Single();
                     return r;
@@ -576,7 +578,7 @@ namespace EasyManagerDb
         {
             try
             {
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     var r = idb.Query<Produit>($"SELECT * FROM Produit WHERE Id='{lbl}'", new DynamicParameters()).Single();
                     return r;
@@ -593,7 +595,7 @@ namespace EasyManagerDb
         {
             try
             {
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     var r = idb.Query<Client>($"SELECT * FROM Client WHERE Id='{id}'", new DynamicParameters()).Single();
                     return r;
@@ -610,7 +612,7 @@ namespace EasyManagerDb
         {
             try
             {
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     var r = idb.Query<Vente>($"SELECT * FROM Vente WHERE Id='{id}'", new DynamicParameters()).Single();
                     return r;
@@ -627,12 +629,9 @@ namespace EasyManagerDb
         {
             try
             {
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
-                    //select * from Utilisateur where Deleted='false' and (DATEPART(YYYY,PassDate)=2021 and DATEPART(MM,PassDate)=04 and DATEPART(DD,PassDate)=03);
-                    var dat = Convert.ToDateTime(dt);
-                    string query = $"SELECT * FROM Vente WHERE Canceled='{canceled}' AND (DATEPART(YYYY,Date)={dat.Year} and DATEPART(MM,Date)={dat.Month} and DATEPART(DD,Date)={dat.Day})";
-                    var r = idb.Query<Vente>(query, new DynamicParameters());
+                    var r = idb.Query<Vente>($"SELECT * FROM Vente WHERE Canceled={canceled} AND Date Like '{dt}%'", new DynamicParameters());
                     return r.ToList();
                 };
             }
@@ -646,7 +645,7 @@ namespace EasyManagerDb
         {
             try
             {
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     var r = idb.Query<ProduitVendu>($"SELECT * FROM ProduitVendu WHERE ProduitId={ProdId} AND VenteId={VenteId}", new DynamicParameters());
                     return r.ToList();
@@ -668,7 +667,7 @@ namespace EasyManagerDb
         {
             try
             {
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     var r = idb.Query<Client>($"SELECT * FROM Client WHERE Nom='{nom}' AND Prenom='{prenom}'", new DynamicParameters()).Single();
                     return r;
@@ -691,7 +690,7 @@ namespace EasyManagerDb
                 var properties = result.GetType().GetProperties();
                 Tuple<string, string> tuple = ColNames(properties);
                 string query = $"INSERT INTO {TypeName} ({tuple.Item1}) values ({tuple.Item2})";
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
 
                     idb.Execute(query, t);
@@ -716,7 +715,7 @@ namespace EasyManagerDb
                 var properties = result.GetType().GetProperties();
                 Tuple<string, string> tuple = ColNamesWithId(properties);
                 string query = $"INSERT INTO {TypeName} ({tuple.Item1}) values ({tuple.Item2})";
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
 
                     idb.Execute(query, t);
@@ -740,7 +739,7 @@ namespace EasyManagerDb
                 var properties = cmd.GetType().GetProperties();
                 Tuple<string, string> tuple = ColNames(properties);
                 string query = $"INSERT INTO {TypeName} ({tuple.Item1}) values ({tuple.Item2})";
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
 
                     idb.Execute(query, cmd);
@@ -765,7 +764,7 @@ namespace EasyManagerDb
                 Tuple<string, string> tuple = ColNames(properties);
                 string query = $"INSERT INTO {TypeName} ({tuple.Item1}) values ({tuple.Item2});SELECT last_insert_rowid()";
                 string queryid = $"SELECT last_insert_rowid()";
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     var rslt = idb.Query<int>(query, t);
                     return rslt.First();
@@ -981,7 +980,7 @@ namespace EasyManagerDb
                 var properties = result.GetType().GetProperties();
                 string param = UpdateQuery(properties, t);
                 string query = $"UPDATE {TypeName} SET {param} WHERE Id={id}";
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     idb.Execute(query);
                     return true;
@@ -1005,7 +1004,7 @@ namespace EasyManagerDb
                 var properties = result.GetType().GetProperties();
                 string param = UpdateQuery(properties, t);
                 string query = $"UPDATE {TypeName} SET {param} WHERE Id='{id}'";
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     idb.Execute(query);
                     return true;
@@ -1025,7 +1024,7 @@ namespace EasyManagerDb
                 // object type
                 string TypeName = result.GetType().Name;
                 string query = $"DELETE FROM {TypeName} WHERE Id={id}";
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     idb.Execute(query);
                     return true;
@@ -1041,7 +1040,7 @@ namespace EasyManagerDb
             try
             {
                 string query = $"DELETE FROM Role WHERE Libelle={role}";
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     idb.Execute(query);
                     return true;
@@ -1058,7 +1057,7 @@ namespace EasyManagerDb
             try
             {
                 string query = $"DELETE FROM RoleModule WHERE RoleId={roleid}";
-                using (IDbConnection idb = new SqlConnection(GetConnectionString()))
+                using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
                 {
                     idb.Execute(query);
                     return true;
@@ -1069,8 +1068,6 @@ namespace EasyManagerDb
                 return false;
             }
         }
-
-
         private static string GetConnectionString(string id = "EasyDbContext")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;

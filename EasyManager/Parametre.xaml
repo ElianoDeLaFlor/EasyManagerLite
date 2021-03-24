@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:EasyManager"
         xmlns:l="clr-namespace:EasyManagerLibrary;assembly=EasyManagerLibrary"
         mc:Ignorable="d"
+        xmlns:UControl="clr-namespace:EasyManager.MenuItems"
         xmlns:p="clr-namespace:EasyManager.Properties"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -61,6 +62,47 @@
                             </StackPanel>
                             <!--Button-->
 
+                        </StackPanel>
+                    </Expander>
+                    <!--#endregion-->
+                    <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                    <!--#region Facture models-->
+                    <Expander HorizontalAlignment="Stretch" IsExpanded="False" Header="{x:Static p:Resources.BillStyles}" FontWeight="Bold" x:Name="ExpanderFacture" >
+                        <StackPanel>
+                            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" Width="auto">
+                                <StackPanel Orientation="Horizontal" Margin="10">
+                                    <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Height="auto" VerticalContentAlignment="Top" IsChecked="{Binding FactureBlanc}">
+                                    <local:FactureStyleUC Image="FacturesDesign/FactureBlanc.png" Title="{x:Static p:Resources.BillWhite}"/>
+                                    </RadioButton>
+
+                                    <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Height="auto" VerticalContentAlignment="Top" IsChecked="{Binding FactureBleu}">
+                                        <local:FactureStyleUC Image="FacturesDesign/FactureBleue.png" Title="{x:Static p:Resources.BillBlue}"/>
+                                    </RadioButton>
+
+                                    <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Height="auto" VerticalContentAlignment="Top" IsChecked="{Binding FactureGris}">
+                                        <local:FactureStyleUC Image="FacturesDesign/FactureGris.png" Title="{x:Static p:Resources.BillGrey}"/>
+                                    </RadioButton>
+
+                                    <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Height="auto" VerticalContentAlignment="Top" IsChecked="{Binding FactureOr}">
+                                        <local:FactureStyleUC Image="FacturesDesign/FactureOr.png" Title="{x:Static p:Resources.BillGold}"/>
+                                    </RadioButton>
+
+                                    <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Height="auto" VerticalContentAlignment="Top" IsChecked="{Binding FactureOrange}">
+                                        <local:FactureStyleUC Image="FacturesDesign/FactureOrange.png" Title="{x:Static p:Resources.BillOrange}"/>
+                                    </RadioButton>
+
+                                    <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Height="auto" VerticalContentAlignment="Top" IsChecked="{Binding FactureVert}">
+                                        <local:FactureStyleUC Image="FacturesDesign/FactureVerte.png" Title="{x:Static p:Resources.BillGreen}"/>
+                                    </RadioButton>
+
+                                    <RadioButton Style="{StaticResource MaterialDesignTabRadioButton}" Height="auto" VerticalContentAlignment="Top" IsChecked="{Binding FactureViolet}">
+                                        <local:FactureStyleUC Image="FacturesDesign/FactureViolet.png" Title="{x:Static p:Resources.BillPurple}"/>
+                                    </RadioButton>
+                                </StackPanel>
+                            </ScrollViewer>
+                            <StackPanel Margin="10">
+                                <Button ToolTip="{x:Static p:Resources.BtnSave}" x:Name="SaveBillStyle" Click="SaveBillStyle_Click" Content="{x:Static p:Resources.BtnSave}" Width="200"/>
+                            </StackPanel>
                         </StackPanel>
                     </Expander>
                     <!--#endregion-->

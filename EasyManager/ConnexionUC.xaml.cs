@@ -227,7 +227,7 @@ namespace EasyManager
         private bool IsOkPasseDate(Utilisateur utilisateur)
         {
             //On détermine le jour restant pour que le passe expire
-            var LeftDays = InfoChecker.DateDiff(utilisateur.PassDate, DateTime.Now);
+            var LeftDays = Math.Round(InfoChecker.DateDiff(utilisateur.PassDate, DateTime.Now));
             //Si le jour restant est >0 et <=5 on notifie l'utilisateur
             if (LeftDays > 0 && LeftDays <= 5)
             {

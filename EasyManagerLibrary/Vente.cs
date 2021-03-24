@@ -19,12 +19,19 @@ namespace EasyManagerLibrary
         public int UtilisateurId { get; set; }
         [Ignore]
         public int? ClientId { get; set; }
-        [Name("Taux de réduction")]
+        [Name("Motant de réduction")]
         public decimal ValueDiscount { get; set; }
-        [Name("Annulé")]
-        [BooleanFalseValues("Non")]
-        [BooleanTrueValues("Oui")]
+        
+        [Ignore]
         public bool Canceled { get; set; }
+
+        [Write(false)]
+        [Name("Annulé")]
+        public string CanceledConverter
+        {
+            get => Canceled == true ? "Oui" : "Non";
+        }
+
         [Name("Date d'annulation")]
         [NullValues("Null")]
         public DateTime? CanceledDate { get; set; }

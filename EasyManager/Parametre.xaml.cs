@@ -37,6 +37,61 @@ namespace EasyManager
         private bool _restaureprog;
         private bool _bupprog;
         private bool _usersaveprog;
+
+        private bool _facblanc;
+        private bool _facvert;
+        private bool _facbleu;
+        private bool _facor;
+        private bool _facgris;
+        private bool _facorange;
+        private bool _facviolet;
+
+        public bool FactureViolet
+        {
+            get { return _facviolet; }
+            set { _facviolet = value; OnPropertyChanged(); }
+        }
+
+        public bool FactureOrange
+        {
+            get { return _facorange; }
+            set { _facorange = value; OnPropertyChanged(); }
+        }
+
+        public bool FactureGris
+        {
+            get { return _facgris; }
+            set { _facgris = value; OnPropertyChanged(); }
+        }
+
+        public bool FactureOr
+        {
+            get { return _facor; }
+            set { _facor = value;OnPropertyChanged(); }
+        }
+
+        public bool FactureBleu
+        {
+            get { return _facbleu; }
+            set { _facbleu = value;OnPropertyChanged(); }
+        }
+
+        public bool FactureVert
+        {
+            get { return _facvert; }
+            set { _facvert = value; OnPropertyChanged(); }
+        }
+
+        public bool FactureBlanc
+        {
+            get { return _facblanc; }
+            set 
+            { 
+                _facblanc = value;
+                OnPropertyChanged();
+            }
+        }
+
         public decimal Taux { get; set; }
 
         public bool RestaureProgr 
@@ -214,6 +269,7 @@ namespace EasyManager
                 SetOnlineBackupInfo();
                 SetAppUserInfo();
                 GetShopLogo();
+                SetUsedBill();
             }
         }
 
@@ -1426,6 +1482,136 @@ namespace EasyManager
         {
             return await Task.Run(() => GetOnlineBackupFile(appid,baseurl));
 
+        }
+
+        private bool SaveFactureStyle( string facname)
+        {
+            var rslt = GetFactureStyle();
+            if (rslt == null)
+            {
+                // is the first time
+                //save
+                Settings settings = new Settings();
+                settings.CreationDate = DateTime.UtcNow;
+                settings.Data = facname;
+                settings.Name = "FactureStyle";
+
+                return DbManager.Save(settings);
+            }
+            else
+            {
+                // update
+                var query = $"UPDATE Settings SET Data='{facname}' WHERE Name='FactureStyle'";
+                return DbManager.UpdateCustumQuery(query);
+            }
+            
+
+        }
+
+        private Settings GetFactureStyle()
+        {
+            var query = "SELECT * FROM  Settings WHERE Name='FactureStyle'";
+            var rslt = DbManager.CustumQuery<Settings>(query);
+
+            if (rslt.Count == 0)
+                return null;
+            else
+                return rslt.FirstOrDefault();
+        }
+
+        private void SetUsedBill()
+        {
+            var fac = GetFactureStyle();
+            if (fac == null)
+            {
+                //is not yet set 
+                // set the default one
+                FactureVert = true;
+            }
+            else
+            {
+                switch (fac.Data)
+                {
+                    case "FactureBlanc":
+                        {
+                            FactureBlanc = true;
+                            break;
+                        }
+                    case "FactureBleu":
+                        {
+                            FactureBleu = true;
+                            break;
+                        }
+                    case "FactureOrange":
+                        {
+                            FactureOrange = true;
+                            break;
+                        }
+                    case "FactureViolet":
+                        {
+                            FactureViolet = true;
+                            break;
+                        }
+                    case "FactureGris":
+                        {
+                            FactureGris = true;
+                            break;
+                        }
+                    case "FactureOr":
+                        {
+                            FactureOr = true;
+                            break;
+                        }
+                    default:
+                        {
+                            FactureVert = true;
+                            break;
+
+                        }
+                }
+            }
+        }
+
+        private void SaveBillStyle_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (FactureBlanc)
+                {
+                    SaveFactureStyle("FactureBlanc");
+                }
+                else if (FactureBleu)
+                {
+                    SaveFactureStyle("FactureBleu");
+                }
+                else if (FactureGris)
+                {
+                    SaveFactureStyle("FactureGris");
+                }
+                else if (FactureOr)
+                {
+                    SaveFactureStyle("FactureOr");
+                }
+                else if (FactureOrange)
+                {
+                    SaveFactureStyle("FactureOrange");
+                }
+                else if (FactureViolet)
+                {
+                    SaveFactureStyle("FactureViolet");
+                }
+                else
+                {
+                    SaveFactureStyle("FactureVert");
+                }
+
+                MessageBox.Show(Properties.Resources.Succes, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show(Properties.Resources.Error, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
