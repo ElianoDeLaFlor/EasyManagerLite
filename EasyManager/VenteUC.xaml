@@ -132,7 +132,7 @@
 
                         <!--Client-->
                         <StackPanel Style="{StaticResource StackPanelStyle}">
-                            <ComboBox materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" x:Name="CbClientList" IsEditable="True" ToolTip="{x:Static p:Resources.Client}" ItemsSource="{Binding ListClient}" materialDesign:HintAssist.HelperText="{x:Static p:Resources.Client}" materialDesign:HintAssist.HintOpacity=".26" SelectionChanged="CbClientList_SelectionChanged" Margin="16 30 16 16" FontSize="20"/>
+                            <ComboBox materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" x:Name="CbClientList" IsEditable="True" ToolTip="{x:Static p:Resources.Client}" materialDesign:HintAssist.HelperText="{x:Static p:Resources.Client}" materialDesign:HintAssist.HintOpacity=".26" SelectionChanged="CbClientList_SelectionChanged" Margin="16 30 16 16" FontSize="20" StaysOpenOnEdit="True"/>
                         </StackPanel>
                         <!--End Client-->
 

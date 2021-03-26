@@ -1253,4 +1253,10 @@
   <data name="BillStyles" xml:space="preserve">
     <value>Models de factures</value>
   </data>
+  <data name="SaveFirstCompany" xml:space="preserve">
+    <value>Vous devez d'abord enregistrer les informations dans la première section </value>
+  </data>
+  <data name="InvoiceHeader" xml:space="preserve">
+    <value>Utiliser comme entête des factures</value>
+  </data>
 </root>

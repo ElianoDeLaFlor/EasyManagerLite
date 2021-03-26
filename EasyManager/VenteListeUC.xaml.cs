@@ -623,12 +623,43 @@ namespace EasyManager
         }
         private void GetCompany()
         {
-            var company = DbManager.GetAll<CompanyInfo>();
-            if (company.Count > 0)
-                Company = company[0];
-            else
+            var rslt = GetFactureHeader();
+            if (rslt == null)
+            {
                 Company = null;
+            }
+            else
+            {
+                var company = DbManager.GetAll<CompanyInfo>();
+                if (company.Count > 0)
+                {
+                    if (rslt.Data == "InvoiceOne")
+                    {
+                        Company = company[0];
+                    }
+                    else
+                    {
+                        Company = company[1];
+                    }
+                }
+                else
+                {
+                    Company = null;
+                }
 
+            }
+
+        }
+
+        private Settings GetFactureHeader()
+        {
+            var query = "SELECT * FROM  Settings WHERE Name='Invoice'";
+            var rslt = DbManager.CustumQuery<Settings>(query);
+
+            if (rslt.Count == 0)
+                return null;
+            else
+                return rslt.FirstOrDefault();
         }
 
         private async Task PrintAsync()
@@ -784,8 +815,13 @@ namespace EasyManager
             office.TotalTTC = Properties.Resources.TTC;
             office.DiscountValue = vente.ValueDiscount.ToString();
             office.IsRecall = true;
-            office.LogoPath = GetShopLogo();
             office.IsCommand = IsCommand;
+
+            var rslt = GetFactureHeader();
+            if (rslt == null)
+                office.LogoPath = GetShopLogo();
+            else
+                office.LogoPath = rslt.Data == "InvoiceOne" ? GetShopLogo() : GetShopLogoTwo();
 
             //verifie si la tva doit-être appliquer
             if (Tva != null)
@@ -893,6 +929,33 @@ namespace EasyManager
                 else
                     MessageBox.Show(Properties.Resources.Error, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private string GetShopLogoTwo()
+        {
+            var settings = GetSecondLogo();
+            if (settings == null)
+            {
+                // there is not data in the table
+                // set the default logo
+                return InfoChecker.ShopLogoDefault();
+            }
+            else
+            {
+                //get the last record
+                return InfoChecker.SetShopLogoPath(settings.Data);
+            }
+        }
+
+        private Settings GetSecondLogo()
+        {
+            var query = "SELECT * FROM  Settings WHERE Name='SecondLogo'";
+            var rslt = DbManager.CustumQuery<Settings>(query);
+
+            if (rslt.Count == 0)
+                return null;
+            else
+                return rslt.FirstOrDefault();
         }
     }
 

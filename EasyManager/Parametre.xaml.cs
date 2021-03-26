@@ -45,6 +45,37 @@ namespace EasyManager
         private bool _facgris;
         private bool _facorange;
         private bool _facviolet;
+        private bool _invoiceone;
+        private bool _invoicetwo;
+
+        public bool InvoiceTwo
+        {
+            get { return _invoicetwo; }
+            set 
+            { 
+                _invoicetwo = value;
+                if (value == false)
+                    InvoiceOne = true;
+                else
+                    InvoiceOne = false;
+                OnPropertyChanged("InvoiceTwo");
+            }
+        }
+
+        public bool InvoiceOne
+        {
+            get { return _invoiceone; }
+            set 
+            { 
+                _invoiceone = value;
+                if (value == false)
+                    InvoiceTwo = true;
+                else
+                    InvoiceTwo = false;
+                SaveFactureHeader();
+                OnPropertyChanged("InvoiceOne");
+            }
+        }
 
         public bool FactureViolet
         {
@@ -254,6 +285,14 @@ namespace EasyManager
                     txtcompanyContact.Text = company.Contact;
                     txtcompanyEmail.Text = company.Email;
                     txtconsigne.Text = company.Consigne;
+                    if (lstcompany.Count == 2)
+                    {
+                        var company_ = lstcompany[1];
+                        txtcompanytwoName.Text = company_.Nom;
+                        txtcompanytwoContact.Text = company_.Contact;
+                        txtcompanytwoEmail.Text = company_.Email;
+                        txtconsignetwo.Text = company_.Consigne;
+                    }
                 }
 
                 FilledDropDown();
@@ -270,6 +309,8 @@ namespace EasyManager
                 SetAppUserInfo();
                 GetShopLogo();
                 SetUsedBill();
+                GetShopLogoTwo();
+                SetUsedInvoice();
             }
         }
 
@@ -307,6 +348,23 @@ namespace EasyManager
                 //get the last record
                 var logo = logos.LastOrDefault();
                 reclogo.Source = new BitmapImage(new Uri(InfoChecker.SetShopLogoPath(logo.Name)));
+            }
+        }
+
+        private void GetShopLogoTwo()
+        {
+            List<ShopLogo> logos = DbManager.GetAll<ShopLogo>();
+            var settings = GetSecondLogo();
+            if (settings == null)
+            {
+                // there is not data in the table
+                // set the default logo
+                reclogotwo.Source = new BitmapImage(new Uri(InfoChecker.ShopLogoDefault()));
+            }
+            else
+            {
+                //get the last record
+                reclogotwo.Source = new BitmapImage(new Uri(InfoChecker.SetShopLogoPath(settings.Data)));
             }
         }
 
@@ -403,6 +461,30 @@ namespace EasyManager
             }
         }
 
+        private bool SaveCompanyTwoToDatabase(CompanyInfo company)
+        {
+            var companyfromdb = DbManager.GetAll<CompanyInfo>();
+            if (companyfromdb.Count > 0)
+            {
+                if (companyfromdb.Count == 2)
+                {
+                    //Update
+                    return UpdateCompany(company, companyfromdb[1].Id);
+                }
+                else
+                {
+                    //Insertion
+                    return SaveCompany(company);
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show(Properties.Resources.SaveFirstCompany, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return false;
+            }
+        }
+
         private void txtcompanyEmail_LostFocus(object sender, RoutedEventArgs e)
         {
 
@@ -438,6 +520,36 @@ namespace EasyManager
 
         }
 
+        private void SaveCompanyInfoTwo()
+        {
+            string nom = txtcompanytwoName.Text.ToLower();
+            string contact = txtcompanytwoContact.Text.ToLower();
+            string mail = txtcompanytwoEmail.Text;
+
+            if (InfoChecker.IsEmpty(nom) || InfoChecker.IsEmpty(contact) || InfoChecker.IsEmpty(mail))
+            {
+                MessageBox.Show(Properties.Resources.EmptyField, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+
+            if (nom.Length <= 2 || contact.Length <= 2)
+            {
+                MessageBox.Show(Properties.Resources.ShortEnter, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+            if (!InfoChecker.MailRegExp(txtcompanyEmail.Text))
+            {
+                MessageBox.Show(Properties.Resources.EmailError, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+
+            if (SaveCompanyTwoToDatabase(GetCompanyInfoTwo()))
+                MessageBox.Show(Properties.Resources.Succes, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+            else
+                MessageBox.Show(Properties.Resources.Error, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+
+        }
+
         private CompanyInfo GetCompany()
         {
             var company = new CompanyInfo
@@ -445,7 +557,21 @@ namespace EasyManager
                 Contact = txtcompanyContact.Text,
                 Email = txtcompanyEmail.Text,
                 Nom = txtcompanyName.Text,
-                Consigne = txtconsigne.Text
+                Consigne = (txtconsigne.Text)
+        };
+
+            return company;
+
+        }
+
+        private CompanyInfo GetCompanyInfoTwo()
+        {
+            var company = new CompanyInfo
+            {
+                Contact = txtcompanytwoContact.Text,
+                Email = txtcompanytwoEmail.Text,
+                Nom = txtcompanytwoName.Text,
+                Consigne = (txtconsignetwo.Text)
             };
 
             return company;
@@ -945,6 +1071,59 @@ namespace EasyManager
 
                 }
             }
+        }
+
+        public void FileBrowserDialogTwo()
+        {
+            using (var fbd = new OpenFileDialog())
+            {
+                fbd.Filter = "JPG(*.jpg)|*jpg|JPEG(*.jpeg)|*.jpeg|PNG(*.png)|*.png";
+                fbd.Title = Properties.Resources.MainTitle;
+                DialogResult result = fbd.ShowDialog();
+                if (result == System.Windows.Forms.DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.FileName))
+                {
+                    //copy the selected image to the application file directory
+                    reclogotwo.Source = null;
+
+                    if (InfoChecker.SavePictureTwo(fbd.FileName, out string fname))
+                    {
+                        //save the icon information to the database
+                        Settings settings = new Settings
+                        {
+                            CreationDate = DateTime.UtcNow,
+                            Data = fname,
+                            Name = "SecondLogo"
+                        };
+
+                        if (!SaveSecondLogo(settings))
+                        {
+                            MessageBox.Show(Properties.Resources.Error, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Warning);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(Properties.Resources.Error, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+
+                }
+            }
+        }
+
+        private bool SaveSecondLogo(Settings settings)
+        {
+            var rslt = GetSecondLogo();
+            if(rslt == null)
+            {
+                // first one
+                return DbManager.Save(settings);
+            }
+            else
+            {
+                // update
+                var query = $"UPDATE Settings SET Data='{settings.Data}' WHERE Name='{settings.Name}'";
+                return DbManager.UpdateCustumQuery(query);
+            }
+            
         }
 
         private void Btnbackup_Click(object sender, RoutedEventArgs e)
@@ -1508,9 +1687,57 @@ namespace EasyManager
 
         }
 
+        private bool SaveFactureHeader()
+        {
+            var rslt = GetFactureHeader();
+            if (rslt == null)
+            {
+                // is the first time
+                //save
+                Settings settings = new Settings();
+                settings.CreationDate = DateTime.UtcNow;
+                settings.Data = InvoiceOne == true ? "InvoiceOne" : "InvoiceTwo";
+                settings.Name = "Invoice";
+
+                return DbManager.Save(settings);
+            }
+            else
+            {
+                // update
+                var data= InvoiceOne == true ? "InvoiceOne" : "InvoiceTwo";
+                var query = $"UPDATE Settings SET Data='{data}' WHERE Name='Invoice'";
+                return DbManager.UpdateCustumQuery(query);
+            }
+
+
+        }
+
         private Settings GetFactureStyle()
         {
             var query = "SELECT * FROM  Settings WHERE Name='FactureStyle'";
+            var rslt = DbManager.CustumQuery<Settings>(query);
+
+            if (rslt.Count == 0)
+                return null;
+            else
+                return rslt.FirstOrDefault();
+        }
+
+        private Settings GetFactureHeader()
+        {
+            var query = "SELECT * FROM  Settings WHERE Name='Invoice'";
+            var rslt = DbManager.CustumQuery<Settings>(query);
+
+            if (rslt.Count == 0)
+                return null;
+            else
+                return rslt.FirstOrDefault();
+        }
+
+
+        private Settings GetSecondLogo()
+        {
+            var query = "SELECT * FROM  Settings WHERE Name='SecondLogo'";
             var rslt = DbManager.CustumQuery<Settings>(query);
 
             if (rslt.Count == 0)
@@ -1572,6 +1799,26 @@ namespace EasyManager
             }
         }
 
+        private void SetUsedInvoice()
+        {
+            var rslt=GetFactureHeader();
+
+            if (rslt == null)
+            {
+                // not yet set
+
+                //use the default
+                InvoiceOne = true;
+            }
+            else
+            {
+                if (rslt.Data == "InvoiceOne")
+                    InvoiceOne = true;
+                else
+                    InvoiceTwo = true;
+            }
+        }
+
         private void SaveBillStyle_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -1612,6 +1859,25 @@ namespace EasyManager
 
                 MessageBox.Show(Properties.Resources.Error, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void btnCompanytwo_Click(object sender, RoutedEventArgs e)
+        {
+            SaveCompanyInfoTwo();
+
+        }
+
+        private void btnlogotwo_Click(object sender, RoutedEventArgs e)
+        {
+            FileBrowserDialogTwo();
+            //set the icon
+            GetShopLogoTwo();
+        }
+
+        private void txtcompanytwoContact_KeyUp(object sender, KeyEventArgs e)
+        {
+            txtcompanytwoContact.Text = InfoChecker.ContactRegExp(txtcompanytwoContact.Text);
+            txtcompanytwoContact.SelectionStart = txtcompanytwoContact.Text.Length;
         }
     }
 }

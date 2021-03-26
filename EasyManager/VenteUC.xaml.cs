@@ -38,6 +38,7 @@ namespace EasyManager
         private decimal _sommeTtc;
         private decimal _sommeTva;
         private string _clientname;
+        private List<string> _listClient = new List<string>();
 
         private readonly Dictionary<string, List<string>> _errorsByPropertyName = new Dictionary<string, List<string>>();
         public bool HasErrors => _errorsByPropertyName.Any();
@@ -71,7 +72,7 @@ namespace EasyManager
         public int SelectedClientId { get; set; }
         public ComboBox CbFocusedId { get; set; } = null;
         public TextBox TxtFocusedId { get; set; } = null;
-        private List<string> ListClient { get; set; } = new List<string>();
+        private List<string> ListClient { get=>_listClient; set { _listClient = value; OnPropertyChanged(); } }
         public bool CanBeDeleted { get; set; } = true;
         public bool _canBePrint { get; set; } = true;
         public ShowDocument showDocument { get; set; }
@@ -773,12 +774,44 @@ namespace EasyManager
         }
         private void GetCompany()
         {
-            var company = DbManager.GetAll<CompanyInfo>();
-            if (company.Count > 0)
-                Company = company[0];
-            else
+            var rslt=GetFactureHeader();
+            if(rslt==null)
+            {
                 Company = null;
+            }
+            else
+            {
+                var company = DbManager.GetAll<CompanyInfo>();
+                if (company.Count > 0)
+                {
+                    if (rslt.Data == "InvoiceOne")
+                    {
+                        Company = company[0];
+                    }
+                    else
+                    {
+                        Company = company[1];
+                    }
+                }
+                else
+                {
+                    Company = null;
+                }
+                    
+            }
+            
 
+        }
+
+        private Settings GetFactureHeader()
+        {
+            var query = "SELECT * FROM  Settings WHERE Name='Invoice'";
+            var rslt = DbManager.CustumQuery<Settings>(query);
+
+            if (rslt.Count == 0)
+                return null;
+            else
+                return rslt.FirstOrDefault();
         }
 
         private void printer(EasyManagerLibrary.Vente vente)
@@ -941,6 +974,7 @@ namespace EasyManager
 
         public bool Recu(EasyManagerLibrary.Client client, EasyManagerLibrary.Vente vente, List<ProduitVendu> vendu)
         {
+            
             Office office = new Office();
             //Company info
             if (Company != null)
@@ -981,7 +1015,11 @@ namespace EasyManager
             office.DiscountValue = Montant;
             office.IsRecall = false;
             office.IsCommand = IsCommand;
-            office.LogoPath = GetShopLogo();
+            var rslt = GetFactureHeader();
+            if (rslt == null)
+                office.LogoPath = GetShopLogo();
+            else
+                office.LogoPath = rslt.Data == "InvoiceOne" ? GetShopLogo() : GetShopLogoTwo();
 
             //verifie si la tva doit-être appliquer
             if (Tva != null)
@@ -1273,8 +1311,9 @@ namespace EasyManager
 
         private void FilledDropDownClient()
         {
-            if (CbClientList.ItemsSource != ListClient)
-                CbClientList.ItemsSource = ListClient;
+            GetClientList();
+            CbClientList.ItemsSource = null;
+            CbClientList.ItemsSource = ListClient;
         }
 
         private List<string> ProdList()
@@ -1556,7 +1595,7 @@ namespace EasyManager
         {
             ProduitList = ProdList();
             GetCommandeList();
-            GetClientList();
+            //GetClientList();
             FilledDropDown(ProduitList);
             FilledDropDownCmd();
             FilledDropDownClient();
@@ -1601,7 +1640,7 @@ namespace EasyManager
 
         private void CbClientList_GotFocus(object sender, RoutedEventArgs e)
         {
-            GetClientList();
+            //GetClientList();
             FilledDropDownClient();
         }
 
@@ -1662,6 +1701,33 @@ namespace EasyManager
         private void btnvaluediscount_Click(object sender, RoutedEventArgs e)
         {
             PerformClick(btndialogdiscount);
+        }
+
+        private string GetShopLogoTwo()
+        {
+            var settings = GetSecondLogo();
+            if (settings == null)
+            {
+                // there is not data in the table
+                // set the default logo
+                return InfoChecker.ShopLogoDefault();
+            }
+            else
+            {
+                //get the last record
+                return InfoChecker.SetShopLogoPath(settings.Data);
+            }
+        }
+
+        private Settings GetSecondLogo()
+        {
+            var query = "SELECT * FROM  Settings WHERE Name='SecondLogo'";
+            var rslt = DbManager.CustumQuery<Settings>(query);
+
+            if (rslt.Count == 0)
+                return null;
+            else
+                return rslt.FirstOrDefault();
         }
     }
 }

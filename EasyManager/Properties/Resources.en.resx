@@ -1253,4 +1253,10 @@
   <data name="BillStyles" xml:space="preserve">
     <value>Invoice styles</value>
   </data>
+  <data name="SaveFirstCompany" xml:space="preserve">
+    <value>You must save the first section informations</value>
+  </data>
+  <data name="InvoiceHeader" xml:space="preserve">
+    <value>Use as invoices header</value>
+  </data>
 </root>

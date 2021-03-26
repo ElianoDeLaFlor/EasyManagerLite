@@ -111,7 +111,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <ComboBox Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" x:Name="CbCatList" IsEditable="True" ToolTip="{x:Static p:Resources.Client}" materialDesign:HintAssist.HintOpacity=".26" SelectionChanged="CbCatList_SelectionChanged" Margin="16 30 16 16" FontSize="20"/>
+                        <ComboBox Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" x:Name="CbCatList" IsEditable="True" ToolTip="{x:Static p:Resources.Client}" materialDesign:HintAssist.HintOpacity=".26" StaysOpenOnEdit="True" DropDownOpened="CbCatList_DropDownOpened" SelectionChanged="CbCatList_SelectionChanged" Margin="16 30 16 16" FontSize="20"/>
                         <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnNewClient" Content="{x:Static p:Resources.NewClient}"
     ToolTip="{x:Static p:Resources.NewClient}" FontWeight="Bold" Click="btnNewClient_Click"  FontSize="18"/>
                         <Button Visibility="Collapsed" Grid.Column="2" Margin="10 0 0 0" ToolTip="{x:Static p:Resources.Discount}" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" x:Name="btnvaluediscount" Click="btnvaluediscount_Click">

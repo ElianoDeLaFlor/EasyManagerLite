@@ -59,6 +59,15 @@
                                     <materialDesign:PackIcon Width="50" Height="50" Kind="Upload" VerticalAlignment="Center"/>
                                 </Button>
                                 <Image x:Name="reclogo" Width="200" Height="200" DockPanel.Dock="Right" Source="Logo/LogoB.png"/>
+                                <TextBlock VerticalAlignment="Center" Margin="16" FontSize="18" Text="{x:Static p:Resources.InvoiceHeader}"/>
+                                <ToggleButton Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="{x:Static p:Resources.InvoiceHeader}" IsChecked="{Binding InvoiceOne}">
+                                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                                        <SolidColorBrush Color="Green" />
+                                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                                        <SolidColorBrush Color="Red" />
+                                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                                </ToggleButton>
                             </StackPanel>
                             <!--Button-->
 
@@ -66,6 +75,56 @@
                     </Expander>
                     <!--#endregion-->
                     <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                    <!--#region Company info Two-->
+                    <Expander HorizontalAlignment="Stretch" IsExpanded="False" Header="{x:Static p:Resources.CompanyInfo}" FontWeight="Bold" x:Name="ExpanderCompanyTwo">
+                        <StackPanel Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}" Margin="100,8,100,16">
+                            <TextBlock Text="{x:Static p:Resources.CompagnyInfoHint}" Opacity=".60" />
+                            <!--Nom-->
+                            <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.Nom}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtcompanytwoName"/>
+                            <!--End Non-->
+
+                            <!--Contact-->
+                            <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.Contact}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="16" FontSize="20" KeyUp="txtcompanytwoContact_KeyUp"  Name="txtcompanytwoContact"/>
+                            <!--End Contact-->
+
+                            <!--Email-->
+                            <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.EmailAdress}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtcompanytwoEmail"/>
+                            <!--End Email-->
+
+                            <!--Consigne-->
+                            <TextBox TextWrapping="Wrap" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="{x:Static p:Resources.Consigne}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" ToolTip="{x:Static p:Resources.ConsigneInfo}" VerticalAlignment="Center" Margin="16" FontSize="20" Name="txtconsignetwo"/>
+                            <!--End Consigne-->
+
+                            <!--Logo-->
+
+
+                            <Button Margin="20 10" Content="{x:Static p:Resources.BtnSave}" x:Name="btnCompanytwo" Click="btnCompanytwo_Click"/>
+                            <!--End Button-->
+                            <Separator/>
+                            <!--End Logo-->
+                            <TextBlock VerticalAlignment="Center" Margin="16" FontSize="18" Text="{x:Static p:Resources.ShopIcon}"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Margin="10 0" Padding="5" Height="90" Name="btnlogotwo" Click="btnlogotwo_Click">
+                                    <materialDesign:PackIcon Width="50" Height="50" Kind="Upload" VerticalAlignment="Center"/>
+                                </Button>
+                                <Image x:Name="reclogotwo" Width="200" Height="200" DockPanel.Dock="Right" Source="Logo/LogoB.png"/>
+                                <TextBlock VerticalAlignment="Center" Margin="16" FontSize="18" Text="{x:Static p:Resources.InvoiceHeader}"/>
+                                <ToggleButton Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="{x:Static p:Resources.InvoiceHeader}" IsChecked="{Binding InvoiceTwo}">
+                                    <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                                        <SolidColorBrush Color="Green" />
+                                    </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                                    <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                                        <SolidColorBrush Color="Red" />
+                                    </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                                </ToggleButton>
+                            </StackPanel>
+                            <!--Button-->
+
+                        </StackPanel>
+                    </Expander>
+                    <!--#endregion-->
+                    <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                    
                     <!--#region Facture models-->
                     <Expander HorizontalAlignment="Stretch" IsExpanded="False" Header="{x:Static p:Resources.BillStyles}" FontWeight="Bold" x:Name="ExpanderFacture" >
                         <StackPanel>

@@ -292,6 +292,35 @@ namespace EasyManagerLibrary
             
         }
 
+        public static bool SavePictureTwo(string filepath, out string logoname)
+        {
+            try
+            {
+                //Icon Name
+                string iconname = Guid.NewGuid().ToString().Replace("-", ""); ;
+
+                //Is icon folder exist?
+                if (!Directory.Exists(Path.GetFullPath("IconFolder")))
+                    Directory.CreateDirectory(Path.GetFullPath("IconFolder"));
+
+
+                FileInfo fileInfo = new FileInfo(filepath);
+                string ext = fileInfo.Extension;
+                iconname += ext;
+                // Todo delete the existing file
+
+                File.Copy(filepath, Path.GetFullPath("IconFolder/" + iconname));
+                logoname = iconname;
+                return true;
+            }
+            catch
+            {
+                logoname = string.Empty;
+                return false;
+            }
+
+        }
+
         private static bool DeleteImages(string path,string pathtwo,string paththree)
         {
             try

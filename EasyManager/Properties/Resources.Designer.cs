@@ -1510,6 +1510,15 @@ namespace EasyManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Utiliser comme entête des factures.
+        /// </summary>
+        public static string InvoiceHeader {
+            get {
+                return ResourceManager.GetString("InvoiceHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Version d&apos;éssaie.
         /// </summary>
         public static string IsTryVersion {
@@ -2858,6 +2867,15 @@ namespace EasyManager.Properties {
         public static string RoleTitle {
             get {
                 return ResourceManager.GetString("RoleTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vous devez d&apos;abord enregistrer les informations dans la première section .
+        /// </summary>
+        public static string SaveFirstCompany {
+            get {
+                return ResourceManager.GetString("SaveFirstCompany", resourceCulture);
             }
         }
         

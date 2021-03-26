@@ -102,11 +102,14 @@ namespace EasyManager
                 OnPropertyChanged();
             }
         }
+        
         public event PropertyChangedEventHandler PropertyChanged;
+        
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        
         public VenteCreditUC()
         {
             InitializeComponent();
@@ -625,12 +628,43 @@ namespace EasyManager
 
         private void GetCompany()
         {
-            var company = DbManager.GetAll<CompanyInfo>();
-            if (company.Count > 0)
-                Company = company[0];
-            else
+            var rslt = GetFactureHeader();
+            if (rslt == null)
+            {
                 Company = null;
+            }
+            else
+            {
+                var company = DbManager.GetAll<CompanyInfo>();
+                if (company.Count > 0)
+                {
+                    if (rslt.Data == "InvoiceOne")
+                    {
+                        Company = company[0];
+                    }
+                    else
+                    {
+                        Company = company[1];
+                    }
+                }
+                else
+                {
+                    Company = null;
+                }
 
+            }
+
+        }
+
+        private Settings GetFactureHeader()
+        {
+            var query = "SELECT * FROM  Settings WHERE Name='Invoice'";
+            var rslt = DbManager.CustumQuery<Settings>(query);
+
+            if (rslt.Count == 0)
+                return null;
+            else
+                return rslt.FirstOrDefault();
         }
 
         private EasyManagerLibrary.Produit GetProduit(int id)
@@ -713,7 +747,11 @@ namespace EasyManager
             office.TotalTTC = Properties.Resources.TTC;
             office.DiscountValue = Montant;
             office.IsRecall = false;
-            office.LogoPath = GetShopLogo();
+            var rslt = GetFactureHeader();
+            if (rslt == null)
+                office.LogoPath = GetShopLogo();
+            else
+                office.LogoPath = rslt.Data == "InvoiceOne" ? GetShopLogo() : GetShopLogoTwo();
             //verifie si la tva doit-être appliquer
             if (Tva != null)
             {
@@ -1163,6 +1201,38 @@ namespace EasyManager
         private void btnvaluediscount_Click(object sender, RoutedEventArgs e)
         {
             PerformClick(btndialogdiscount);
+        }
+
+        private void CbCatList_DropDownOpened(object sender, EventArgs e)
+        {
+            FilledDropDownClient();
+        }
+
+        private string GetShopLogoTwo()
+        {
+            var settings = GetSecondLogo();
+            if (settings == null)
+            {
+                // there is not data in the table
+                // set the default logo
+                return InfoChecker.ShopLogoDefault();
+            }
+            else
+            {
+                //get the last record
+                return InfoChecker.SetShopLogoPath(settings.Data);
+            }
+        }
+
+        private Settings GetSecondLogo()
+        {
+            var query = "SELECT * FROM  Settings WHERE Name='SecondLogo'";
+            var rslt = DbManager.CustumQuery<Settings>(query);
+
+            if (rslt.Count == 0)
+                return null;
+            else
+                return rslt.FirstOrDefault();
         }
     }
 }

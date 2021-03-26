@@ -883,37 +883,37 @@ namespace EasyManagerDb
                     if (attrib != null)
                         continue;
                     if (item.PropertyType.Name == "String")
-                        rslt += $"{item.Name}='{item.GetValue(obj)}'";
+                        rslt += $"{item.Name}=\"{item.GetValue(obj)}\"";
                     else if (item.PropertyType.Name.ToLower() == "boolean")
                     {
                         int k = item.GetValue(obj).ToString() == "True" ? 1 : 0;
-                        rslt += $"{item.Name}='{k}'";
+                        rslt += $"{item.Name}=\"{k}\"";
                     }
                     else if (item.PropertyType.Name.ToLower() == "datetime")
                     {
 
                         string datetime = InfoChecker.AjustDateWithTime(GetDateFromString(item.GetValue(obj).ToString()));
-                        rslt += $"{item.Name}='{datetime}'";
+                        rslt += $"{item.Name}=\"{datetime}\"";
                     }
                     else
-                        rslt += $"{item.Name}='{item.GetValue(obj)}'";
+                        rslt += $"{item.Name}=\"{item.GetValue(obj)}\"";
                 }
                 else
                 {
                     if (attrib != null)
                         continue;
                     if (item.PropertyType.Name == "String")
-                        rslt += $"{item.Name}='{item.GetValue(obj)}',";
+                        rslt += $"{item.Name}=\"{item.GetValue(obj)}\",";
                     else if (item.PropertyType.Name.ToLower() == "boolean")
                     {
                         int k = item.GetValue(obj).ToString() == "True" ? 1 : 0;
-                        rslt += $"{item.Name}='{k}',";
+                        rslt += $"{item.Name}=\"{k}\",";
                     }
                     else if (item.PropertyType.Name.ToLower() == "datetime")
                     {
 
                         string datetime = InfoChecker.AjustDateWithTime(GetDateFromString(item.GetValue(obj).ToString()));
-                        rslt += $"{item.Name}='{datetime}',";
+                        rslt += $"{item.Name}=\"{datetime}\",";
                     }
 
                     else
@@ -931,7 +931,7 @@ namespace EasyManagerDb
                             }
                             else
                                 str = item.GetValue(obj).ToString();
-                            rslt += $"{item.Name}='{str.Replace(',', '.')}',";
+                            rslt += $"{item.Name}=\"{str.Replace(',', '.')}\",";
 
                         }
                         else
@@ -941,11 +941,11 @@ namespace EasyManagerDb
                                 if (item.GetValue(obj) == null)
                                     rslt += $"{item.Name}=NULL,";
                                 else
-                                    rslt += $"{item.Name}='{(item.GetValue(obj).ToString()).Replace(',', '.')}',";
+                                    rslt += $"{item.Name}=\"{(item.GetValue(obj).ToString()).Replace(',', '.')}\",";
                             }
                             else
                             {
-                                rslt += $"{item.Name}='{(item.GetValue(obj).ToString()).Replace(',', '.')}',";
+                                rslt += $"{item.Name}=\"{(item.GetValue(obj).ToString()).Replace(',', '.')}\",";
                             }
                         }
 
