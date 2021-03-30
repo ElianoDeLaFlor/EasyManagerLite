@@ -1254,9 +1254,12 @@
     <value>Invoice styles</value>
   </data>
   <data name="SaveFirstCompany" xml:space="preserve">
-    <value>You must save the first section informations</value>
+    <value>You must fill in the informations in the first section</value>
   </data>
   <data name="InvoiceHeader" xml:space="preserve">
     <value>Use as invoices header</value>
+  </data>
+  <data name="SaveSecondCompany" xml:space="preserve">
+    <value>You must fill in the informations in the second section informations</value>
   </data>
 </root>

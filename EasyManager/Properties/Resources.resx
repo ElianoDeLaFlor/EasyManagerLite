@@ -1259,4 +1259,7 @@
   <data name="InvoiceHeader" xml:space="preserve">
     <value>Utiliser comme entête des factures</value>
   </data>
+  <data name="SaveSecondCompany" xml:space="preserve">
+    <value>Vous devez d'abord enregistrer les informations dans la deuxième section </value>
+  </data>
 </root>

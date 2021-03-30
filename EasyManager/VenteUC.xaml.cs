@@ -788,9 +788,13 @@ namespace EasyManager
                     {
                         Company = company[0];
                     }
-                    else
+                    else if(rslt.Data == "InvoiceTwo")
                     {
                         Company = company[1];
+                    }
+                    else
+                    {
+                        Company = company[2];
                     }
                 }
                 else
@@ -1019,7 +1023,20 @@ namespace EasyManager
             if (rslt == null)
                 office.LogoPath = GetShopLogo();
             else
-                office.LogoPath = rslt.Data == "InvoiceOne" ? GetShopLogo() : GetShopLogoTwo();
+            {
+                if (rslt.Data == "InvoiceOne")
+                {
+                    office.LogoPath = GetShopLogo();
+                }
+                else if (rslt.Data == "InvoiceTwo")
+                {
+                    office.LogoPath = GetShopLogoTwo();
+                }
+                else
+                {
+                    office.LogoPath = GetShopLogoThree();
+                }
+            }
 
             //verifie si la tva doit-être appliquer
             if (Tva != null)
@@ -1728,6 +1745,33 @@ namespace EasyManager
                 return null;
             else
                 return rslt.FirstOrDefault();
+        }
+
+        private Settings GetThirdLogo()
+        {
+            var query = "SELECT * FROM  Settings WHERE Name='ThirdLogo'";
+            var rslt = DbManager.CustumQuery<Settings>(query);
+
+            if (rslt.Count == 0)
+                return null;
+            else
+                return rslt.FirstOrDefault();
+        }
+
+        private string GetShopLogoThree()
+        {
+            var settings = GetThirdLogo();
+            if (settings == null)
+            {
+                // there is not data in the table
+                // set the default logo
+                return InfoChecker.ShopLogoDefault();
+            }
+            else
+            {
+                //get the last record
+                return InfoChecker.SetShopLogoPath(settings.Data);
+            }
         }
     }
 }

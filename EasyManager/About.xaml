@@ -8,9 +8,9 @@
         mc:Ignorable="d"
         Icon="Logo/LogoB.png"
         xmlns:p = "clr-namespace:EasyManager.Properties"
-        Title="{x:Static p:Resources.About}" Height="480" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="{x:Static p:Resources.About}" Height="530" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <materialDesign:Card Background="#FFFFFF" materialDesign:ShadowAssist.ShadowDepth="Depth1"  Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Margin="15">
-        <StackPanel>
+        <StackPanel Margin="5">
             <Grid Margin="0 20 0 0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -39,10 +39,11 @@
                     <!--Manuel update-->
                     <Button  Name="btnonlinebackup"  Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding UpdateProgress}" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{x:Static p:Resources.Update}" Margin="20 40" ToolTip="{x:Static p:Resources.UpdateInfo}" Click="btnupdate_Click"/>
                     <!--End Manuel update-->
-                    
+
                     <Button VerticalContentAlignment="Center" Margin="20 40" Style="{StaticResource MaterialDesignRaisedButton}" Width="120" Content="{x:Static p:Resources.Close}" x:Name="btnclose"  ToolTip="{x:Static p:Resources.Close}" Click="Btnclose_Click"/>
                 </StackPanel>
             </DockPanel>
+            <TextBox IsReadOnly="True" Text="{Binding AppInfo}" TextBlock.Foreground="{DynamicResource PrimaryHueMidBrush}" TextBlock.FontFamily="{StaticResource UbuntuBold}" TextBlock.FontSize="16" TextBlock.LineStackingStrategy="MaxHeight" Margin="15 0 0 0"/>
         </StackPanel>
     </materialDesign:Card>
 </Window>

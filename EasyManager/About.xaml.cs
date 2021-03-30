@@ -29,12 +29,23 @@ namespace EasyManager
         private bool _pudateprog;
         private Visibility _show;
         private int _downloadprogress;
+
+        private string _appinfo;
+
+        public string AppInfo
+        {
+            get { return _appinfo; }
+            set { _appinfo = value; OnPropertyChanged("AppInfo"); }
+        }
+
+
         public Home GetHome { get; set; }
         public About()
         {
             InitializeComponent();
             DataContext = this;
         }
+
 
         public About(Home home)
         {
@@ -93,6 +104,7 @@ namespace EasyManager
                 var version = versioninfo.Last();
                 txtversion.Text = $"{Properties.Resources.Version} {version.VersionNumber}";
             }
+            SetAppKey();
         }
 
         private void Btnclose_Click(object sender, RoutedEventArgs e)
@@ -268,6 +280,26 @@ namespace EasyManager
             CallUpdater("AutoUpdater.exe");
             GetHome.IsLicencing = true;
             InfoChecker.ShutdownApp();
+        }
+
+        private Settings GetAppKey()
+        {
+            var query = "SELECT * FROM  Settings WHERE Name='AppKey'";
+            var rslt = DbManager.CustumQuery<Settings>(query);
+
+            if (rslt.Count == 0)
+                return null;
+            else
+                return rslt.FirstOrDefault();
+        }
+
+        private void SetAppKey()
+        {
+            var appkey = GetAppKey();
+            if (appkey == null)
+                AppInfo = "";
+            else
+                AppInfo = $"AppId: {appkey.Data}";
         }
     }
 }

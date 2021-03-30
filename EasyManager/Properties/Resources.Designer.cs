@@ -2898,6 +2898,15 @@ namespace EasyManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Vous devez d&apos;abord enregistrer les informations dans la deuxième section .
+        /// </summary>
+        public static string SaveSecondCompany {
+            get {
+                return ResourceManager.GetString("SaveSecondCompany", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tout selectionner.
         /// </summary>
         public static string SelectAll {

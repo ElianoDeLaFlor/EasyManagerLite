@@ -47,6 +47,24 @@ namespace EasyManager
         private bool _facviolet;
         private bool _invoiceone;
         private bool _invoicetwo;
+        private bool _invoicethree;
+
+        public bool InvoiceThree
+        {
+            get { return _invoicethree; }
+            set 
+            { 
+                _invoicethree = value;
+                if (value == true)
+                {
+                    InvoiceOne = false;
+                    InvoiceTwo = false;
+                    SaveFactureHeader();
+                }
+                OnPropertyChanged("InvoiceThree");
+            }
+        }
+
 
         public bool InvoiceTwo
         {
@@ -54,10 +72,13 @@ namespace EasyManager
             set 
             { 
                 _invoicetwo = value;
-                if (value == false)
-                    InvoiceOne = true;
-                else
+                if (value == true)
+                {
                     InvoiceOne = false;
+                    InvoiceThree = false;
+                    SaveFactureHeader();
+                }
+
                 OnPropertyChanged("InvoiceTwo");
             }
         }
@@ -68,11 +89,12 @@ namespace EasyManager
             set 
             { 
                 _invoiceone = value;
-                if (value == false)
-                    InvoiceTwo = true;
-                else
+                if (value == true)
+                {
                     InvoiceTwo = false;
-                SaveFactureHeader();
+                    InvoiceThree = false;
+                    SaveFactureHeader();
+                }
                 OnPropertyChanged("InvoiceOne");
             }
         }
@@ -285,13 +307,21 @@ namespace EasyManager
                     txtcompanyContact.Text = company.Contact;
                     txtcompanyEmail.Text = company.Email;
                     txtconsigne.Text = company.Consigne;
-                    if (lstcompany.Count == 2)
+                    if (lstcompany.Count >= 2)
                     {
                         var company_ = lstcompany[1];
                         txtcompanytwoName.Text = company_.Nom;
                         txtcompanytwoContact.Text = company_.Contact;
                         txtcompanytwoEmail.Text = company_.Email;
                         txtconsignetwo.Text = company_.Consigne;
+                    }
+                    if (lstcompany.Count >= 3)
+                    {
+                        var company_ = lstcompany[2];
+                        txtcompanythreeName.Text = company_.Nom;
+                        txtcompanythreeContact.Text = company_.Contact;
+                        txtcompanythreeEmail.Text = company_.Email;
+                        txtconsignethree.Text = company_.Consigne;
                     }
                 }
 
@@ -310,6 +340,7 @@ namespace EasyManager
                 GetShopLogo();
                 SetUsedBill();
                 GetShopLogoTwo();
+                GetShopLogoThree();
                 SetUsedInvoice();
             }
         }
@@ -365,6 +396,23 @@ namespace EasyManager
             {
                 //get the last record
                 reclogotwo.Source = new BitmapImage(new Uri(InfoChecker.SetShopLogoPath(settings.Data)));
+            }
+        }
+
+        private void GetShopLogoThree()
+        {
+            List<ShopLogo> logos = DbManager.GetAll<ShopLogo>();
+            var settings = GetThirdLogo();
+            if (settings == null)
+            {
+                // there is not data in the table
+                // set the default logo
+                reclogothree.Source = new BitmapImage(new Uri(InfoChecker.ShopLogoDefault()));
+            }
+            else
+            {
+                //get the last record
+                reclogothree.Source = new BitmapImage(new Uri(InfoChecker.SetShopLogoPath(settings.Data)));
             }
         }
 
@@ -485,6 +533,35 @@ namespace EasyManager
             }
         }
 
+        private bool SaveCompanyThreeToDatabase(CompanyInfo company)
+        {
+            var companyfromdb = DbManager.GetAll<CompanyInfo>();
+            if (companyfromdb.Count > 0)
+            {
+                if(companyfromdb.Count < 2)
+                {
+                    MessageBox.Show(Properties.Resources.SaveSecondCompany, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    return false;
+                }
+                if (companyfromdb.Count == 3)
+                {
+                    //Update
+                    return UpdateCompany(company, companyfromdb[2].Id);
+                }
+                else
+                {
+                    //Insertion
+                    return SaveCompany(company);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show(Properties.Resources.SaveFirstCompany, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return false;
+            }
+        }
+
         private void txtcompanyEmail_LostFocus(object sender, RoutedEventArgs e)
         {
 
@@ -550,6 +627,36 @@ namespace EasyManager
 
         }
 
+        private void SaveCompanyInfoThree()
+        {
+            string nom = txtcompanythreeName.Text.ToLower();
+            string contact = txtcompanythreeContact.Text.ToLower();
+            string mail = txtcompanythreeEmail.Text;
+
+            if (InfoChecker.IsEmpty(nom) || InfoChecker.IsEmpty(contact) || InfoChecker.IsEmpty(mail))
+            {
+                MessageBox.Show(Properties.Resources.EmptyField, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+
+            if (nom.Length <= 2 || contact.Length <= 2)
+            {
+                MessageBox.Show(Properties.Resources.ShortEnter, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+            if (!InfoChecker.MailRegExp(txtcompanyEmail.Text))
+            {
+                MessageBox.Show(Properties.Resources.EmailError, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+
+            if (SaveCompanyThreeToDatabase(GetCompanyInfoThree()))
+                MessageBox.Show(Properties.Resources.Succes, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+            else
+                MessageBox.Show(Properties.Resources.Error, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+
+        }
+
         private CompanyInfo GetCompany()
         {
             var company = new CompanyInfo
@@ -572,6 +679,20 @@ namespace EasyManager
                 Email = txtcompanytwoEmail.Text,
                 Nom = txtcompanytwoName.Text,
                 Consigne = (txtconsignetwo.Text)
+            };
+
+            return company;
+
+        }
+
+        private CompanyInfo GetCompanyInfoThree()
+        {
+            var company = new CompanyInfo
+            {
+                Contact = txtcompanythreeContact.Text,
+                Email = txtcompanythreeEmail.Text,
+                Nom = txtcompanythreeName.Text,
+                Consigne = (txtconsignethree.Text)
             };
 
             return company;
@@ -1109,6 +1230,42 @@ namespace EasyManager
             }
         }
 
+        public void FileBrowserDialogThree()
+        {
+            using (var fbd = new OpenFileDialog())
+            {
+                fbd.Filter = "JPG(*.jpg)|*jpg|JPEG(*.jpeg)|*.jpeg|PNG(*.png)|*.png";
+                fbd.Title = Properties.Resources.MainTitle;
+                DialogResult result = fbd.ShowDialog();
+                if (result == System.Windows.Forms.DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.FileName))
+                {
+                    //copy the selected image to the application file directory
+                    reclogothree.Source = null;
+
+                    if (InfoChecker.SavePictureThree(fbd.FileName, out string fname))
+                    {
+                        //save the icon information to the database
+                        Settings settings = new Settings
+                        {
+                            CreationDate = DateTime.UtcNow,
+                            Data = fname,
+                            Name = "ThirdLogo"
+                        };
+
+                        if (!SaveThirdLogo(settings))
+                        {
+                            MessageBox.Show(Properties.Resources.Error, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Warning);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(Properties.Resources.Error, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+
+                }
+            }
+        }
+
         private bool SaveSecondLogo(Settings settings)
         {
             var rslt = GetSecondLogo();
@@ -1124,6 +1281,23 @@ namespace EasyManager
                 return DbManager.UpdateCustumQuery(query);
             }
             
+        }
+
+        private bool SaveThirdLogo(Settings settings)
+        {
+            var rslt = GetThirdLogo();
+            if (rslt == null)
+            {
+                // first one
+                return DbManager.Save(settings);
+            }
+            else
+            {
+                // update
+                var query = $"UPDATE Settings SET Data='{settings.Data}' WHERE Name='{settings.Name}'";
+                return DbManager.UpdateCustumQuery(query);
+            }
+
         }
 
         private void Btnbackup_Click(object sender, RoutedEventArgs e)
@@ -1696,7 +1870,14 @@ namespace EasyManager
                 //save
                 Settings settings = new Settings();
                 settings.CreationDate = DateTime.UtcNow;
-                settings.Data = InvoiceOne == true ? "InvoiceOne" : "InvoiceTwo";
+
+                if (InvoiceTwo)
+                    settings.Data = "InvoiceTwo";
+                else if(InvoiceThree)
+                    settings.Data = "InvoiceThree";
+                else
+                    settings.Data = "InvoiceOne";
+
                 settings.Name = "Invoice";
 
                 return DbManager.Save(settings);
@@ -1704,7 +1885,13 @@ namespace EasyManager
             else
             {
                 // update
-                var data= InvoiceOne == true ? "InvoiceOne" : "InvoiceTwo";
+                string data;
+                if (InvoiceTwo)
+                    data = "InvoiceTwo";
+                else if (InvoiceThree)
+                    data = "InvoiceThree";
+                else
+                    data = "InvoiceOne";
                 var query = $"UPDATE Settings SET Data='{data}' WHERE Name='Invoice'";
                 return DbManager.UpdateCustumQuery(query);
             }
@@ -1738,6 +1925,17 @@ namespace EasyManager
         private Settings GetSecondLogo()
         {
             var query = "SELECT * FROM  Settings WHERE Name='SecondLogo'";
+            var rslt = DbManager.CustumQuery<Settings>(query);
+
+            if (rslt.Count == 0)
+                return null;
+            else
+                return rslt.FirstOrDefault();
+        }
+
+        private Settings GetThirdLogo()
+        {
+            var query = "SELECT * FROM  Settings WHERE Name='ThirdLogo'";
             var rslt = DbManager.CustumQuery<Settings>(query);
 
             if (rslt.Count == 0)
@@ -1810,12 +2008,17 @@ namespace EasyManager
                 //use the default
                 InvoiceOne = true;
             }
+            else if(rslt.Data == "InvoiceOne")
+            {
+                InvoiceOne = true;
+            }
+            else if(rslt.Data == "InvoiceTwo")
+            {
+                InvoiceTwo = true;
+            }
             else
             {
-                if (rslt.Data == "InvoiceOne")
-                    InvoiceOne = true;
-                else
-                    InvoiceTwo = true;
+                InvoiceThree = true;
             }
         }
 
@@ -1878,6 +2081,24 @@ namespace EasyManager
         {
             txtcompanytwoContact.Text = InfoChecker.ContactRegExp(txtcompanytwoContact.Text);
             txtcompanytwoContact.SelectionStart = txtcompanytwoContact.Text.Length;
+        }
+
+        private void txtcompanythreeContact_KeyUp(object sender, KeyEventArgs e)
+        {
+            txtcompanythreeContact.Text = InfoChecker.ContactRegExp(txtcompanythreeContact.Text);
+            txtcompanythreeContact.SelectionStart = txtcompanythreeContact.Text.Length;
+        }
+
+        private void btnCompanythree_Click(object sender, RoutedEventArgs e)
+        {
+            SaveCompanyInfoThree();
+        }
+
+        private void btnlogothree_Click(object sender, RoutedEventArgs e)
+        {
+            FileBrowserDialogThree();
+            //set the icon
+            GetShopLogoThree();
         }
     }
 }
