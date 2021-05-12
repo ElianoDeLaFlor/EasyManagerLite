@@ -6,6 +6,7 @@ using Notifications.Wpf;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -786,7 +787,10 @@ namespace EasyManager
             {
                 //get the last record
                 var logo = logos.LastOrDefault();
-                return ((InfoChecker.SetShopLogoPath(logo.Name)));
+                if (File.Exists(InfoChecker.SetShopLogoPath(logo.Name)))
+                    return ((InfoChecker.SetShopLogoPath(logo.Name)));
+                else
+                    return ((InfoChecker.ShopLogoDefault()));
             }
         }
         private void Reset()

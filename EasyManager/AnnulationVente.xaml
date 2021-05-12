@@ -10,7 +10,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         xmlns:p = "clr-namespace:EasyManager.Properties" 
-        Icon="Logo/LogoB.png" WindowStartupLocation="CenterScreen">
+        Icon="Logo/LogoB.png" WindowStartupLocation="CenterScreen" SizeChanged="Window_SizeChanged">
     <materialDesign:DialogHost Identifier="RootDialog">
         <StackPanel x:Name="pnl">
             <materialDesign:ColorZone Mode="PrimaryDark" Padding="16" CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="0">
@@ -21,7 +21,9 @@
             </materialDesign:ColorZone>
             <ProgressBar IsIndeterminate="True" x:Name="progress"/>
             <StackPanel>
-                <ScrollViewer VerticalScrollBarVisibility="Auto" MinHeight="500">
+                
+            
+            <ScrollViewer VerticalScrollBarVisibility="Auto" x:Name="scroll">
                     <StackPanel>
                         <StackPanel>
                             <!--Prenom-->
@@ -77,7 +79,7 @@
                             </Button>
                         </StackPanel>
                     </StackPanel>
-                </ScrollViewer>                
+                </ScrollViewer>
             </StackPanel>
         </StackPanel>
     </materialDesign:DialogHost>

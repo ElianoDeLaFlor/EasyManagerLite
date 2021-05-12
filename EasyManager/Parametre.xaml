@@ -301,7 +301,7 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                             </Grid>
-                            <TextBlock Text="Langue" Grid.Column="0" FontFamily="Roboto" FontSize="20"/>
+                            <TextBlock Text="{x:Static p:Resources.Language}" Grid.Column="0" FontFamily="Roboto" FontSize="20"/>
                             <ComboBox x:Name="CbLang" Grid.Column="1" ItemsSource="{Binding Languages}" FontFamily="Roboto" FontSize="16">
                             </ComboBox>
                             <!--Button-->
@@ -440,6 +440,18 @@
                             <Button Margin="20 20" Style="{StaticResource MaterialDesignRaisedButton}" Content="{x:Static p:Resources.EditCompte}" x:Name="btneditcompte" Click="Btneditcompte_Click"  ToolTip="{x:Static p:Resources.EditCompte}"/>
 
                             <!--End Edit account-->
+                        </StackPanel>
+                    </Expander>
+                    <!--#endregion-->
+                    <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                    <!--#region Theme -->
+                    <Expander HorizontalAlignment="Stretch" Header="{x:Static p:Resources.Theme}" FontFamily="Roboto" x:Name="ExpanderTheme">
+                        <StackPanel Margin="100,8,100,16">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{x:Static p:Resources.ThemeLight}" Margin="0 0 10 0"/>
+                                <ToggleButton IsChecked="{Binding Dark}" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="{x:Static p:Resources.Theme}" />
+                                <TextBlock Text="{x:Static p:Resources.ThemeDark}" Margin="10 0 0 0"/>
+                            </StackPanel>
                         </StackPanel>
                     </Expander>
                     <!--#endregion-->

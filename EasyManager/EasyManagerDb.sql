@@ -4,7 +4,7 @@ CREATE TABLE "BackupInfo" (
 	"Id"	INTEGER PRIMARY KEY Identity(1,1),
 	"Dir"	varchar(120),
 	"Date"	DateTime,
-	"LastBackupDate"	TEXT
+	"LastBackupDate" DateTime
 );
 
 CREATE TABLE "AppUserInfo" (

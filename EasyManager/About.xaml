@@ -8,42 +8,44 @@
         mc:Ignorable="d"
         Icon="Logo/LogoB.png"
         xmlns:p = "clr-namespace:EasyManager.Properties"
-        Title="{x:Static p:Resources.About}" Height="530" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="{x:Static p:Resources.About}" Height="540" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <materialDesign:Card Background="#FFFFFF" materialDesign:ShadowAssist.ShadowDepth="Depth1"  Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0" Margin="15">
-        <StackPanel Margin="5">
-            <Grid Margin="0 20 0 0">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Image Height="150" Grid.Row="0" Source="Logo/LogoB.png"/>
-                <TextBlock Foreground="Black" Grid.Row="1" Style="{StaticResource MaterialDesignHeadline4TextBlock}" Text="{x:Static p:Resources.MainTitle}" TextAlignment="Center"/>
-                <TextBlock Foreground="Black" Grid.Row="2" Style="{StaticResource MaterialDesignHeadline6TextBlock}" Text="{x:Static p:Resources.MainTitle}" TextAlignment="Center" x:Name="txtversion"/>
-            </Grid>
-            <Border Margin="0 20 0 0" Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
-            <Grid Visibility="{Binding ShowProgress}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="4*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Foreground="Black" FontSize="16" Margin="2 0 2 0" Grid.Column="0" Text="{x:Static p:Resources.Progress}"/>
-                <ProgressBar Grid.Column="1" Value="{Binding DownloadProgress}" Height="10" Margin="0 0 5 0" />
-            </Grid>
-            <DockPanel>
-                
-                <StackPanel DockPanel.Dock="Left">
-                    <Image Height="130" Source="Logo/Coporate.png"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <!--Manuel update-->
-                    <Button  Name="btnonlinebackup"  Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding UpdateProgress}" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{x:Static p:Resources.Update}" Margin="20 40" ToolTip="{x:Static p:Resources.UpdateInfo}" Click="btnupdate_Click"/>
-                    <!--End Manuel update-->
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="5">
+                <Grid Margin="0 20 0 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Image Height="150" Grid.Row="0" Source="Logo/LogoB.png"/>
+                    <TextBlock Foreground="Black" Grid.Row="1" Style="{StaticResource MaterialDesignHeadline4TextBlock}" Text="{x:Static p:Resources.MainTitle}" TextAlignment="Center"/>
+                    <TextBlock Foreground="Black" Grid.Row="2" Style="{StaticResource MaterialDesignHeadline6TextBlock}" Text="{x:Static p:Resources.MainTitle}" TextAlignment="Center" x:Name="txtversion"/>
+                </Grid>
+                <Border Margin="0 20 0 0" Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                <Grid Visibility="{Binding ShowProgress}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Foreground="Black" FontSize="16" Margin="2 0 2 0" Grid.Column="0" Text="{x:Static p:Resources.Progress}"/>
+                    <ProgressBar Grid.Column="1" Visibility="Visible" Value="{Binding DownloadProgress}" Height="10" Margin="0 0 5 0" />
+                </Grid>
+                <DockPanel>
 
-                    <Button VerticalContentAlignment="Center" Margin="20 40" Style="{StaticResource MaterialDesignRaisedButton}" Width="120" Content="{x:Static p:Resources.Close}" x:Name="btnclose"  ToolTip="{x:Static p:Resources.Close}" Click="Btnclose_Click"/>
-                </StackPanel>
-            </DockPanel>
-            <TextBox IsReadOnly="True" Text="{Binding AppInfo}" TextBlock.Foreground="{DynamicResource PrimaryHueMidBrush}" TextBlock.FontFamily="{StaticResource UbuntuBold}" TextBlock.FontSize="16" TextBlock.LineStackingStrategy="MaxHeight" Margin="15 0 0 0"/>
-        </StackPanel>
+                    <StackPanel DockPanel.Dock="Left">
+                        <Image Height="130" Source="Logo/Coporate.png"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!--Manuel update-->
+                        <Button  Name="btnonlinebackup"  Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding UpdateProgress}" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{x:Static p:Resources.Update}" Margin="20 40" ToolTip="{x:Static p:Resources.UpdateInfo}" Click="btnupdate_Click"/>
+                        <!--End Manuel update-->
+
+                        <Button VerticalContentAlignment="Center" Margin="20 40" Style="{StaticResource MaterialDesignRaisedButton}" Width="120" Content="{x:Static p:Resources.Close}" x:Name="btnclose"  ToolTip="{x:Static p:Resources.Close}" Click="Btnclose_Click"/>
+                    </StackPanel>
+                </DockPanel>
+                <TextBox IsReadOnly="True" Text="{Binding AppInfo}" TextBlock.Foreground="{DynamicResource PrimaryHueMidBrush}" TextBlock.FontFamily="{StaticResource UbuntuBold}" TextBlock.FontSize="16" TextBlock.LineStackingStrategy="MaxHeight" Margin="15 0 0 0"/>
+            </StackPanel>
+        </ScrollViewer>
     </materialDesign:Card>
 </Window>

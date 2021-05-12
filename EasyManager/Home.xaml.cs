@@ -91,8 +91,40 @@ namespace EasyManager
 
         public MainWindowViewModel DataContextt { get { return _Context; } set { _Context = value; OnPropertyChanged("DataContextt"); } }
 
+        private Settings GetThemeStyle()
+        {
+            var query = "SELECT * FROM  Settings WHERE Name='ThemeStyle'";
+            var rslt = DbManager.CustumQuery<Settings>(query);
+
+            if (rslt.Count == 0)
+                return null;
+            else
+                return rslt.FirstOrDefault();
+        }
+
+        private void SetDarkTheme()
+        {
+            var rslt = GetThemeStyle();
+            bool state=rslt==null?false:bool.Parse(rslt.Data);
+            ResourceDictionary resourceDictionary = new ResourceDictionary();
+            if (state)
+            {
+                App.Current.Resources.MergedDictionaries.Remove(resourceDictionary);
+                resourceDictionary.Source = new Uri("pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml");
+                App.Current.Resources.MergedDictionaries.Add(resourceDictionary);
+            }
+            else
+            {
+                App.Current.Resources.MergedDictionaries.Remove(resourceDictionary);
+                resourceDictionary.Source = new Uri("pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml");
+                App.Current.Resources.MergedDictionaries.Add(resourceDictionary);
+            }
+
+        }
+
         private async  void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            SetDarkTheme();
             if (await ActivationManagerAsync())
             {
                 //Application activate

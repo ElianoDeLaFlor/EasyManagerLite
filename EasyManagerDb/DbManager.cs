@@ -90,6 +90,7 @@ namespace EasyManagerDb
 
 
         }
+        
         public static List<T> GetByColumnNameNot<T>(string column, string param) where T : class, new()
         {
             T result = new T();
@@ -171,6 +172,7 @@ namespace EasyManagerDb
                 }
             };
         }
+        
         public static bool CustumQueryCheckColumn<T>(string cln) where T : class, new()
         {
             try
@@ -241,6 +243,7 @@ namespace EasyManagerDb
                 return false;
             }
         }
+        
         public static bool CreateNewTable(string query)
         {
             try
@@ -428,6 +431,7 @@ namespace EasyManagerDb
                 return r;
             };
         }
+        
         public static Notifications GetNotificationByType(string prodname, bool isappro)
         {
             using (IDbConnection idb = new SQLiteConnection(GetConnectionString()))
@@ -777,8 +781,6 @@ namespace EasyManagerDb
             }
         }
 
-
-
         private static Tuple<string, string> ColNames(PropertyInfo[] p)
         {
             string rslt = "";
@@ -865,6 +867,7 @@ namespace EasyManagerDb
             }
 
         }
+        
         private static string UpdateQuery(PropertyInfo[] p, object obj)
         {
             string rslt = "";
@@ -1035,6 +1038,7 @@ namespace EasyManagerDb
                 return false;
             }
         }
+        
         public static bool DeleteRoleByLibelle(string role)
         {
             try
@@ -1068,6 +1072,7 @@ namespace EasyManagerDb
                 return false;
             }
         }
+        
         private static string GetConnectionString(string id = "EasyDbContext")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;

@@ -229,6 +229,9 @@ namespace EasyManager
             }
         }
 
-        
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            scroll.MaxHeight = Math.Abs(ActualHeight - 100);
+        }
     }
 }

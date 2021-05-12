@@ -8,6 +8,8 @@
         xmlns:p = "clr-namespace:EasyManager.Properties"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Icon="Logo/LogoB.png"
+        Background="{DynamicResource MaterialDesignPaper}"
+        Foreground="{DynamicResource MaterialDesignBody}"
         Title="{x:Static p:Resources.Notification}" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" MaxWidth="450" WindowStartupLocation="CenterScreen">
     <StackPanel>
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" x:Name="lstScroll">

@@ -89,6 +89,10 @@ namespace EasyManager
 
         }
 
+        private void CreateAppId()
+        {
+
+        }
         private List<string> RolesList()
         {
             var lst = new List<string>();

@@ -95,12 +95,14 @@ namespace EasyManager
                 stockState.TotalItem = qty;
                 stockState.SellItem = vendu;
                 stockState.LeftItem = rst;
-                stockState.ProgressValue = progress;
+                stockState.ProgressValue = Math.Floor(progress);
                 stockState.Categorie = item;
                 stockState.Colors = count % 2 == 0 ? "DeepSkyBlue" : "CadetBlue";
                 stockStates.Add(stockState);
                 DataList.Add(chartDataPie);
                 count++;
+                Properties.Settings settings = new Properties.Settings();
+                
             }
             return stockStates;
         }

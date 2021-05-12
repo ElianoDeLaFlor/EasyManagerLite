@@ -10,6 +10,8 @@
         xmlns:p = "clr-namespace:EasyManager.Properties"
         xmlns:vm="clr-namespace:EasyManager.MenuItems"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Background="{DynamicResource MaterialDesignPaper}"
+        Foreground="{DynamicResource MaterialDesignBody}"
         Title="{x:Static p:Resources.Rapport}" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <vm:DateValueConverter x:Key="converter"/>
@@ -20,7 +22,7 @@
 
             <materialDesign:ColorZone Mode="PrimaryDark" Padding="16" CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="0">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" Text="{x:Static p:Resources.RapportActivite}" Style="{StaticResource TextBlockStyle}" FontSize="35" Foreground="Black"/>
+                    <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" Text="{x:Static p:Resources.RapportActivite}" Style="{StaticResource TextBlockStyle}" FontSize="35" Foreground="{DynamicResource MaterialDesignBody}"/>
                 </StackPanel>
             </materialDesign:ColorZone>
             <ProgressBar IsIndeterminate="True" Visibility="Hidden" x:Name="ProgBarAll"/>
@@ -99,9 +101,9 @@
                     </Grid>
                     </StackPanel>
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0 40 0 0" x:Name="scroll" ScrollChanged="scroll_ScrollChanged">
-                        <StackPanel Margin="0 0 0 60" Background="White">
+                        <StackPanel Margin="0 0 0 60" >
                             <StackPanel Margin="0 0 0 10 ">
-                                <Expander HorizontalAlignment="Stretch" Header="{x:Static p:Resources.Graph}" Background="Gainsboro">
+                                <Expander HorizontalAlignment="Stretch" Header="{x:Static p:Resources.Graph}" >
                                     <StackPanel Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}" Margin="24,8,24,16">
                                         <StackPanel>
                                             <Chart:DragableSections x:Name="rapportDiagram" Height="300"/>

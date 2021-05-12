@@ -56,7 +56,7 @@ namespace EasyManagerLibrary
             }
             catch
             {
-                return false;//todo change to false
+                return false;
             }
         }
         public static bool IsPriceOk(string price)
@@ -876,6 +876,41 @@ namespace EasyManagerLibrary
                 licence.HasExpired = daystosubstract > Duration * 30 || DateTime.UtcNow > ActivationEndDate;
             }
             
+
+            return licence;
+
+        }
+
+        public static LicenceInformation ManageActivationCodeInfo(string code,out string appid)
+        {
+            string[] info = code.Split(';');
+            DateTime PaymentDate = DateTime.Parse(GetData(info[0]));
+            string PaymentMethod = GetData(info[1]);
+            string name = GetData(info[2]);
+            int Duration = GetData(info[3]).ToInt();
+            var LicenceType = InfoChecker.StringToLicenceType(GetData(info[4]));
+            appid = GetData(info[info.Length-1]);
+            DateTime StartDate = StartDateManager(PaymentDate, out int daystosubstract);
+            DateTime endDate = NextDate(StartDate, Duration * 30);
+            DateTime ActivationEndDate = DateArriere(endDate, daystosubstract);
+
+            LicenceInformation licence = new LicenceInformation();
+            licence.Duration = Duration;
+            licence.EndDate = ActivationEndDate;
+            licence.StartDate = StartDate;
+            licence.PaymentDate = PaymentDate;
+            licence.PaymentMethod = PaymentMethod;
+            licence.Name = name;
+            licence.TypeLicence = LicenceType;
+            if (PaymentDate > DateTime.UtcNow)
+            {
+                licence.HasExpired = true;
+            }
+            else
+            {
+                licence.HasExpired = daystosubstract > Duration * 30 || DateTime.UtcNow > ActivationEndDate;
+            }
+
 
             return licence;
 

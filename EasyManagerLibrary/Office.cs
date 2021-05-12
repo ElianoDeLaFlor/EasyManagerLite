@@ -104,6 +104,7 @@ namespace EasyManagerLibrary
         public string LogoPath { get; set; }
         public string Consigne { get; set; }
         public bool IsCommand { get; set; }
+        public bool IsProforma { get; set; }
         #endregion
 
         public Office() { }

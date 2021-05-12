@@ -7,6 +7,8 @@
         xmlns:p="clr-namespace:EasyManager.Properties"
         xmlns:vm="clr-namespace:EasyManager.MenuItems"
         Icon="Logo/LogoB.png"
+        Background="{DynamicResource MaterialDesignPaper}"
+        Foreground="{DynamicResource MaterialDesignBody}"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="{x:Static p:Resources.GestionCaisse}" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Window.DataContext>
@@ -18,8 +20,8 @@
                 <DockPanel x:Name="drawer">
                     <DockPanel.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#6600DE00"/>
-                            <GradientStop Color="#66FFFF00" Offset="1"/>
+                            <GradientStop Color="{DynamicResource Primary100}"/>
+                            <GradientStop Color="{DynamicResource Accent700}" Offset="1"/>
                         </LinearGradientBrush>
                     </DockPanel.Background>
                     <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
@@ -54,8 +56,9 @@
                                                     </MultiTrigger.Conditions>
                                                     <Setter Property="Background"
                                     TargetName="Bd"
-                                    Value="#36C238" />
-                                                    <Setter Property="Foreground" Value="Yellow"/>
+                                    Value="{DynamicResource MaterialDesignDarkForeground}" />
+                                                    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>
+                                                    <Setter Property="FontFamily" Value="{StaticResource UbuntuBold}"/>
                                                 </MultiTrigger>
                                                 <MultiTrigger>
                                                     <MultiTrigger.Conditions>
@@ -64,18 +67,18 @@
                                                     </MultiTrigger.Conditions>
                                                     <Setter Property="Background"
                                     TargetName="Bd"
-                                    Value="#A9D99B" />
-                                                    <Setter Property="Foreground" Value="Yellow"/>
+                                    Value="{DynamicResource PrimaryHueMidBrush}" />
+                                                    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignDarkForeground}"/>
+                                                    <Setter Property="FontFamily" Value="{StaticResource UbuntuMedium}"/>
                                                 </MultiTrigger>
                                                 <MultiTrigger>
                                                     <MultiTrigger.Conditions>
                                                         <Condition Property="ListBoxItem.IsSelected" Value="false" />
                                                         <Condition Property="ListBoxItem.IsMouseOver" Value="true"/>
                                                     </MultiTrigger.Conditions>
-                                                    <Setter Property="Background"
-                                    TargetName="Bd"
-                                    Value="#A9D99B" />
-                                                    <Setter Property="Foreground" Value="BlueViolet"/>
+                                                    <Setter Property="Background" TargetName="Bd" Value="{DynamicResource PrimaryHueMidBrush}" />
+                                                    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignDarkForeground}"/>
+                                                    <Setter Property="FontFamily" Value="{StaticResource UbuntuLight}"/>
 
                                                 </MultiTrigger>
                                             </ControlTemplate.Triggers>

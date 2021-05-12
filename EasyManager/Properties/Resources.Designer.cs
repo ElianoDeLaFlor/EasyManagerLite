@@ -898,6 +898,177 @@ namespace EasyManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ambre.
+        /// </summary>
+        public static string ColorAmber {
+            get {
+                return ResourceManager.GetString("ColorAmber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blue.
+        /// </summary>
+        public static string ColorBlue {
+            get {
+                return ResourceManager.GetString("ColorBlue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blue gris.
+        /// </summary>
+        public static string ColorBlueGrey {
+            get {
+                return ResourceManager.GetString("ColorBlueGrey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marron.
+        /// </summary>
+        public static string ColorBrown {
+            get {
+                return ResourceManager.GetString("ColorBrown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cyan.
+        /// </summary>
+        public static string ColorCyan {
+            get {
+                return ResourceManager.GetString("ColorCyan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Orange foncé.
+        /// </summary>
+        public static string ColorDeepOrange {
+            get {
+                return ResourceManager.GetString("ColorDeepOrange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Violet foncé.
+        /// </summary>
+        public static string ColorDeepPurple {
+            get {
+                return ResourceManager.GetString("ColorDeepPurple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vert.
+        /// </summary>
+        public static string ColorGreen {
+            get {
+                return ResourceManager.GetString("ColorGreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gris.
+        /// </summary>
+        public static string ColorGrey {
+            get {
+                return ResourceManager.GetString("ColorGrey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Indigo.
+        /// </summary>
+        public static string ColorIndigo {
+            get {
+                return ResourceManager.GetString("ColorIndigo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bleu clair.
+        /// </summary>
+        public static string ColorLightBlue {
+            get {
+                return ResourceManager.GetString("ColorLightBlue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vert clair.
+        /// </summary>
+        public static string ColorLightGreen {
+            get {
+                return ResourceManager.GetString("ColorLightGreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vert citron.
+        /// </summary>
+        public static string ColorLime {
+            get {
+                return ResourceManager.GetString("ColorLime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Orange.
+        /// </summary>
+        public static string ColorOrange {
+            get {
+                return ResourceManager.GetString("ColorOrange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rose.
+        /// </summary>
+        public static string ColorPink {
+            get {
+                return ResourceManager.GetString("ColorPink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Violet.
+        /// </summary>
+        public static string ColorPurple {
+            get {
+                return ResourceManager.GetString("ColorPurple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rouge.
+        /// </summary>
+        public static string ColorRed {
+            get {
+                return ResourceManager.GetString("ColorRed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sarcelle.
+        /// </summary>
+        public static string ColorTeal {
+            get {
+                return ResourceManager.GetString("ColorTeal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jaune.
+        /// </summary>
+        public static string ColorYellow {
+            get {
+                return ResourceManager.GetString("ColorYellow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Client/Commande.
         /// </summary>
         public static string CommandeClient {
@@ -1029,6 +1200,15 @@ namespace EasyManager.Properties {
         public static string CreditSellTotalCost {
             get {
                 return ResourceManager.GetString("CreditSellTotalCost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fichier csv.
+        /// </summary>
+        public static string CsvFile {
+            get {
+                return ResourceManager.GetString("CsvFile", resourceCulture);
             }
         }
         
@@ -1524,6 +1704,15 @@ namespace EasyManager.Properties {
         public static string IsTryVersion {
             get {
                 return ResourceManager.GetString("IsTryVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Langue.
+        /// </summary>
+        public static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
             }
         }
         
@@ -2430,7 +2619,7 @@ namespace EasyManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PICSEL.
+        ///   Looks up a localized string similar to SET Corporate.
         /// </summary>
         public static string Org {
             get {
@@ -2642,6 +2831,15 @@ namespace EasyManager.Properties {
         public static string ProduitTitle {
             get {
                 return ResourceManager.GetString("ProduitTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Facture proforma.
+        /// </summary>
+        public static string ProformaInvoice {
+            get {
+                return ResourceManager.GetString("ProformaInvoice", resourceCulture);
             }
         }
         
@@ -3227,6 +3425,51 @@ namespace EasyManager.Properties {
         public static string TauxTva {
             get {
                 return ResourceManager.GetString("TauxTva", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme.
+        /// </summary>
+        public static string Theme {
+            get {
+                return ResourceManager.GetString("Theme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accent.
+        /// </summary>
+        public static string ThemeAccent {
+            get {
+                return ResourceManager.GetString("ThemeAccent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sombre.
+        /// </summary>
+        public static string ThemeDark {
+            get {
+                return ResourceManager.GetString("ThemeDark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Claire.
+        /// </summary>
+        public static string ThemeLight {
+            get {
+                return ResourceManager.GetString("ThemeLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Primaire.
+        /// </summary>
+        public static string ThemePrimary {
+            get {
+                return ResourceManager.GetString("ThemePrimary", resourceCulture);
             }
         }
         

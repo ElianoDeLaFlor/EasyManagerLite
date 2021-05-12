@@ -127,16 +127,6 @@ namespace EasyManager
                         // proced the download
                         //Download the update
 
-                        //if (UpdateFile())
-                        //{
-                        //    CallUpdater("AutoUpdater.exe");
-                        //    GetHome.IsLicencing = true;
-                        //    InfoChecker.ShutdownApp();
-                        //}
-                        //else
-                        //{
-                        //    MessageBox.Show(Properties.Resources.Error, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Error);
-                        //}
                         var baseurl = InfoChecker.KeyValue("ApiPath");
                         string url = $"{ baseurl}api/v1/AppVersions/Download";
                         DownLoadFile(url);
@@ -240,23 +230,31 @@ namespace EasyManager
 
         public void DownLoadFile(string address)
         {
-            string tempbackup = System.IO.Path.GetTempPath() + @"EasyManager\Update";
-            if (!Directory.Exists(tempbackup))
-                Directory.CreateDirectory(tempbackup);
-            string path = System.IO.Path.Combine(tempbackup, "EasyManagerSetup.msi");
-            if (File.Exists(path))
-                File.Delete(path);
+            try
+            {
+                string tempbackup = System.IO.Path.GetTempPath() + @"EasyManager\Update";
+                if (!Directory.Exists(tempbackup))
+                    Directory.CreateDirectory(tempbackup);
+                string path = System.IO.Path.Combine(tempbackup, "EasyManagerSetup.msi");
+                if (File.Exists(path))
+                    File.Delete(path);
 
-            WebClient client = new WebClient();
-            var url = new Uri(address);
+                WebClient client = new WebClient();
+                var url = new Uri(address);
 
-            //complete handler
-            client.DownloadFileCompleted += new AsyncCompletedEventHandler(FileDownlodedCallback);
+                //complete handler
+                client.DownloadFileCompleted += new AsyncCompletedEventHandler(FileDownlodedCallback);
 
-            //progress notification
-            client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressCallback);
+                //progress notification
+                client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressCallback);
 
-            client.DownloadFileAsync(url, path);
+                client.DownloadFileAsync(url, path);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void DownloadProgressCallback(object sender,DownloadProgressChangedEventArgs e)

@@ -14,23 +14,39 @@
         TextOptions.TextRenderingMode="Auto">
     <StackPanel Margin="10" Width="250">
         <materialDesign:Card Background="{Binding Colors}" ToolTip="{Binding Categorie.Description}"  Grid.Column="0" Margin="5" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="10">
-            <StackPanel>
-                <!--Nom-->
-                <TextBlock x:Name="NomCat" Text="{Binding Categorie.Libelle}" FontFamily="Roboto" FontSize="20" Style="{StaticResource TextBlockStyleHeader}"/>
-                <!--End Nom-->
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Right">
+                    <materialDesign:PopupBox StaysOpen="True" Opened="PopupBox_Opened">
+                        <!--Stock state-->
+                        <ScrollViewer x:Name="scroll" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Width="300">
+                            <StackPanel x:Name="CatItemsStatusPnl" Orientation="Vertical" Margin="10">
 
-                <!--Status-->
-                <TextBlock x:Name="Status" Text="{Binding Rapport}" Style="{StaticResource LabelStyle}"/>
-                <!--End Status-->
+                            </StackPanel>
+                        </ScrollViewer>
+
+                        <!--End Stock state-->
+                    </materialDesign:PopupBox>
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Left">
+                    <!--Nom-->
+                    <TextBlock x:Name="NomCat" Text="{Binding Categorie.Libelle}" FontFamily="Roboto" FontSize="20" Style="{StaticResource TextBlockStyleHeader}"/>
+                    <!--End Nom-->
+
+                    <!--Status-->
+                    <TextBlock x:Name="Status" Text="{Binding Rapport}" Style="{StaticResource LabelStyle}"/>
+                    <!--End Status-->
+
+                    <!--Graph-->
+                    <ProgressBar ToolTip="{Binding ProgressValue}" Value="{Binding ProgressValue}" materialDesign:TransitionAssist.DisableTransitions="True" Margin="0 5" Height="5"/>
+                    <!--End Graph-->
+
+                    <!--Remaining-->
+                    <TextBlock x:Name="Remain" Text="{Binding LeftItem}" Style="{StaticResource LabelStyle}"/>
+                    <!--End Remaining-->
+                </StackPanel>
                 
-                <!--Graph-->
-                <ProgressBar Value="{Binding ProgressValue}" materialDesign:TransitionAssist.DisableTransitions="True" Margin="0 5"/>
-                <!--End Graph-->
-                
-                <!--Remaining-->
-                <TextBlock x:Name="Remain" Text="{Binding LeftItem}" Style="{StaticResource LabelStyle}"/>
-                <!--End Remaining-->
-            </StackPanel>
+            </DockPanel>
         </materialDesign:Card>
+        
     </StackPanel>
 </UserControl>

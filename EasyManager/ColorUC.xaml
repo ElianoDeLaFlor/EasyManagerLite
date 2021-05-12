@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="EasyManager.ColorUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EasyManager"
+             mc:Ignorable="d"
+             xmlns:p = "clr-namespace:EasyManager.Properties"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="100" d:DesignWidth="250">
+    <materialDesign:Card>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="ColorName" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Style="{StaticResource MaterialDesignHeadline5TextBlock}"/>
+            
+
+            <Border  Background="{DynamicResource SecondaryHueMidBrush}" Grid.Column="0" Grid.Row="1">
+                <TextBlock Foreground="{DynamicResource SecondaryHueMidForegroundBrush}"
+                Text="{x:Static p:Resources.ThemePrimary}" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Border>
+            
+            <Border Background="{DynamicResource SecondaryHueMidBrush}" Grid.Column="1" Grid.Row="1">
+                <TextBlock Foreground="{DynamicResource SecondaryHueMidForegroundBrush}"
+                Text="{x:Static p:Resources.ThemeAccent}" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Border>
+        </Grid>
+    </materialDesign:Card>
+</UserControl>
+
+<!--<ItemsControl
+                Grid.Row="1"
+                Margin="0 12 0 0"
+                ItemsSource="{Binding Swatches, Mode=OneTime}">
+    <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate>
+            <WrapPanel/>
+        </ItemsPanelTemplate>
+    </ItemsControl.ItemsPanel>
+</ItemsControl>-->

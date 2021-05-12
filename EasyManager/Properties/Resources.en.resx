@@ -295,7 +295,7 @@
     <value>The login already exist !</value>
   </data>
   <data name="Org" xml:space="preserve">
-    <value>PICSEL</value>
+    <value>SET Corporate</value>
   </data>
   <data name="PassError" xml:space="preserve">
     <value>Format or confirmation is incorrect (6 characters minimum and alphanumeric)</value>
@@ -1261,5 +1261,86 @@
   </data>
   <data name="SaveSecondCompany" xml:space="preserve">
     <value>You must fill in the informations in the second section informations</value>
+  </data>
+  <data name="ProformaInvoice" xml:space="preserve">
+    <value>Proforma invoice</value>
+  </data>
+  <data name="CsvFile" xml:space="preserve">
+    <value>Csv file</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="ColorAmber" xml:space="preserve">
+    <value>Amber</value>
+  </data>
+  <data name="ColorBlue" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="ColorBlueGrey" xml:space="preserve">
+    <value>Blue grey</value>
+  </data>
+  <data name="ColorBrown" xml:space="preserve">
+    <value>Brown</value>
+  </data>
+  <data name="ColorCyan" xml:space="preserve">
+    <value>Cyan</value>
+  </data>
+  <data name="ColorDeepOrange" xml:space="preserve">
+    <value>Deep orange</value>
+  </data>
+  <data name="ColorDeepPurple" xml:space="preserve">
+    <value>Deep purple</value>
+  </data>
+  <data name="ColorGreen" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="ColorGrey" xml:space="preserve">
+    <value>Grey</value>
+  </data>
+  <data name="ColorIndigo" xml:space="preserve">
+    <value>Indigo</value>
+  </data>
+  <data name="ColorLightBlue" xml:space="preserve">
+    <value>Light blue</value>
+  </data>
+  <data name="ColorLightGreen" xml:space="preserve">
+    <value>Light green</value>
+  </data>
+  <data name="ColorLime" xml:space="preserve">
+    <value>Lime</value>
+  </data>
+  <data name="ColorOrange" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="ColorPink" xml:space="preserve">
+    <value>Pink</value>
+  </data>
+  <data name="ColorPurple" xml:space="preserve">
+    <value>Purple</value>
+  </data>
+  <data name="ColorRed" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="ColorTeal" xml:space="preserve">
+    <value>Teal</value>
+  </data>
+  <data name="ColorYellow" xml:space="preserve">
+    <value>Yellow</value>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="ThemeAccent" xml:space="preserve">
+    <value>Accent</value>
+  </data>
+  <data name="ThemeDark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="ThemeLight" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="ThemePrimary" xml:space="preserve">
+    <value>Primary</value>
   </data>
 </root>

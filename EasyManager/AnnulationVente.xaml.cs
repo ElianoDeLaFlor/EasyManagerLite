@@ -288,5 +288,10 @@ namespace EasyManager
             string query = $"UPDATE VenteCredit SET MontantRestant={cmd.Montant} WHERE Id={cmdid}";
             return DbManager.UpdateCustumQuery(query);
         }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            scroll.MaxHeight = Math.Abs(ActualHeight - 100);
+        }
     }
 }

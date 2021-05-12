@@ -116,7 +116,7 @@
                                 <ColumnDefinition Width="*"/>
 
                             </Grid.ColumnDefinitions>
-                            <ComboBox Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" materialDesign:HintAssist.HelperText="{x:Static p:Resources.VenteCredit}" x:Name="CbCmdList" IsEditable="True" ToolTip="{x:Static p:Resources.VenteCredit}" materialDesign:HintAssist.HintOpacity=".26" SelectionChanged="CbCmdList_SelectionChanged" Margin="16 30 16 16" FontSize="20"/>
+                            <ComboBox Grid.Column="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" materialDesign:HintAssist.HelperText="{x:Static p:Resources.VenteCredit}" x:Name="CbCmdList" IsEditable="True" ToolTip="{x:Static p:Resources.VenteCredit}" materialDesign:HintAssist.HintOpacity=".26" SelectionChanged="CbCmdList_SelectionChanged" Margin="16 30 16 16" FontSize="20" IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False"/>
                             <StackPanel Grid.Column="1" Orientation="Horizontal">
                                 <Button Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" ToolTip="{x:Static p:Resources.ListProduitVendu}" x:Name="btnListProduitVendu" Click="btnListProduitVendu_Click" IsEnabled="False">
                                     <materialDesign:PackIcon Kind="ViewList" />
@@ -132,7 +132,7 @@
 
                         <!--Client-->
                         <StackPanel Style="{StaticResource StackPanelStyle}">
-                            <ComboBox materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" x:Name="CbClientList" IsEditable="True" ToolTip="{x:Static p:Resources.Client}" materialDesign:HintAssist.HelperText="{x:Static p:Resources.Client}" materialDesign:HintAssist.HintOpacity=".26" SelectionChanged="CbClientList_SelectionChanged" Margin="16 30 16 16" FontSize="20" StaysOpenOnEdit="True"/>
+                            <ComboBox materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" x:Name="CbClientList" IsEditable="True" ToolTip="{x:Static p:Resources.Client}" materialDesign:HintAssist.HelperText="{x:Static p:Resources.Client}" materialDesign:HintAssist.HintOpacity=".26" SelectionChanged="CbClientList_SelectionChanged" Margin="16 30 16 16" FontSize="20" StaysOpenOnEdit="True" IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False"/>
                         </StackPanel>
                         <!--End Client-->
 
@@ -148,7 +148,7 @@
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
 
-                                    <ComboBox Grid.Column="0" Grid.Row="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" x:Name="CbProdList" IsEditable="True" materialDesign:HintAssist.HelperText="{x:Static p:Resources.SelectionProduit}" ToolTip="{x:Static p:Resources.SelectionProduit}" materialDesign:HintAssist.HintOpacity=".26" Margin="16 30 16 16" FontSize="20" LostFocus="Cb_LostFocus"/>
+                                    <ComboBox Grid.Column="0" Grid.Row="0" materialDesign:HintAssist.Hint="{x:Static p:Resources.MakeSelection}" x:Name="CbProdList" IsEditable="True" IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False" materialDesign:HintAssist.HelperText="{x:Static p:Resources.SelectionProduit}" ToolTip="{x:Static p:Resources.SelectionProduit}" materialDesign:HintAssist.HintOpacity=".26" Margin="16 30 16 16" FontSize="20" LostFocus="Cb_LostFocus"/>
                                     <TextBox
   materialDesign:HintAssist.Hint="{x:Static p:Resources.QuantiteVendu}" materialDesign:HintAssist.HelperText="{x:Static p:Resources.QuantiteVendu}" Grid.Column="1" Grid.Row="0" 
   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -161,6 +161,10 @@
 
                         <!--Print-->
                         <StackPanel Margin="5 10 " Orientation="Horizontal" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
+                                <TextBlock Text="{x:Static p:Resources.ProformaInvoice}" FontFamily="Roboto" FontSize="20" HorizontalAlignment="Center" Margin="0 0 20 0"/>
+                                <ToggleButton Style="{StaticResource MaterialDesignSwitchLightToggleButton}" ToolTip="{x:Static p:Resources.ProformaInvoice}" x:Name="chkinvoice" IsChecked="{Binding FactureProforma}" HorizontalAlignment="Center"/>
+                            </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
                                 <TextBlock Text="{x:Static p:Resources.PrintBill}" FontFamily="Roboto" FontSize="20" HorizontalAlignment="Center" Margin="0 0 20 0"/>
                                 <ToggleButton Grid.Column="1" Style="{StaticResource MaterialDesignSwitchLightToggleButton}" ToolTip="{x:Static p:Resources.PrintBill}" IsChecked="{Binding CanBePrint}" HorizontalAlignment="Center"/>

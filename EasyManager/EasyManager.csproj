@@ -245,6 +245,9 @@
     <Compile Include="ClientUC.xaml.cs">
       <DependentUpon>ClientUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ColorUC.xaml.cs">
+      <DependentUpon>ColorUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Commands\DicountValueCommand.cs" />
     <Compile Include="Commands\OperationCaisseCancelCommand.cs" />
     <Compile Include="Commands\OperationCaisseCommand.cs" />
@@ -418,6 +421,9 @@
     </Compile>
     <Compile Include="Slides\Transitions.xaml.cs">
       <DependentUpon>Transitions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StockItemStateUC.xaml.cs">
+      <DependentUpon>StockItemStateUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="StockStateUC.xaml.cs">
       <DependentUpon>StockStateUC.xaml</DependentUpon>
@@ -601,6 +607,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ClientUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ColorUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -789,6 +799,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Slides\Transitions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StockItemStateUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

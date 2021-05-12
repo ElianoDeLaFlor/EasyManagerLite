@@ -353,7 +353,7 @@ namespace EasyManager
             //saveFileDialog.CheckFileExists = true;
             //saveFileDialog.CheckPathExists = true;
             saveFileDialog.DefaultExt = "csv";
-            saveFileDialog.Filter = "Csv fules (*.csv)|*.csv";
+            saveFileDialog.Filter = $"{Properties.Resources.CsvFile} (*.csv)|*.csv";
             if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 SavePath = saveFileDialog.FileName;

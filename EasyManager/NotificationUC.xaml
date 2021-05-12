@@ -13,7 +13,7 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}">
+        Foreground="{DynamicResource MaterialDesignBody}">
     <StackPanel Margin="10">
         <materialDesign:Card Background="{Binding Colors}" Margin="5" materialDesign:ShadowAssist.ShadowDepth="Depth1" Padding="10">
             <StackPanel>

@@ -49,6 +49,40 @@ namespace EasyManager
         private bool _invoicetwo;
         private bool _invoicethree;
 
+        private bool _dark=false;
+
+        public bool Dark
+        {
+            get { return _dark; }
+            set 
+            { 
+                _dark = value;
+                SetDarkTheme(value);
+                SaveThemeStyle(value);
+                OnPropertyChanged(); 
+            }
+        }
+
+        private void SetDarkTheme(bool state)
+        {
+            ResourceDictionary resourceDictionary = new ResourceDictionary();
+            if (state)
+            {
+                App.Current.Resources.MergedDictionaries.Remove(resourceDictionary);
+                resourceDictionary.Source = new Uri("pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml");
+                App.Current.Resources.MergedDictionaries.Add(resourceDictionary);
+            }
+            else
+            {
+                App.Current.Resources.MergedDictionaries.Remove(resourceDictionary);
+                resourceDictionary.Source = new Uri("pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml");
+                App.Current.Resources.MergedDictionaries.Add(resourceDictionary);
+            }
+
+        }
+
+        
+
         public bool InvoiceThree
         {
             get { return _invoicethree; }
@@ -342,7 +376,16 @@ namespace EasyManager
                 GetShopLogoTwo();
                 GetShopLogoThree();
                 SetUsedInvoice();
+                SetTheme();
+
+
             }
+        }
+
+        private void SetTheme()
+        {
+            var rslt = GetThemeStyle();
+            Dark = rslt == null ? false : bool.Parse(rslt.Data);
         }
 
         private void SetAppUserInfo()
@@ -368,6 +411,7 @@ namespace EasyManager
         private void GetShopLogo()
         {
             List<ShopLogo> logos = DbManager.GetAll<ShopLogo>();
+
             if (logos.Count() == 0)
             {
                 // there is not data in the table
@@ -378,7 +422,10 @@ namespace EasyManager
             {
                 //get the last record
                 var logo = logos.LastOrDefault();
-                reclogo.Source = new BitmapImage(new Uri(InfoChecker.SetShopLogoPath(logo.Name)));
+                if(File.Exists(InfoChecker.SetShopLogoPath(logo.Name)))
+                    reclogo.Source = new BitmapImage(new Uri(InfoChecker.SetShopLogoPath(logo.Name)));
+                else
+                    reclogo.Source = new BitmapImage(new Uri(InfoChecker.ShopLogoDefault()));
             }
         }
 
@@ -1730,8 +1777,7 @@ namespace EasyManager
                 {
                     MessageBox.Show(Properties.Resources.NoConnection, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-
-                
+            
             }
         }
 
@@ -1861,6 +1907,30 @@ namespace EasyManager
 
         }
 
+        private bool SaveThemeStyle(bool state)
+        {
+            var rslt = GetThemeStyle();
+            if (rslt == null)
+            {
+                // is the first time
+                //save
+                Settings settings = new Settings();
+                settings.CreationDate = DateTime.UtcNow;
+                settings.Data = state.ToString();
+                settings.Name = "ThemeStyle";
+
+                return DbManager.Save(settings);
+            }
+            else
+            {
+                // update
+                var query = $"UPDATE Settings SET Data='{state.ToString()}' WHERE Name='ThemeStyle'";
+                return DbManager.UpdateCustumQuery(query);
+            }
+
+
+        }
+
         private bool SaveFactureHeader()
         {
             var rslt = GetFactureHeader();
@@ -1902,6 +1972,17 @@ namespace EasyManager
         private Settings GetFactureStyle()
         {
             var query = "SELECT * FROM  Settings WHERE Name='FactureStyle'";
+            var rslt = DbManager.CustumQuery<Settings>(query);
+
+            if (rslt.Count == 0)
+                return null;
+            else
+                return rslt.FirstOrDefault();
+        }
+
+        private Settings GetThemeStyle()
+        {
+            var query = "SELECT * FROM  Settings WHERE Name='ThemeStyle'";
             var rslt = DbManager.CustumQuery<Settings>(query);
 
             if (rslt.Count == 0)

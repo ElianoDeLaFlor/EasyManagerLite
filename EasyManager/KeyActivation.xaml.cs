@@ -28,7 +28,7 @@ namespace EasyManager
         readonly UnicodeEncoding ByteConverter = new UnicodeEncoding();
         private readonly RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
         private string Key { get; set; } = $"DatePaiement=12/03/2019;MethodePaiement=PayPal;" +
-            $"Name=Eliano;Duration=3;DateDebut=12/04/2019;DateFin=11/04/2019";
+            $"Name=Eliano;Duration=3;DateDebut=12/04/2019;DateFin=11/04/2019;AppId=AZQ12";
         
         string CypherText;
         string EncryptText;
@@ -49,16 +49,31 @@ namespace EasyManager
                 CypherText = txtcode.Text;
                 DecryptText = InfoChecker.DecryptData(CypherText, true);
                 //check if the code is already used
-                if(await IsAlreadyUsed(CypherText))
+                if (await IsAlreadyUsed(CypherText))
                 {
                     // the licence code is already used
                     MessageBox.Show(Properties.Resources.CodeUsed, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Error);
                     //Todo check if the code is already used by anyone else
                     return;
                 }
-
+                string CodeAppId = "";
                 //licence information
-                var data = InfoChecker.ManageActivationCodeInfo(DecryptText);
+                var data = InfoChecker.ManageActivationCodeInfo(DecryptText,out CodeAppId);
+                //check if the code is for this app instance
+                var setting = GetAppKey();
+                if (setting != null)
+                {
+                    if (!setting.Data.Equals(CodeAppId))
+                    {
+                        MessageBox.Show(Properties.Resources.CodeUsed, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(Properties.Resources.ActivationCodeInvalid, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
                 data.Code = CypherText;
                 //if(data.)
                 if (data.HasExpired)
@@ -160,7 +175,6 @@ namespace EasyManager
             }
             catch (Exception)
             {
-
                 MessageBox.Show(Properties.Resources.ActivationCodeInvalid, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
             
@@ -275,6 +289,17 @@ namespace EasyManager
                     "Type TEXT," +
                     "AppKey TEXT)";
             DbManager.CreateNewTable(query);
+        }
+
+        private Settings GetAppKey()
+        {
+            var query = "SELECT * FROM  Settings WHERE Name='AppKey'";
+            var rslt = DbManager.CustumQuery<Settings>(query);
+
+            if (rslt.Count == 0)
+                return null;
+            else
+                return rslt.FirstOrDefault();
         }
     }
 }

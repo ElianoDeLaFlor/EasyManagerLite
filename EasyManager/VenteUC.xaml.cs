@@ -24,6 +24,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Collections;
 using EasyManager.Commands;
+using System.IO;
 
 namespace EasyManager
 {
@@ -75,6 +76,8 @@ namespace EasyManager
         private List<string> ListClient { get=>_listClient; set { _listClient = value; OnPropertyChanged(); } }
         public bool CanBeDeleted { get; set; } = true;
         public bool _canBePrint { get; set; } = true;
+        public bool _factureproforma { get; set; } = false;
+
         public ShowDocument showDocument { get; set; }
         public Await wait { get; set; }
         public VenteCredit SelectedVenteCredit { get; set; }
@@ -224,6 +227,18 @@ namespace EasyManager
                 if (_canBePrint == value)
                     return;
                 _canBePrint = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool FactureProforma
+        {
+            get => _factureproforma;
+            set
+            {
+                if (_factureproforma == value)
+                    return;
+                _factureproforma = value;
                 OnPropertyChanged();
             }
         }
@@ -464,6 +479,8 @@ namespace EasyManager
             await Task.Run(() => printer(vente));
         }
 
+        
+
         private void VenteInfo(ProduitVendu vendu, EasyManagerLibrary.Vente vente)
         {
             //vérifie si c'est un credit qui sera remboursée(venteCredit)
@@ -629,7 +646,129 @@ namespace EasyManager
             PerformClick(btndialog);
         }
 
-        
+        private async void GenFactureProforma()
+        {
+            try
+            {
+                GetHome.DataContextt.Progress = Visibility.Visible;
+                ListPV.Clear();
+                ProdQty.Clear();
+                lst = new List<ProduitVendu>();
+                ListPVR = new List<ProduitVendu>();
+                lst.Clear();
+                CanBeDeleted = true;
+                bool stop = false;
+                var vente = new EasyManagerLibrary.Vente();
+                vente.Date = DateTime.UtcNow;
+                vente.UtilisateurId = GetHome.DataContextt.ConnectedUser.Id;
+                vente.ClientId = SelectedClientId;
+                vente.CommandeId = SelectedCommandId;
+                decimal sommevente = 0;
+                SommeTva = 0;
+                SommeTtc = 0;
+                ProduitVendu vendu;
+                List<bool> SaveResult = new List<bool>();
+                var children = ProdGrid.Children;
+                for (int i = 0; i < children.Count; i += 2)
+                {
+                    vendu = GetProduitVenduSellResume(children[i], children[i + 1], vente);
+                    if (vendu == null)
+                    {
+                        stop = true;
+                        break;
+                    }
+                    VenteInfo(vendu, vente);
+                    sommevente += vendu.Montant;
+                    lst.Add(vendu);
+                }
+                ListPVR = lst;
+
+
+
+                if (stop)
+                {
+                    //Une erreur est sur venue
+                    GetHome.DataContextt.Progress = Visibility.Hidden;
+                    if (QuantityError)
+                        MessageBox.Show(Properties.Resources.QuantiteManquante, Properties.Resources.MainTitle,
+                            MessageBoxButton.OK, MessageBoxImage.Warning);
+                    else
+                        MessageBox.Show(Properties.Resources.EmptyField, Properties.Resources.MainTitle,
+                            MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                //montant de la vente
+                vente.Montant = sommevente;
+                //montant tva
+                if (Tva != null)
+                {
+                    if (Tva.Apply)
+                        SommeTva = (sommevente * Tva.Taux) / 100;
+                }
+                if (DicountValueCommand.CanExecute(Montant))
+                {
+                    var disc = decimal.Parse(Montant);
+                    SommeTtc = (SommeTva + sommevente) - disc;
+                }
+                else
+                {
+                    SommeTtc = SommeTva + sommevente;
+                }
+
+
+                if (vente.ClientId.HasValue)
+                {
+                    Client = DbManager.GetClientById(vente.ClientId.Value);
+                    if (Client != null)
+                        ClientName = $"{Client.Nom} {Client.Prenom}";
+                    else
+                    {
+                        if (IsCommand)
+                        {
+                            GetVenteCredit = DbManager.GetById<VenteCredit>(SelectedCommandId);
+                            Client = DbManager.GetById<EasyManagerLibrary.Client>(GetVenteCredit.ClientId);
+                            ClientName = $"{Client.Nom} {Client.Prenom}";
+                        }
+                        else
+                            ClientName = $"Vente-{vente.Id}";
+                    }
+                }
+                else
+                {
+                    if (IsCommand)
+                    {
+                        GetVenteCredit = DbManager.GetById<VenteCredit>(SelectedCommandId);
+                        Client = DbManager.GetById<EasyManagerLibrary.Client>(GetVenteCredit.ClientId);
+                        ClientName = $"{Client.Nom} {Client.Prenom}";
+                    }
+                    else
+                        ClientName = $"Vente-{vente.Id}";
+                }
+
+
+                await Task.Factory.StartNew(() =>
+                {
+                    printerProforma(vente, Client, ClientName);
+                }).ContinueWith(t =>
+                {
+                    GetHome.DataContextt.Progress = Visibility.Hidden;
+                    Reset();
+                    if (Generated)
+                    {
+                        showDocument = new ShowDocument(SaveLocation);
+                        showDocument.ShowDialog();
+                    }
+                }, TaskScheduler.FromCurrentSynchronizationContext());
+                
+            }
+            catch
+            {
+
+                MessageBox.Show(Properties.Resources.Error, Properties.Resources.MainTitle,
+                             MessageBoxButton.OK, MessageBoxImage.Warning);
+            }        
+        }
 
         private async void Save()
         {
@@ -713,7 +852,6 @@ namespace EasyManager
                     item.VenteId = Result;
                     item.SetProduit(GetProduit(item.ProduitId));
                     ListProduitVendu.Add(item);
-                    Console.WriteLine(item);
                     SaveResult.Add(DbManager.Save(item));
                 }
 
@@ -857,6 +995,16 @@ namespace EasyManager
             }
         }
 
+        private void printerProforma(EasyManagerLibrary.Vente vente, EasyManagerLibrary.Client Client,string clientname)
+        {
+            
+            {
+                SaveLocation = InfoChecker.SaveLoc(clientname, Properties.Resources.TypeFacture);
+                //Genarate bill
+                Generated = Recu(Client, vente, ListPVR);
+            }
+        }
+
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             //Save();
@@ -986,7 +1134,10 @@ namespace EasyManager
                 office.CompanyName = Company.Nom;
                 office.CompanyTel = $"Tel: {Company.Contact}";
                 office.CompanyEmail = $"Email: {Company.Email}";
-                office.Consigne = $"NB: {Company.Consigne}";
+                if(!FactureProforma)
+                    office.Consigne = $"NB: {Company.Consigne}";
+                else
+                    office.Consigne = Properties.Resources.ProformaInvoice;
             }
             else
             {
@@ -1019,6 +1170,7 @@ namespace EasyManager
             office.DiscountValue = Montant;
             office.IsRecall = false;
             office.IsCommand = IsCommand;
+            office.IsProforma = FactureProforma;
             var rslt = GetFactureHeader();
             if (rslt == null)
                 office.LogoPath = GetShopLogo();
@@ -1095,7 +1247,10 @@ namespace EasyManager
             {
                 //get the last record
                 var logo = logos.LastOrDefault();
-                return ((InfoChecker.SetShopLogoPath(logo.Name)));
+                if (File.Exists(InfoChecker.SetShopLogoPath(logo.Name)))
+                    return ((InfoChecker.SetShopLogoPath(logo.Name)));
+                else
+                    return((InfoChecker.ShopLogoDefault()));
             }
         }
         private void btnadd_Click(object sender, RoutedEventArgs e)
@@ -1526,6 +1681,7 @@ namespace EasyManager
                 CbClientList.IsEnabled = true;
                 btnListProduitVendu.IsEnabled = false;
                 btnvaluediscount.IsEnabled = true;
+                chkinvoice.IsEnabled = true;
                 IsCommand = false;
             }
             else
@@ -1537,6 +1693,8 @@ namespace EasyManager
                 CbClientList.SelectedIndex = 0;
                 //desactiver la reduction par valeur
                 btnvaluediscount.IsEnabled = false;
+                FactureProforma = false;
+                chkinvoice.IsEnabled = false;
                 Montant = "0";
                 // Liste la list des produits commandés
                 FilledDropDown(CommandedProduct(SelectedCommandId));
@@ -1668,7 +1826,10 @@ namespace EasyManager
             if (Equals(eventArgs.Parameter, true))
             {
                 //save
-                Save();
+                if (!FactureProforma)
+                    Save();
+                else
+                    GenFactureProforma();
             }
             else
             {
