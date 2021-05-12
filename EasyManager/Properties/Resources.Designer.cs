@@ -3456,7 +3456,7 @@ namespace EasyManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Claire.
+        ///   Looks up a localized string similar to Clair.
         /// </summary>
         public static string ThemeLight {
             get {
@@ -3636,7 +3636,7 @@ namespace EasyManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VenteCredit.
+        ///   Looks up a localized string similar to Vente Credit.
         /// </summary>
         public static string VenteCredit {
             get {

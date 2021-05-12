@@ -163,7 +163,7 @@
     <value>Enregistrement de client</value>
   </data>
   <data name="VenteCredit" xml:space="preserve">
-    <value>VenteCredit</value>
+    <value>Vente Credit</value>
   </data>
   <data name="VenteCreditTitle" xml:space="preserve">
     <value>Enregistrer une vente à crédit</value>
@@ -1338,7 +1338,7 @@
     <value>Sombre</value>
   </data>
   <data name="ThemeLight" xml:space="preserve">
-    <value>Claire</value>
+    <value>Clair</value>
   </data>
   <data name="ThemePrimary" xml:space="preserve">
     <value>Primaire</value>

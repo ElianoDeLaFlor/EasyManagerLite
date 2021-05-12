@@ -634,7 +634,7 @@
     <value>Statement of sales</value>
   </data>
   <data name="StockStatus" xml:space="preserve">
-    <value>Stock state</value>
+    <value>Stock states</value>
   </data>
   <data name="ModuleVente" xml:space="preserve">
     <value>Sale</value>
