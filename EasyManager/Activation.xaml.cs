@@ -32,6 +32,7 @@ namespace EasyManager
         public Visibility ShowTry { get; set; }
         public Visibility LicenceDetails { get; set; }
         public LicenceInformation LicenceInformation { get; set; } = null;
+        public string AppId { get; set; }
         public Activation()
         {
             InitializeComponent();
@@ -52,6 +53,7 @@ namespace EasyManager
             var LInformation = GetLicence();
 
             LicenceInformation = LInformation;
+            SetAppKey();
 
             DataContext = this;
         }
@@ -226,7 +228,25 @@ namespace EasyManager
             return appkey.Count!=0;
         }
 
+        private Settings GetAppKey()
+        {
+            var query = "SELECT * FROM  Settings WHERE Name='AppKey'";
+            var rslt = DbManager.CustumQuery<Settings>(query);
 
+            if (rslt.Count == 0)
+                return null;
+            else
+                return rslt.FirstOrDefault();
+        }
+
+        private void SetAppKey()
+        {
+            var appkey = GetAppKey();
+            if (appkey == null)
+                AppId = "";
+            else
+                AppId = appkey.Data;
+        }
     }
 
 }

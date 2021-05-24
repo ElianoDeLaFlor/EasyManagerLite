@@ -4,9 +4,9 @@
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
 "ProjectName" = "8:EasyManagerSetup"
-"LanguageId" = "3:1036"
+"LanguageId" = "3:1033"
 "CodePage" = "3:1252"
-"UILanguageId" = "3:1036"
+"UILanguageId" = "3:1033"
 "SccProjectName" = "8:"
 "SccLocalPath" = "8:"
 "SccAuxPath" = "8:"
@@ -69,12 +69,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_0D8F86AE177D495E95F3981568D73C2C"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_10BB86195A98409994BA06004DD9FF81"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -88,13 +82,13 @@
         "Entry"
         {
         "MsmKey" = "8:_11581F57E7C04680B202EE577CB65917"
-        "OwnerKey" = "8:_62A021280FFA4EEABA8F6BA7D25F23E3"
+        "OwnerKey" = "8:_BCC6691B76C8D5A337099ED21C1572DA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_11581F57E7C04680B202EE577CB65917"
-        "OwnerKey" = "8:_BCC6691B76C8D5A337099ED21C1572DA"
+        "OwnerKey" = "8:_62A021280FFA4EEABA8F6BA7D25F23E3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -363,6 +357,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_56B17FA6760C409C9474E795F0560434"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_56D68618B8C649D58E6CC94B0EC34BD6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -598,6 +598,12 @@
         "Entry"
         {
         "MsmKey" = "8:_A6E1E00C06E995F41B8BCEFCCCE952F0"
+        "OwnerKey" = "8:_BCC6691B76C8D5A337099ED21C1572DA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A6E1E00C06E995F41B8BCEFCCCE952F0"
         "OwnerKey" = "8:_6DC022B8B3CAA1C39088E178A4D96452"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -605,12 +611,6 @@
         {
         "MsmKey" = "8:_A6E1E00C06E995F41B8BCEFCCCE952F0"
         "OwnerKey" = "8:_62A021280FFA4EEABA8F6BA7D25F23E3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A6E1E00C06E995F41B8BCEFCCCE952F0"
-        "OwnerKey" = "8:_BCC6691B76C8D5A337099ED21C1572DA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -807,7 +807,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_FC6345147D234295B0DE73FFA6BF5D9F"
+        "MsmKey" = "8:_FD0F80C82BAD43FEA79349F67EEA511A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -832,7 +832,43 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FC6345147D234295B0DE73FFA6BF5D9F"
+        "OwnerKey" = "8:_5E00DB881D798E8976A1E2FD16131679"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BCC6691B76C8D5A337099ED21C1572DA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6DC022B8B3CAA1C39088E178A4D96452"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_E1B879C2258AB9DA966070077E184C0E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_66EDFD43E829B532D2F1B0C585ECA7DE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FD0F80C82BAD43FEA79349F67EEA511A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_56B17FA6760C409C9474E795F0560434"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -916,19 +952,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0D8F86AE177D495E95F3981568D73C2C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_62A021280FFA4EEABA8F6BA7D25F23E3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_5E00DB881D798E8976A1E2FD16131679"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1018,19 +1042,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BCC6691B76C8D5A337099ED21C1572DA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_A163C77F0F74DC2FAFCE79C521F6BEF8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6DC022B8B3CAA1C39088E178A4D96452"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1079,18 +1091,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_3E22D0382DEB1606B10F09489174C96E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E1B879C2258AB9DA966070077E184C0E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_66EDFD43E829B532D2F1B0C585ECA7DE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1341,37 +1341,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0D8F86AE177D495E95F3981568D73C2C"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:EasyManager.resources, Version=1.1.6.9, Culture=en, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_0D8F86AE177D495E95F3981568D73C2C"
-                    {
-                    "Name" = "8:EasyManager.resources.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\EasyManager\\bin\\Release\\en\\EasyManager.resources.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_51F22B5655EB483A89B1C2A4ECCF6918"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_10BB86195A98409994BA06004DD9FF81"
@@ -2181,6 +2150,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_56B17FA6760C409C9474E795F0560434"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:EasyManager.resources, Version=1.1.7.1, Culture=en, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_56B17FA6760C409C9474E795F0560434"
+                    {
+                    "Name" = "8:EasyManager.resources.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\EasyManager\\bin\\Release\\en\\EasyManager.resources.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_51F22B5655EB483A89B1C2A4ECCF6918"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_56D68618B8C649D58E6CC94B0EC34BD6"
             {
             "SourcePath" = "8:..\\EasyManager\\bin\\Release\\EasyManagerDb.dll.config"
@@ -2267,7 +2267,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:EasyManager, Version=1.1.6.9, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:EasyManager, Version=1.1.7.1, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_5D4E700467984562A5B2D1B31D5EDBB5"
@@ -3471,14 +3471,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FC6345147D234295B0DE73FFA6BF5D9F"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FD0F80C82BAD43FEA79349F67EEA511A"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:EasyManager.resources, Version=1.1.6.9, Culture=fr, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:EasyManager.resources, Version=1.1.7.1, Culture=fr, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_FC6345147D234295B0DE73FFA6BF5D9F"
+                    "_FD0F80C82BAD43FEA79349F67EEA511A"
                     {
                     "Name" = "8:EasyManager.resources.dll"
                     "Attributes" = "3:512"
@@ -3668,22 +3668,22 @@
         }
         "MsiBootstrapper"
         {
-        "LangId" = "3:1036"
+        "LangId" = "3:1033"
         "RequiresElevation" = "11:FALSE"
         }
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:EasyManager"
-        "ProductCode" = "8:{CB4891DD-9DD8-436B-80F6-3A5152612BB2}"
-        "PackageCode" = "8:{253F2EF9-10D1-4253-A6AC-9B478DA277D9}"
+        "ProductCode" = "8:{0DAFFCF0-838E-47FE-BC08-02519947D3D0}"
+        "PackageCode" = "8:{96838EE4-A2FC-4911-90D3-665A45D049F1}"
         "UpgradeCode" = "8:{E21652AC-FD2D-407F-96FD-228C81B76FE6}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.1.70"
+        "ProductVersion" = "8:1.1.71"
         "Manufacturer" = "8:SET Corporate"
         "ARPHELPTELEPHONE" = "8:+228 98 62 68 56"
         "ARPHELPLINK" = "8:"
@@ -4225,7 +4225,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_62A021280FFA4EEABA8F6BA7D25F23E3"
             {
-            "SourcePath" = "8:..\\EasyManager\\obj\\Release\\EasyManager.exe"
+            "SourcePath" = "8:..\\EasyManager\\obj\\Debug\\EasyManager.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_3253E7C448174272A35152E576808C9C"

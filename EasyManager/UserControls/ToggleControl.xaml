@@ -14,6 +14,6 @@
 
     <StackPanel Orientation="Horizontal" Margin="7">
         <ToggleButton x:Name="ChkBtn" Click="ChkBtn_Click"  Content="X" Style="{StaticResource MaterialDesignActionToggleButton}" ToolTip="{Binding Module.Libelle}" materialDesign:ShadowAssist.ShadowDepth="Depth2" ClickMode="Release"/>
-        <TextBlock x:Name="ChkText" Foreground="Black"  VerticalAlignment="Center" Margin="5 0 5 0"/>
+        <TextBlock x:Name="ChkText" Foreground="{DynamicResource SecondaryHueMidBrush}"  VerticalAlignment="Center" Margin="5 0 5 0"/>
     </StackPanel>
 </UserControl>

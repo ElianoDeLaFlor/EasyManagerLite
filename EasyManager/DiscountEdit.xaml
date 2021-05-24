@@ -15,7 +15,7 @@
     <StackPanel>
         <materialDesign:ColorZone Mode="PrimaryDark" Padding="16" CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" Text="{x:Static p:Resources.EditDiscount}" Style="{StaticResource TextBlockStyle}" FontSize="35" x:Name="Titre" Foreground="Black"/>
+                <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" Text="{x:Static p:Resources.EditDiscount}" Style="{StaticResource TextBlockStyle}" FontSize="35" x:Name="Titre" />
             </StackPanel>
         </materialDesign:ColorZone>
         <ScrollViewer x:Name="scroll" VerticalScrollBarVisibility="Auto">

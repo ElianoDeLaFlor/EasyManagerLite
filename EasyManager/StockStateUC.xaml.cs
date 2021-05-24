@@ -1,4 +1,5 @@
 ﻿using EasyManagerDb;
+using EasyManagerLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -85,7 +86,7 @@ namespace EasyManager
                 stockItemState.LeftItem = rst;
                 stockItemState.ProgressValue = Math.Floor(progress);
                 stockItemState.Colors = count % 2 == 0 ? "DeepSkyBlue" : "CadetBlue";
-                stockItemState.ItemName = item.Nom;
+                stockItemState.ItemName = $"{item.Nom} | {InfoChecker.CurrencyFormat(item.PrixUnitaire)} | {InfoChecker.CurrencyFormat(item.PrixGrossiste)}";
                 stockItemStates.Add(stockItemState);
                 count++;
             }

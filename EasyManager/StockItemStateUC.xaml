@@ -10,11 +10,11 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
         <!--Nom-->
-        <TextBlock x:Name="NomCat" Text="{Binding ItemName}" FontFamily="Roboto" FontSize="20" Style="{StaticResource TextBlockStyleHeader}"/>
+        <TextBlock x:Name="NomCat" Text="{Binding ItemName}" ToolTip="{x:Static p:Resources.StockItemTooltip}" FontFamily="Roboto" FontSize="20" Style="{StaticResource TextBlockStyleHeader}"/>
         <!--End Nom-->
         
         <!--Status-->
-        <TextBlock x:Name="Status" Text="{Binding Rapport}" Style="{StaticResource LabelStyle}"/>
+        <TextBlock x:Name="Status" Text="{Binding Rapport}" ToolTip="{x:Static p:Resources.StatusTooltip}" Style="{StaticResource LabelStyle}"/>
         <!--End Status-->
         
         <!--Graph-->
@@ -22,7 +22,7 @@
         <!--End Graph-->
         
         <!--Remaining-->
-        <TextBlock x:Name="Remain" Text="{Binding LeftItem}" Style="{StaticResource LabelStyle}"/>
+        <TextBlock x:Name="Remain" Text="{Binding LeftItem}" ToolTip="{x:Static p:Resources.LeftQuantity}" Style="{StaticResource LabelStyle}"/>
         <!--End Remaining-->
     </StackPanel>
 </UserControl>

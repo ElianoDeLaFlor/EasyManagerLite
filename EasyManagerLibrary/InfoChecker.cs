@@ -1074,6 +1074,13 @@ namespace EasyManagerLibrary
 
             return devices;
         }
+
+        public string GetSystemLanguage()
+        {
+            
+            CultureInfo ci = CultureInfo.InstalledUICulture;
+            return ci.TwoLetterISOLanguageName;
+        }
         
     }
 

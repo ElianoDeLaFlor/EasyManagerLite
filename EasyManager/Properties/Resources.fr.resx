@@ -1343,4 +1343,10 @@
   <data name="ThemePrimary" xml:space="preserve">
     <value>Primaire</value>
   </data>
+  <data name="StatusTooltip" xml:space="preserve">
+    <value>Vendu / Total</value>
+  </data>
+  <data name="StockItemTooltip" xml:space="preserve">
+    <value>Produit | Prix unitaire | Prix grossiste</value>
+  </data>
 </root>

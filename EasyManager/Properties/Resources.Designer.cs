@@ -3312,6 +3312,24 @@ namespace EasyManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Vendu / Total.
+        /// </summary>
+        public static string StatusTooltip {
+            get {
+                return ResourceManager.GetString("StatusTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Produit | Prix unitaire | Prix grossiste.
+        /// </summary>
+        public static string StockItemTooltip {
+            get {
+                return ResourceManager.GetString("StockItemTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Etat des stocks.
         /// </summary>
         public static string StockStatus {

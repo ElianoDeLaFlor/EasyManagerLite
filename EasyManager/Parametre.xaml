@@ -293,7 +293,7 @@
                     <!--#endregion-->
                     <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
                     <!--#region Language-->
-                    <Expander HorizontalAlignment="Stretch" Header="Langue" FontFamily="Roboto" x:Name="ExpanderFour">
+                    <Expander HorizontalAlignment="Stretch" Header="{x:Static p:Resources.Language}" FontFamily="Roboto" x:Name="ExpanderFour">
                         <StackPanel Orientation="Vertical" Margin="100,8,100,16">
                             <Grid>
                                 <Grid.ColumnDefinitions>

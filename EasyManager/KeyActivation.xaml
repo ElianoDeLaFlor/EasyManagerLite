@@ -29,10 +29,10 @@
             <TextBox x:Name="txtcode" Grid.Row="2" Foreground="#000000" TextWrapping="Wrap" VerticalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="{x:Static p:Resources.ActivationCode}" Margin="10" Height="230">
                 
             </TextBox>
-            <Button Margin="15" Grid.Row="3" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="{x:Static p:Resources.Activated}" Click="Button_Click" IsDefault="True">
+            <Button Margin="15" Grid.Row="3" Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="{x:Static p:Resources.Activate}" Click="Button_Click" IsDefault="True">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Checks" FontSize="40"/>
-                    <TextBlock Text="{x:Static p:Resources.Activated}" Style="{StaticResource MaterialDesignButtonTextBlock}"/>
+                    <TextBlock Text="{x:Static p:Resources.Activate}" Style="{StaticResource MaterialDesignButtonTextBlock}"/>
                 </StackPanel>
             </Button>
 

@@ -18,7 +18,7 @@
                 <StackPanel DockPanel.Dock="Right">
                     <materialDesign:PopupBox StaysOpen="True" Opened="PopupBox_Opened">
                         <!--Stock state-->
-                        <ScrollViewer x:Name="scroll" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Width="300">
+                        <ScrollViewer x:Name="scroll" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Width="420">
                             <StackPanel x:Name="CatItemsStatusPnl" Orientation="Vertical" Margin="10">
 
                             </StackPanel>
@@ -33,7 +33,7 @@
                     <!--End Nom-->
 
                     <!--Status-->
-                    <TextBlock x:Name="Status" Text="{Binding Rapport}" Style="{StaticResource LabelStyle}"/>
+                    <TextBlock x:Name="Status" ToolTip="{x:Static p:Resources.StatusTooltip}" Text="{Binding Rapport}" Style="{StaticResource LabelStyle}"/>
                     <!--End Status-->
 
                     <!--Graph-->
@@ -41,7 +41,7 @@
                     <!--End Graph-->
 
                     <!--Remaining-->
-                    <TextBlock x:Name="Remain" Text="{Binding LeftItem}" Style="{StaticResource LabelStyle}"/>
+                    <TextBlock x:Name="Remain" ToolTip="{x:Static p:Resources.LeftQuantity}" Text="{Binding LeftItem}" Style="{StaticResource LabelStyle}"/>
                     <!--End Remaining-->
                 </StackPanel>
                 

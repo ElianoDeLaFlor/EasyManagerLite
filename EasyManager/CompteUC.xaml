@@ -51,13 +51,13 @@
 
                 <!--Mot de passe-->
                 <StackPanel Style="{StaticResource StackPanelStyle}">
-                    <PasswordBox x:Name="txtpasse" materialDesign:HintAssist.Hint="{x:Static p:Resources.Password}" materialDesign:HintAssist.Foreground="Green" materialDesign:TextFieldAssist.UnderlineBrush="Green" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="16" FontSize="20" />
+                    <PasswordBox x:Name="txtpasse" materialDesign:HintAssist.Hint="{x:Static p:Resources.Password}" materialDesign:HintAssist.Foreground="{DynamicResource PrimaryHueMidBrush}" materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="16" FontSize="20" />
                 </StackPanel>
                 <!--End Mot de passe-->
 
                 <!--Confirmation-->
                 <StackPanel Style="{StaticResource StackPanelStyle}">
-                    <PasswordBox x:Name="txtconfirmation" materialDesign:HintAssist.Hint="{x:Static p:Resources.Confirmation}" materialDesign:HintAssist.Foreground="Green" materialDesign:TextFieldAssist.UnderlineBrush="Green" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="16" FontSize="20" LostFocus="Txtconfirmation_LostFocus" />
+                    <PasswordBox x:Name="txtconfirmation" materialDesign:HintAssist.Hint="{x:Static p:Resources.Confirmation}" materialDesign:HintAssist.Foreground="{DynamicResource PrimaryHueMidBrush}" materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource PrimaryHueMidBrush}" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="16" FontSize="20" LostFocus="Txtconfirmation_LostFocus" />
                 </StackPanel>
                 <!--End Confirmation-->
 

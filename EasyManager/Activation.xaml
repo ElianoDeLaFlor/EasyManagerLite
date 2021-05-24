@@ -103,7 +103,7 @@
                 <TextBlock Grid.Column="0" Text="{x:Static p:Resources.ActivationStatus}" Style="{DynamicResource MaterialDesignHeadline4TextBlock}" Margin="30"/>
                 <TextBlock Grid.Column="1" Text="{Binding ActivationStatus}" Style="{DynamicResource MaterialDesignHeadline4TextBlock}" Margin="30"/>
                 <DockPanel Grid.Column="2">
-                    <materialDesign:PopupBox DockPanel.Dock="Right" TextBlock.Foreground="Black" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Foreground="Black">
+                    <materialDesign:PopupBox DockPanel.Dock="Right" TextBlock.Foreground="Black" PlacementMode="BottomAndAlignRightEdges" StaysOpen="True" Foreground="Black">
                         <StackPanel Margin="10 5">
                             <TextBlock Text="{x:Static p:Resources.LicenceMoreInfo}" Margin="5 10" FontSize="20" FontWeight="Bold" FontFamily="Roboto"/>
                             <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.Nom}" materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"   materialDesign:HintAssist.FloatingScale="1" materialDesign:HintAssist.FloatingOffset="0, -24" Text="{Binding LicenceInformation.Name, Mode=Default}" x:Name="LicenceUserName" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="24"  IsEnabled="False"/>
@@ -112,6 +112,7 @@
                             <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.Duration}" materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"   materialDesign:HintAssist.FloatingScale="1" materialDesign:HintAssist.FloatingOffset="0, -24" Text="{Binding LicenceInformation.Duration, Mode=Default}" x:Name="LicenceDuration" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="24"  IsEnabled="False"/>
                             <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.StartDate}" materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"   materialDesign:HintAssist.FloatingScale="1" materialDesign:HintAssist.FloatingOffset="0, -24" Text="{Binding LicenceInformation.StartDate, Mode=Default}" x:Name="LicenceStartDate" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="24"  IsEnabled="False"/>
                             <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.EndDate}" materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"   materialDesign:HintAssist.FloatingScale="1" materialDesign:HintAssist.FloatingOffset="0, -24" Text="{Binding LicenceInformation.EndDate, Mode=Default}" x:Name="LicenceEndDate" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="24"  IsEnabled="False"/>
+                            <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.AppId}" materialDesign:TextFieldAssist.TextBoxViewMargin="1 0 1 0"   materialDesign:HintAssist.FloatingScale="1" materialDesign:HintAssist.FloatingOffset="0, -24" Text="{Binding AppId}" x:Name="AppId_" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="24"  IsEnabled="true"/>
                         </StackPanel>
                     </materialDesign:PopupBox>
 
@@ -123,10 +124,10 @@
                     <TextBlock Text="{x:Static p:Resources.LeftDays}" Style="{DynamicResource MaterialDesignHeadline5TextBlock}" Margin="0 0 30 0" HorizontalAlignment="Left"/>
                 </StackPanel>
                 <ProgressBar Value="{Binding LeftDays}" Height="10" ToolTip="{Binding JourRestant}" />
-                <TextBlock Text="{Binding LicenceEnd}" Style="{DynamicResource MaterialDesignHeadline5TextBlock}" Foreground="DarkMagenta" HorizontalAlignment="Right" Margin="5 20"/>
+                <TextBlock Text="{Binding LicenceEnd}" Style="{DynamicResource MaterialDesignHeadline5TextBlock}" Foreground="{DynamicResource PrimaryHueMidBrush}" HorizontalAlignment="Right" Margin="5 20"/>
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="btnactivate" Style="{StaticResource MaterialDesignRaisedButton}" HorizontalAlignment="Left" Margin="5 20" Width="190" Height="50" materialDesign:ButtonAssist.CornerRadius="10" ToolTip="{x:Static p:Resources.BtnActivate}" Click="btnactivate_Click">
-                        <TextBlock Text="{x:Static p:Resources.Activate}" FontSize="20" FontWeight="Bold" Foreground="Yellow" />
+                        <TextBlock Text="{x:Static p:Resources.Activate}" FontSize="20" FontWeight="Bold" Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" />
                     </Button>
                     <Button Style="{StaticResource MaterialDesignOutlinedButton}" materialDesign:ButtonAssist.CornerRadius="10" ToolTip="{x:Static p:Resources.Try}" Visibility="{Binding ShowTry}" Margin="5 20" Width="190" Height="50" x:Name="btntry" Click="Btntry_Click">
                         <TextBlock Text="{x:Static p:Resources.BtnTry}" FontSize="20" FontWeight="Bold" />
