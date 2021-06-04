@@ -42,13 +42,13 @@ namespace EasyManager
         private void btndelete_Click(object sender, RoutedEventArgs e)
         {
             //get operation de caisse par operation type
-            var prodbycat = DbManager.GetById<EasyManagerLibrary.OperationCaisse>(GetOperationCaisse.Id);
+            var prodbycat = DbManager.GetById<OperationCaisse>(GetOperationCaisse.Id);
             //check if is more than one month
             var rslt = InfoChecker.DateDiff(prodbycat.Date, DateTime.UtcNow);
             if (rslt>=30)
             {
                 //Delete
-                if (!DbManager.Delete<EasyManagerLibrary.Operation>(GetOperationCaisse.Id))
+                if (!DbManager.Delete<OperationCaisse>(GetOperationCaisse.Id))
                     MessageBox.Show(Properties.Resources.DeleteError, Properties.Resources.MainTitle, MessageBoxButton.OK, MessageBoxImage.Error);
                 else
                 {
